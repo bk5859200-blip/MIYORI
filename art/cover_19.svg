@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101930" />
+      <stop offset="50%" stop-color="#19284d" />
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.8" />
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0.75)" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Base Background -->
+  <rect width="400" height="400" fill="#070a14"/>
+  <rect width="400" height="400" fill="url(#g1)" opacity="0.35"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="0" y1="50" x2="400" y2="50"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="350" x2="400" y2="350"/>
+  </g>
+  
+  <!-- Main Visual Graphic -->
+  
+            <circle cx="200" cy="170" r="75" fill="url(#g1)" opacity="0.7"/>
+            <line x1="80" y1="240" x2="320" y2="240" stroke="#bfdbfe" stroke-width="2"/>
+            <circle cx="160" cy="140" r="6" fill="#fff"/>
+            <circle cx="240" cy="120" r="4" fill="#fff"/>
+        
+  
+  <!-- Vignette Overlay -->
+  <rect width="400" height="400" fill="url(#vignette)"/>
+  
+  <!-- Badge &amp; Meta -->
+  <rect x="24" y="24" width="70" height="22" rx="4" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.15)"/>
+  <text x="59" y="39" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10" font-weight="700" fill="#93c5fd" text-anchor="middle" letter-spacing="1">J-BALLAD</text>
+  
+  <text x="376" y="38" font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,0.5)" text-anchor="end" letter-spacing="2">320 KBPS</text>
+  
+  <!-- Typography at bottom -->
+  <rect x="0" y="300" width="400" height="100" fill="linear-gradient(to top, rgba(0,0,0,0.9), transparent)"/>
+  <text x="24" y="352" font-family="'Space Grotesk', system-ui, sans-serif" font-size="17" font-weight="700" fill="#f8fafc" letter-spacing="-0.02em">STARLIGHT MEMORY</text>
+  <text x="24" y="374" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="500" fill="rgba(255,255,255,0.65)">Radwimps Echoes</text>
+  <circle cx="365" cy="360" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <polygon points="362,354 371,360 362,366" fill="#fff"/>
+</svg>
