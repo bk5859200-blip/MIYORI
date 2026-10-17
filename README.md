@@ -46,7 +46,7 @@ MIYORI/
 ├── favicon.png            # High-resolution PNG app icon
 ├── index.html             # Core responsive single-page application & showcase
 ├── logo.jpg               # Official MIYORI branding emblem
-├── MIYORI.apk             # Official release APK binary (~10.6 MB)
+├── Miyori-Release.apk     # Official release APK binary (~10.25 MB)
 ├── poster.jpg             # High-resolution branding banner & Open Graph preview
 ├── vercel.json            # Deployment routing and download header rules
 ├── .gitignore             # Exclusion rules (OS files, reference backups, IDE caches)
