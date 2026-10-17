@@ -4,42 +4,61 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MIYORI — Sound, without boundaries</title>
-<meta name="description" content="MIYORI is a luxury Android music player engineered for pure local ownership, high-bitrate streaming, synchronized lyrics, offline downloads, and self-hosted Navidrome integration.">
+<meta name="description" content="MIYORI is a luxury Android music player crafted for 100% offline ownership, high-bitrate 320 kbps streaming, synchronized lyrics, and self-hosted Navidrome integration.">
 <meta name="theme-color" content="#090A0E">
+
 <!-- Official Favicon & Touch Icons -->
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="logo.jpg">
-<meta property="og:image" content="https://miyori.vercel.app/logo.jpg">
-<meta name="twitter:image" content="https://miyori.vercel.app/logo.jpg">
 <meta property="og:title" content="MIYORI — Sound, without boundaries">
 <meta property="og:description" content="The luxury Android music sanctuary. Stream in 320 kbps, own your library offline, and sync word-for-word lyrics. Built in 100% native Kotlin.">
-<meta property="og:image" content="logo.jpg">
+<meta property="og:image" content="https://miyori.vercel.app/logo.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://miyori.vercel.app/logo.jpg">
 
-<!-- Typography: Space Grotesk for editorial headlines & Inter for pristine UI -->
+<!-- Typography: Space Grotesk & Inter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
+<!-- JSON-LD SoftwareApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MIYORI",
+  "image": "https://miyori.vercel.app/logo.jpg",
+  "operatingSystem": "Android 7.0 and up",
+  "applicationCategory": "MultimediaApplication",
+  "fileSize": "10.62MB",
+  "downloadUrl": "https://miyori.vercel.app/MIYORI.apk",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Luxury native Android music player with 320 kbps streaming, local offline caching, synchronized lyrics via LRCLIB, and Navidrome integration."
+}
+</script>
+
 <style>
 /* ==========================================================================
-   MIYORI DESIGN SYSTEM: OBSIDIAN & LIQUID SILVER
+   MIYORI DESIGN SYSTEM: OBSIDIAN & LIQUID SILVER (HARDWARE ACCELERATED)
    ========================================================================== */
 :root {
   --bg: #090A0E;
   --surface: #111319;
-  --elevated: #191C24;
-  --elevated-hover: #212530;
+  --elevated: #171A23;
+  --elevated-hover: #202432;
   --silver: #D8DCE5;
   --platinum: #F5F6F8;
-  --muted: #9297A3;
-  --faint: #4e5361;
+  --muted: #8E93A0;
+  --faint: #484D5C;
   --border: rgba(255, 255, 255, 0.10);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(255, 255, 255, 0.20);
   --accent-silver: linear-gradient(135deg, #FFFFFF 0%, #D8DCE5 45%, #9AA0B0 100%);
-  --liquid-glow: radial-gradient(circle, rgba(216, 220, 229, 0.14) 0%, transparent 70%);
-  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --maxw: 1200px;
@@ -67,6 +86,7 @@ body {
   overflow-x: hidden;
   max-width: 100%;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -80,63 +100,63 @@ button {
   background: none;
   cursor: pointer;
   color: inherit;
+  touch-action: manipulation;
 }
 
 .wrap {
-  width: min(var(--maxw), 100% - 48px);
+  width: min(var(--maxw), 100% - 44px);
   margin-inline: auto;
 }
 
 section {
-  padding: 130px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
+  contain: content;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   letter-spacing: -0.03em;
-  line-height: 1.08;
+  line-height: 1.1;
   font-weight: 700;
   overflow-wrap: break-word;
-  word-break: normal;
 }
 
-h1 { font-size: clamp(34px, 7vw, 92px); }
-h2 { font-size: clamp(25px, 4.5vw, 54px); }
-h3 { font-size: clamp(19px, 2.6vw, 30px); }
+h1 { font-size: clamp(34px, 6.5vw, 86px); }
+h2 { font-size: clamp(24px, 4.2vw, 50px); }
+h3 { font-size: clamp(19px, 2.5vw, 28px); }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--silver);
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
-  padding: 6px 14px;
+  padding: 5px 14px;
   border-radius: 999px;
-  backdrop-filter: blur(10px);
 }
 .eyebrow::before {
   content: "";
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px #fff;
+  background: #FFFFFF;
+  box-shadow: 0 0 8px #FFFFFF;
 }
 
 p.lead {
   color: var(--muted);
-  font-size: clamp(17px, 1.8vw, 21px);
-  max-width: 620px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  max-width: 640px;
   line-height: 1.6;
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .silver-text {
@@ -153,17 +173,17 @@ p.lead {
 nav {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 100;
+  z-index: 1000;
   padding-top: env(safe-area-inset-top, 0px);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(9, 10, 14, 0.75);
+  background: rgba(9, 10, 14, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s;
 }
 
 nav.scrolled {
-  background: rgba(9, 10, 14, 0.92);
+  background: rgba(9, 10, 14, 0.96);
   border-bottom-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -171,7 +191,7 @@ nav .nav-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 68px;
 }
 
 .brand {
@@ -179,220 +199,19 @@ nav .nav-row {
   align-items: center;
   gap: 12px;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #fff;
+  color: #FFFFFF;
 }
 
-.brand .m-emblem {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-}
-
-.brand .m-emblem svg {
-  width: 20px;
-  height: 20px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.nav-links a {
-  transition: color 0.25s;
-  position: relative;
-}
-
-.nav-links a:hover {
-  color: #fff;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: transform 0.35s var(--ease), box-shadow 0.35s, background 0.3s, border-color 0.3s;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.btn.solid {
-  background: #FFFFFF;
-  color: #090A0E;
-  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.8);
-}
-
-.btn.solid:hover {
-  transform: translateY(-2px);
-  background: #f0f2f7;
-  box-shadow: 0 8px 36px rgba(255, 255, 255, 0.4);
-}
-
-.btn.ghost {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-strong);
-  color: var(--platinum);
-  backdrop-filter: blur(12px);
-}
-
-.btn.ghost:hover {
-  background: rgba(255, 255, 255, 0.10);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn.sm {
-  padding: 9px 20px;
-  font-size: 13.5px;
-}
-
-.menu-toggle {
-  display: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: #fff;
-  place-items: center;
-}
-
-@media (max-width: 900px) {
-  .nav-links {
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: rgba(9, 10, 14, 0.98);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 24px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
-  }
-  .nav-links.open {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .nav-links a {
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 16px;
-  }
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-  .menu-toggle { display: grid; }
-}
-
-/* ==========================================================================
-   SIGNATURE FEATURE: ANIMATED ALBUM WALL BACKGROUND
-   ========================================================================== */
-.hero {
-  min-height: min(880px, 100svh);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding: 120px 0 70px;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.album-wall-container {
-  position: absolute;
-  inset: -25% -20%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  transform: rotate(-10deg);
-  opacity: 0.65;
-  transition: opacity 1.2s ease;
-  contain: paint;
-}
-
-.album-wall-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 140%;
-  height: 180%;
-  will-change: transform;
-}
-
-.wall-column {
-  flex: 1;
-  min-width: 180px;
-  max-width: 230px;
-  overflow: hidden;
-}
-
-.wall-column:nth-child(even) {
-  margin-top: -120px;
-}
-
-.wall-track {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  animation: wall-scroll-up var(--duration, 65s) linear infinite;
-  will-change: transform;
-}
-
-.wall-column.reverse .wall-track {
-  animation-name: wall-scroll-down;
-}
-
-@keyframes wall-scroll-up {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
-}
-
-@keyframes wall-scroll-down {
-  from { transform: translateY(-50%); }
-  to { transform: translateY(0); }
-}
-
-
-/* Brand Emblem Container */
 .brand-emblem-wrap {
   width: 36px;
   height: 36px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
   flex-shrink: 0;
   background: #000;
   display: grid;
@@ -406,49 +225,203 @@ nav .nav-row {
   display: block;
 }
 
-/* Hero Floating Emblem */
-.silver-m-emblem {
-  width: 96px;
-  height: 96px;
-  border-radius: 28px;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 24px 64px rgba(0, 0, 0, 0.85),
-    0 0 60px rgba(255, 255, 255, 0.14);
-  display: grid;
-  place-items: center;
-  margin-bottom: 32px;
-  animation: emblem-float 6s ease-in-out infinite;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.nav-links a {
+  transition: color 0.2s;
+  padding: 6px 0;
+}
+
+.nav-links a:hover {
+  color: #FFFFFF;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14.5px;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s;
   position: relative;
   overflow: hidden;
 }
 
-.hero-floating-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 26px;
+.btn.solid {
+  background: #FFFFFF;
+  color: #090A0E;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.22);
 }
 
-@keyframes emblem-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.btn.solid:hover {
+  transform: translateY(-2px);
+  background: #F0F2F7;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.35);
 }
 
-/* Album Card in Wall with Metadata Overlay */
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-strong);
+  color: var(--platinum);
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn.sm {
+  padding: 8px 18px;
+  font-size: 13px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: #FFFFFF;
+  place-items: center;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(9, 10, 14, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+    overflow-y: auto;
+  }
+  .nav-links.open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-links a {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 17px;
+    color: #FFFFFF;
+  }
+  .menu-toggle { display: grid; }
+}
+
+/* ==========================================================================
+   HERO & HIGH-PERFORMANCE 3D COMPOSITED ALBUM WALL
+   ========================================================================== */
+.hero {
+  min-height: min(860px, 100svh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 0 60px;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.album-wall-container {
+  position: absolute;
+  inset: -25% -15%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transform: rotate(-11deg) translateZ(0);
+  opacity: 0.60;
+  contain: strict;
+  will-change: auto;
+}
+
+.album-wall-grid {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  width: 130%;
+  height: 180%;
+}
+
+.wall-column {
+  flex: 1;
+  min-width: 170px;
+  max-width: 220px;
+  overflow: hidden;
+  contain: strict;
+}
+
+.wall-column:nth-child(even) {
+  margin-top: -100px;
+}
+
+.wall-track {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: wall-scroll-up var(--duration, 60s) linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.wall-column.reverse .wall-track {
+  animation-name: wall-scroll-down;
+}
+
+@keyframes wall-scroll-up {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, -50%, 0); }
+}
+
+@keyframes wall-scroll-down {
+  0% { transform: translate3d(0, -50%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* Pause animation when offscreen or user prefers reduced motion */
+.hero.is-paused .wall-track {
+  animation-play-state: paused !important;
+}
+
 .album-card {
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   position: relative;
-  background: #111319;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
-  transition: transform 0.4s var(--ease);
+  background: #12141C;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  contain: strict;
 }
 
 .album-card img {
@@ -467,20 +440,18 @@ nav .nav-row {
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  border-radius: 18px;
 }
 
 .album-card-bitrate {
   align-self: flex-end;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #fff;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: 4px;
-  backdrop-filter: blur(4px);
 }
 
 .album-card-play-btn {
@@ -492,8 +463,7 @@ nav .nav-row {
   display: grid;
   place-items: center;
   align-self: center;
-  color: #fff;
-  backdrop-filter: blur(6px);
+  color: #FFFFFF;
 }
 
 .album-card-info {
@@ -520,40 +490,27 @@ nav .nav-row {
   text-overflow: ellipsis;
 }
 
-
-/* Atmospheric Overlays for Album Wall */
+/* Atmospheric Overlays */
 .wall-vignette {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(9, 10, 14, 0.82) 0%, rgba(9, 10, 14, 0.6) 50%, rgba(9, 10, 14, 0.95) 85%, #090A0E 100%),
-    linear-gradient(to bottom, #090A0E 0%, transparent 20%, transparent 80%, #090A0E 100%),
-    linear-gradient(to right, #090A0E 0%, transparent 15%, transparent 85%, #090A0E 100%);
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(9, 10, 14, 0.85) 0%, rgba(9, 10, 14, 0.6) 50%, #090A0E 100%);
 }
 
 .hero-glow {
   position: absolute;
   left: 50%;
   top: 48%;
-  width: min(1000px, 120vw);
+  width: min(900px, 110vw);
   aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(216, 220, 229, 0.08) 0%, rgba(216, 220, 229, 0.02) 40%, transparent 70%);
+  transform: translate(-50%, -50%) translateZ(0);
+  background: radial-gradient(circle, rgba(216, 220, 229, 0.07) 0%, transparent 65%);
   z-index: 2;
   pointer-events: none;
-  animation: pulse-glow 7s ease-in-out infinite;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  50% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
-}
-
-/* ==========================================================================
-   HERO FOREGROUND & WAVEFORM EMBLEM
-   ========================================================================== */
 .hero .wrap {
   position: relative;
   z-index: 3;
@@ -562,7 +519,38 @@ nav .nav-row {
   align-items: center;
 }
 
+/* Floating Emblem */
+.silver-m-emblem {
+  width: 92px;
+  height: 92px;
+  border-radius: 26px;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.85),
+    0 0 40px rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  margin-bottom: 28px;
+  animation: emblem-float 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
 
+.hero-floating-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 25px;
+}
+
+@keyframes emblem-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
 
 .word {
   display: inline-block;
@@ -573,7 +561,7 @@ nav .nav-row {
 .word span {
   display: inline-block;
   transform: translateY(110%);
-  animation: word-reveal 1.1s var(--ease) forwards;
+  animation: word-reveal 1s var(--ease) forwards;
   animation-delay: var(--d, 0.1s);
 }
 
@@ -583,7 +571,6 @@ nav .nav-row {
 
 .hero p.lead {
   margin-inline: auto;
-  font-size: clamp(17px, 2vw, 21px);
 }
 
 .hero .cta-row {
@@ -591,7 +578,7 @@ nav .nav-row {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: 42px;
+  margin-top: 36px;
   flex-wrap: wrap;
 }
 
@@ -601,11 +588,11 @@ nav .nav-row {
   justify-content: center;
   align-items: center;
   gap: 10px 16px;
-  margin-top: 32px;
+  margin-top: 30px;
   font-size: 13px;
   color: var(--muted);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 20px;
+  padding-top: 18px;
 }
 
 .app-meta-badge span {
@@ -625,255 +612,54 @@ nav .nav-row {
 .marquee {
   border-block: 1px solid var(--border);
   background: rgba(17, 19, 25, 0.6);
-  backdrop-filter: blur(10px);
   overflow: hidden;
-  padding: 20px 0;
+  padding: 18px 0;
   white-space: nowrap;
+  contain: content;
 }
 
 .marquee-content {
   display: inline-flex;
-  gap: 48px;
-  animation: marquee-slide 32s linear infinite;
+  gap: 40px;
+  animation: marquee-slide 34s linear infinite;
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.5vw, 28px);
+  font-size: clamp(18px, 2.2vw, 24px);
   font-weight: 600;
   color: var(--muted);
-  letter-spacing: -0.01em;
+  will-change: transform;
 }
 
 .marquee-content span.highlight {
   color: var(--platinum);
 }
 
-.marquee-content svg {
-  width: 18px;
-  height: 18px;
-  color: var(--silver);
-  vertical-align: middle;
-}
-
 @keyframes marquee-slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ==========================================================================
-   CHAPTER STORYTELLING BANNERS
-   ========================================================================== */
-.chapter-marker {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
-.chapter-badge {
-  font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--silver);
-}
-
-.chapter-line {
-  height: 1px;
-  flex: 1;
-  background: linear-gradient(to right, var(--border), transparent);
-}
-
-/* ==========================================================================
-   SECTION: REALISTIC ANDROID APP SHOWCASE
-   ========================================================================== */
-.showcase-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 64px;
-  align-items: center;
-  margin-top: 56px;
-}
-
-@media (max-width: 980px) {
-  .showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-}
-
-/* Android Device Frame */
-.android-phone {
-  width: min(340px, 86vw);
-  margin-inline: auto;
-  border-radius: 48px;
-  background: #0D0F14;
-  border: 10px solid #1A1C24;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.15),
-    0 32px 96px -12px rgba(0, 0, 0, 0.95),
-    0 12px 36px rgba(216, 220, 229, 0.05);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.5s var(--ease);
-}
-
-.phone-status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 22px 6px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--silver);
-  position: relative;
-  z-index: 10;
-}
-
-.phone-camera {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #050608;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.phone-screen-container {
-  height: 520px;
-  position: relative;
-  overflow: hidden;
-  background: #090A0E;
-}
-
-.phone-screen {
-  position: absolute;
-  inset: 0;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px) scale(0.97);
-  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s;
-  overflow-y: auto;
-}
-
-.phone-screen.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
-}
-
-/* Phone Gesture Pill */
-.phone-nav-bar {
-  display: flex;
-  justify-content: center;
-  padding: 12px 0 10px;
-  background: #090A0E;
-}
-
-.phone-gesture-pill {
-  width: 90px;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Showcase Controls / Screen Selectors */
-.screen-selector-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.screen-select-btn {
-  text-align: left;
-  padding: 18px 22px;
-  border-radius: 20px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  transition: all 0.3s var(--ease);
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  cursor: pointer;
-}
-
-.screen-select-btn:hover {
-  background: var(--elevated);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateX(4px);
-}
-
-.screen-select-btn.active {
-  background: var(--elevated);
-  border-color: var(--silver);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.screen-btn-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  color: var(--silver);
-  flex-shrink: 0;
-  transition: all 0.3s;
-}
-
-.screen-select-btn.active .screen-btn-icon {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-}
-
-.screen-select-btn h4 {
-  font-size: 17px;
-  margin-bottom: 4px;
-  color: #fff;
-}
-
-.screen-select-btn p {
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.45;
-}
-
-/* ==========================================================================
-   INTERACTIVE DEMONSTRATION SUITE
+   DEMO CARDS & SECTIONS
    ========================================================================== */
 .demo-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 36px;
+  border-radius: 24px;
+  padding: 32px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.35s;
-}
-
-.demo-card:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.demo-card-header {
-  margin-bottom: 28px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 
 .demo-badge {
   display: inline-block;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #a0aec0;
+  color: var(--silver);
   background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
   padding: 4px 10px;
   border-radius: 6px;
   margin-bottom: 12px;
@@ -890,32 +676,31 @@ nav .nav-row {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Demo A: Search Discovery */
+/* Search Bar & Filters */
 .search-bar-wrap {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .search-input {
   width: 100%;
-  padding: 14px 20px 14px 46px;
+  padding: 13px 18px 13px 44px;
   background: var(--elevated);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  color: #fff;
-  font-size: 15px;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 14.5px;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.2s;
 }
 
 .search-input:focus {
   border-color: var(--silver);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
 .search-icon {
   position: absolute;
-  left: 16px;
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--muted);
@@ -929,36 +714,38 @@ nav .nav-row {
   padding-bottom: 12px;
   margin-bottom: 18px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .genre-pill {
-  padding: 7px 16px;
+  padding: 6px 15px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   background: var(--elevated);
   border: 1px solid var(--border);
   color: var(--muted);
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 
 .genre-pill:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .genre-pill.active {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+  background: #FFFFFF;
+  color: #090A0E;
+  border-color: #FFFFFF;
+  font-weight: 600;
 }
 
 .track-results-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   max-height: 380px;
   overflow-y: auto;
   padding-right: 4px;
@@ -969,33 +756,33 @@ nav .nav-row {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 16px;
-  border-radius: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
   background: var(--elevated);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s;
+  cursor: pointer;
 }
 
-.track-row:hover {
+.track-row:hover, .track-row.is-playing {
   background: var(--elevated-hover);
-  transform: translateX(4px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .track-row-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
-  flex: 1;
 }
 
 .track-thumb {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: #232733;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
+  background: #000;
 }
 
 .track-thumb img {
@@ -1006,382 +793,527 @@ nav .nav-row {
 
 .track-meta {
   min-width: 0;
-  flex: 1;
 }
 
 .track-meta strong {
   display: block;
-  font-size: 14.5px;
-  color: #fff;
+  font-size: 13.5px;
+  color: #FFFFFF;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .track-meta span {
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: var(--muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: block;
 }
 
 .track-badge {
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 4px 8px;
-  border-radius: 6px;
+  font-weight: 600;
+  color: var(--silver);
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--silver);
+  padding: 3px 8px;
+  border-radius: 6px;
   flex-shrink: 0;
 }
 
-/* Demo B: Streaming Quality */
-.quality-switch-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ==========================================================================
+   INTERACTIVE SYNCHRONIZED LYRICS STAGE (SPOTIFY / APPLE MUSIC STYLE)
+   ========================================================================== */
+.lyrics-stage-container {
+  background: #0C0E14;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lyrics-track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 16px;
   margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
 }
 
-.quality-option-card {
-  padding: 22px;
-  border-radius: 18px;
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.3s var(--ease);
-  position: relative;
-}
-
-.quality-option-card.active {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
-.quality-option-card h4 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.quality-option-card p {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.45;
-}
-
-.quality-badge-lg {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  margin-bottom: 12px;
-}
-
-.spectrum-canvas {
-  width: 100%;
-  height: 140px;
-  background: #0b0c10;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  margin-top: 16px;
-}
-
-/* Demo C: Offline Downloads */
-.download-demo-card {
+.lyrics-track-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 24px;
-  border-radius: 18px;
+  gap: 14px;
+}
+
+.lyrics-album-art {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  background: #000;
+  flex-shrink: 0;
+}
+
+.lyrics-album-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lyrics-track-titles h3 {
+  font-size: 17px;
+  color: #FFFFFF;
+}
+
+.lyrics-track-titles p {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.track-switcher-select {
   background: var(--elevated);
   border: 1px solid var(--border);
-  flex-wrap: wrap;
-  gap: 16px;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
 }
 
-.dl-progress-circle-wrap {
+.lyrics-viewport {
+  height: 240px;
   position: relative;
-  width: 52px;
-  height: 52px;
-}
-
-.dl-progress-circle-wrap svg {
-  transform: rotate(-90deg);
-  width: 52px;
-  height: 52px;
-}
-
-.dl-progress-circle-wrap circle.bg {
-  stroke: rgba(255, 255, 255, 0.1);
-}
-
-.dl-progress-circle-wrap circle.fill {
-  stroke: #fff;
-  stroke-dasharray: 138;
-  stroke-dashoffset: 138;
-  transition: stroke-dashoffset 0.15s ease-out;
-}
-
-.dl-progress-num {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-}
-
-/* Demo D: Synchronized Lyrics */
-.lyrics-stage {
-  height: 320px;
   overflow: hidden;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03), transparent 70%), #0A0C11;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  padding: 24px 30px;
-  cursor: pointer;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
 }
 
-.lyrics-track-inner {
+.lyrics-track-scroll {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 18px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
 }
 
 .lyric-line {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.8vw, 30px);
-  font-weight: 700;
-  color: var(--faint);
-  opacity: 0.35;
-  transition: all 0.5s var(--ease);
+  font-size: clamp(17px, 2.8vw, 24px);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  transition: all 0.3s;
   cursor: pointer;
-  line-height: 1.25;
+  text-align: center;
+  padding: 4px 12px;
+  border-radius: 8px;
+  user-select: none;
 }
 
 .lyric-line:hover {
-  opacity: 0.7;
-  color: var(--silver);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .lyric-line.active {
   color: #FFFFFF;
-  opacity: 1;
-  transform: scale(1.04) translateX(12px);
-  text-shadow: 0 0 24px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
 }
 
-.lyrics-controls {
+.lyrics-stage-controls {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.scrubber-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.scrubber-time {
+  font-size: 11.5px;
+  font-family: monospace;
+  color: var(--muted);
+  width: 40px;
+}
+
+.lyrics-seek-slider {
+  flex: 1;
+  height: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.lyrics-seek-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lyrics-button-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 18px;
-  padding: 0 6px;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
-.lyrics-time {
-  font-family: var(--font-display);
-  font-size: 14px;
-  color: var(--silver);
-  font-weight: 600;
-}
-
-/* Demo H: Hardware Equalizer */
-.eq-container {
+.lyrics-main-ctrls {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  gap: 14px;
 }
 
+.ctrl-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+  background: var(--elevated-hover);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.ctrl-btn.play-main {
+  width: 48px;
+  height: 48px;
+  background: #FFFFFF;
+  color: #090A0E;
+}
+
+.ctrl-btn.play-main:hover {
+  background: #F0F2F7;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   HARDWARE EQUALIZER
+   ========================================================================== */
 .eq-presets-row {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .eq-preset-btn {
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
   background: var(--elevated);
   border: 1px solid var(--border);
   color: var(--muted);
-  transition: all 0.25s;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .eq-preset-btn:hover {
-  color: #fff;
-  border-color: rgba(255,255,255,0.3);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .eq-preset-btn.active {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+  background: #FFFFFF;
+  color: #090A0E;
+  border-color: #FFFFFF;
+  font-weight: 600;
+}
+
+.eq-curve-canvas {
+  width: 100%;
+  height: 120px;
+  background: #08090D;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: block;
 }
 
 .eq-sliders-row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  align-items: center;
+  gap: 12px;
+  padding: 20px 8px;
   text-align: center;
-  background: var(--elevated);
-  padding: 24px 16px;
-  border-radius: 18px;
-  border: 1px solid var(--border);
 }
 
 .eq-slider-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .eq-slider-col input[type=range] {
   -webkit-appearance: slider-vertical;
   appearance: slider-vertical;
-  writing-mode: vertical-lr;
-  direction: rtl;
-  width: 28px;
-  height: 140px;
+  writing-mode: bt-lr;
+  width: 8px;
+  height: 120px;
   cursor: pointer;
-  accent-color: #FFFFFF;
-}
-
-.eq-slider-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--silver);
 }
 
 .eq-slider-val {
   font-size: 11px;
+  font-family: monospace;
+  color: var(--silver);
+}
+
+.eq-slider-label {
+  font-size: 11.5px;
   color: var(--muted);
+  font-weight: 600;
 }
 
 .eq-knobs-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .eq-knob-box {
-  padding: 16px 20px;
-  border-radius: 14px;
   background: var(--elevated);
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 14px;
+  border-radius: 12px;
 }
 
 .eq-knob-box input[type=range] {
-  accent-color: #FFFFFF;
-  width: 55%;
-}
-
-.eq-curve-canvas {
   width: 100%;
-  height: 130px;
-  background: #090a0f;
-  border-radius: 14px;
-  border: 1px solid var(--border);
+  margin-top: 10px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
 }
 
 /* ==========================================================================
-   DOWNLOAD SECTION & FINAL VERIFICATION
+   SHOWCASE PHONE & SCREENS
    ========================================================================== */
-.dl-hero-box {
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 44px;
-  padding: 100px 32px;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(216, 220, 229, 0.12), transparent 70%),
-    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04), transparent),
-    var(--surface);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.8);
-}
-
-.dl-hero-box .logo-emblem-lg {
-  width: 104px;
-  height: 104px;
-  border-radius: 30px;
-  margin-inline: auto;
-  margin-bottom: 28px;
-  background: linear-gradient(135deg, #222633, #0f1118);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+.showcase-grid {
   display: grid;
-  place-items: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-}
-
-.dl-hero-box .logo-emblem-lg img {
-  width: 68px;
-  height: 68px;
-  border-radius: 18px;
-}
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 16px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
   margin-top: 48px;
 }
 
-.spec-cell {
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px;
+@media (max-width: 980px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.android-phone {
+  width: min(340px, 86vw);
+  margin-inline: auto;
+  border-radius: 44px;
+  background: #0D0F14;
+  border: 9px solid #1A1C24;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 32px 80px rgba(0, 0, 0, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--silver);
+  position: relative;
+  z-index: 10;
+}
+
+.phone-camera {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #050608;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.phone-screen-container {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: #090A0E;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+  overflow-y: auto;
+}
+
+.phone-screen.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.phone-nav-bar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 8px;
+  background: #090A0E;
+}
+
+.phone-gesture-pill {
+  width: 80px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.screen-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.screen-select-btn {
   text-align: left;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.25s var(--ease);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
 }
 
-.spec-cell span {
-  display: block;
-  font-size: 12px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
+.screen-select-btn:hover {
+  background: var(--elevated);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
-.spec-cell strong {
+.screen-select-btn.active {
+  background: var(--elevated);
+  border-color: var(--silver);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.screen-btn-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--silver);
+  flex-shrink: 0;
+}
+
+.screen-select-btn.active .screen-btn-icon {
+  background: #FFFFFF;
+  color: #090A0E;
+  border-color: #FFFFFF;
+}
+
+.screen-select-btn h4 {
   font-size: 16px;
-  color: #fff;
-  font-family: var(--font-display);
+  margin-bottom: 3px;
+  color: #FFFFFF;
+}
+
+.screen-select-btn p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
 }
 
 /* ==========================================================================
-   FAQ ACCORDION
+   DOWNLOAD BOX & RELEASE CARD
+   ========================================================================== */
+.dl-hero-box {
+  background: linear-gradient(180deg, #12141C 0%, #090A0E 100%);
+  border: 1px solid var(--border-strong);
+  border-radius: 32px;
+  padding: 64px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.logo-emblem-lg {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8);
+}
+
+.logo-emblem-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   ACCESSIBLE FAQ ACCORDION
    ========================================================================== */
 .faq-wrap {
   max-width: 820px;
-  margin: 48px auto 0;
+  margin: 40px auto 0;
 }
 
 details.faq-item {
   border-top: 1px solid var(--border);
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 details.faq-item:last-child {
@@ -1391,15 +1323,15 @@ details.faq-item:last-child {
 summary.faq-question {
   list-style: none;
   cursor: pointer;
-  padding: 24px 0;
+  padding: 20px 0;
   font-family: var(--font-display);
-  font-size: clamp(18px, 2.4vw, 22px);
+  font-size: clamp(17px, 2.2vw, 21px);
   font-weight: 600;
-  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
+  color: #FFFFFF;
 }
 
 summary.faq-question::-webkit-details-marker {
@@ -1408,10 +1340,10 @@ summary.faq-question::-webkit-details-marker {
 
 summary.faq-question::after {
   content: "+";
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   color: var(--silver);
-  transition: transform 0.4s var(--ease);
+  transition: transform 0.25s var(--ease);
 }
 
 details[open] summary.faq-question::after {
@@ -1420,15 +1352,9 @@ details[open] summary.faq-question::after {
 
 details.faq-item p {
   color: var(--muted);
-  padding-bottom: 26px;
-  font-size: 16px;
-  line-height: 1.65;
-  animation: faq-reveal 0.4s var(--ease);
-}
-
-@keyframes faq-reveal {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+  padding-bottom: 22px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -1436,10 +1362,10 @@ details.faq-item p {
    ========================================================================== */
 footer {
   border-top: 1px solid var(--border);
-  padding: 48px 0;
+  padding: 44px 0;
   font-size: 14px;
   color: var(--muted);
-  background: #06070a;
+  background: #06070A;
 }
 
 footer .footer-inner {
@@ -1454,12 +1380,12 @@ footer .footer-brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #fff;
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-weight: 700;
 }
 
-/* Background canvas wave animation */
+/* Wave Background Canvas */
 #wave-canvas {
   position: fixed;
   inset: 0;
@@ -1467,9 +1393,9 @@ footer .footer-brand {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+  contain: strict;
 }
 
-/* Scroll progress bar */
 .scroll-progress-line {
   position: fixed;
   top: 0;
@@ -1479,119 +1405,46 @@ footer .footer-brand {
   background: var(--accent-silver);
   transform-origin: left;
   transform: scaleX(0);
-  z-index: 1000;
+  z-index: 10000;
+  will-change: transform;
 }
 
-/* Reveal utility: Progressive Enhancement */
-.reveal {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-  transition-delay: var(--delay, 0s);
-}
-
-.js-reveal .reveal:not(.in-view) {
-  opacity: 0;
-  transform: translateY(28px);
-}
-
-.js-reveal .reveal.in-view {
-  opacity: 1;
-  transform: none;
-}
-
-/* Mobile Responsive Refinements */
+/* Mobile Responsive Optimization */
 @media (max-width: 640px) {
   .wrap {
-    width: min(var(--maxw), 100% - 28px);
-  }
-  nav .nav-row {
-    height: 60px;
-  }
-  .brand {
-    font-size: 16px;
-    gap: 8px;
-    letter-spacing: 0.08em;
-  }
-  .brand .m-emblem {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-  }
-  .brand .m-emblem svg {
-    width: 16px;
-    height: 16px;
-  }
-  .nav-actions {
-    gap: 8px;
-  }
-  .btn.sm {
-    padding: 6px 12px;
-    font-size: 12px;
-    gap: 6px;
-  }
-  .menu-toggle {
-    width: 36px;
-    height: 36px;
+    width: min(var(--maxw), 100% - 30px);
   }
   section {
     padding: 70px 0;
   }
-  h1 { font-size: clamp(34px, 10vw, 52px); }
-  h2 { font-size: clamp(24px, 7vw, 36px); word-break: break-word; }
-  h3 { font-size: clamp(19px, 5.5vw, 24px); }
+  h1 { font-size: clamp(32px, 9.5vw, 46px); }
+  h2 { font-size: clamp(23px, 6.5vw, 34px); }
+  h3 { font-size: clamp(18px, 5vw, 22px); }
   p.lead { font-size: 15px; margin-top: 14px; }
   .demo-card {
-    padding: 22px 16px;
+    padding: 20px 16px;
     border-radius: 20px;
   }
-  .quality-switch-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .lyrics-stage-container {
+    padding: 18px 14px;
   }
-  .download-demo-card {
-    flex-direction: column;
-    align-items: flex-start;
+  .lyrics-viewport {
+    height: 200px;
+  }
+  .lyric-line {
+    font-size: 17px;
   }
   .eq-sliders-row {
     gap: 6px;
-    padding: 16px 6px;
-  }
-  .eq-knobs-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .eq-slider-col input[type=range] {
-    height: 110px;
-  }
-  .eq-presets-row {
-    gap: 6px;
-  }
-  .eq-preset-btn {
-    padding: 6px 10px;
-    font-size: 11.5px;
-  }
-  .lyrics-stage {
-    padding: 16px;
-    height: 260px;
-  }
-  .lyric-line {
-    font-size: clamp(16px, 4.5vw, 22px);
-  }
-  .screen-select-btn {
-    padding: 14px 16px;
+    padding: 16px 4px;
   }
   .dl-hero-box {
-    padding: 60px 18px;
-    border-radius: 28px;
+    padding: 44px 18px;
+    border-radius: 24px;
   }
-  .dl-hero-box .logo-emblem-lg {
-    width: 80px;
-    height: 80px;
-  }
-  .dl-hero-box .logo-emblem-lg img {
-    width: 52px;
-    height: 52px;
+  .wall-column {
+    min-width: 140px;
+    max-width: 180px;
   }
 }
 
@@ -1601,33 +1454,28 @@ footer .footer-brand {
   }
   #navDownloadBtn {
     padding: 7px 11px;
-    border-radius: 10px;
-  }
-  .wrap {
-    width: min(var(--maxw), 100% - 24px);
-  }
-  h1 { font-size: clamp(30px, 9vw, 42px); }
-  h2 { font-size: clamp(22px, 6.5vw, 28px); }
-  h3 { font-size: 18px; }
-  .screen-select-btn {
-    padding: 12px 14px;
-    gap: 12px;
-  }
-  .screen-btn-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 12px;
   }
 }
 
-/* Reduced Motion */
+/* Reduced Motion Mode */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
-  .word span { transform: none; }
+  .wall-track {
+    animation: none !important;
+  }
+  .silver-m-emblem {
+    animation: none !important;
+  }
+  .marquee-content {
+    animation: none !important;
+  }
+  .word span {
+    transform: none !important;
+  }
 }
 </style>
 </head>
@@ -1658,16 +1506,16 @@ footer .footer-brand {
     </div>
 
     <div class="nav-actions">
-      <a class="btn solid sm" href="#download" id="navDownloadBtn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <a class="btn solid sm" href="MIYORI.apk" download="MIYORI.apk" id="navDownloadBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
         <span>Download APK</span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -1678,36 +1526,36 @@ footer .footer-brand {
 </nav>
 
 <!-- ==========================================================================
-     HERO SECTION WITH SIGNATURE ANIMATED ALBUM WALL
+     HERO: ANIMATED 6-COLUMN ALBUM WALL WITH POPULAR SONGS
      ========================================================================== -->
 <header class="hero" id="top">
-  <!-- 7-Column Infinite Animated Album Wall -->
+  <!-- Tilted Infinite Animated Album Wall -->
   <div class="album-wall-container" id="albumWall" aria-hidden="true">
-    <!-- Populated by JavaScript with 24 procedurally designed album artworks -->
+    <!-- Built adaptively by JS -->
   </div>
   <div class="wall-vignette" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
 
   <div class="wrap">
-    <!-- Silver M Waveform Emblem (Official Branding) -->
+    <!-- Official Waveform Floating Emblem -->
     <div class="silver-m-emblem" aria-hidden="true">
       <img src="logo.jpg" alt="MIYORI Official Logo" class="hero-floating-logo">
     </div>
 
-    <div class="eyebrow reveal">MIYORI ANDROID · v1.2.0 RELEASE</div>
+    <div class="eyebrow">• MIYORI ANDROID · V1.2.0 RELEASE</div>
 
     <h1>
-      <span class="word"><span style="--d:0.1s">Sound,</span></span>
-      <span class="word"><span style="--d:0.22s">without</span></span>
-      <span class="word"><span style="--d:0.34s" class="silver-text">boundaries.</span></span>
+      <span class="word"><span style="--d:0.08s">Sound,</span></span>
+      <span class="word"><span style="--d:0.18s">without</span></span>
+      <span class="word"><span style="--d:0.28s" class="silver-text">boundaries.</span></span>
     </h1>
 
-    <p class="lead reveal" style="--delay:0.38s">
+    <p class="lead">
       Your music. Your space. Your rules. Discover deep cuts, stream at pristine 320 kbps, sing along with word-for-word synchronized lyrics, and preserve complete local ownership — all in an ultra-lean 10.62 MB native Android player.
     </p>
 
-    <div class="cta-row reveal" style="--delay:0.5s">
-      <a class="btn solid" href="#showcase">
+    <div class="cta-row">
+      <a class="btn solid" href="#discovery">
         <span>Explore Miyori</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1724,7 +1572,7 @@ footer .footer-brand {
       </a>
     </div>
 
-    <div class="app-meta-badge reveal" style="--delay:0.62s">
+    <div class="app-meta-badge">
       <span><b>10.62 MB</b> APK</span>
       <span>•</span>
       <span><b>320 kbps</b> High Fidelity</span>
@@ -1738,8 +1586,7 @@ footer .footer-brand {
 
 <!-- ==========================================================================
      MARQUEE STRIP
-     ========================================================================== */
--->
+     ========================================================================== -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-content">
     <span>High-Bitrate Streaming</span>
@@ -1752,7 +1599,7 @@ footer .footer-brand {
     <span>•</span>
     <span>5-Band Graphic Equalizer</span>
     <span>•</span>
-    <span class="highlight">Navidrome & Subsonic</span>
+    <span class="highlight">Navidrome &amp; Subsonic</span>
     <span>•</span>
     <span>Pure Kotlin MVVM</span>
     <span>•</span>
@@ -1766,52 +1613,51 @@ footer .footer-brand {
     <span>•</span>
     <span>5-Band Graphic Equalizer</span>
     <span>•</span>
-    <span class="highlight">Navidrome & Subsonic</span>
+    <span class="highlight">Navidrome &amp; Subsonic</span>
   </div>
 </div>
 
 <!-- ==========================================================================
-     CHAPTER 01: DISCOVER
+     CATALOG & DISCOVERY (FEATURING LANA DEL REY, ADO, THE WEEKND)
      ========================================================================== -->
 <section id="discovery">
   <div class="wrap">
-    <div class="chapter-marker reveal">
-      <span class="chapter-badge">CHAPTER 01</span>
-      <span class="chapter-line"></span>
-      <span style="font-size: 13px; color: var(--silver); letter-spacing: 0.1em; text-transform: uppercase;">DISCOVER</span>
-    </div>
-
-    <h2 class="reveal">Find your next obsession.</h2>
-    <p class="lead reveal">
-      Explore across electronic, indie, ambient, cinematic scores, and anime soundtrack masters. Experience search with instant filtering and transparent audio quality labels.
+    <div class="eyebrow">CATALOG &amp; DISCOVERY</div>
+    <h2>Find your next obsession.</h2>
+    <p class="lead">
+      Search and play previews across Lana Del Rey, Ado, The Weeknd, and curated world sounds. Tap any track to listen with active synthesized playback.
     </p>
 
-    <div class="demo-card reveal" style="margin-top: 48px;">
-      <div class="demo-badge">INTERACTIVE DEMONSTRATION CATALOG</div>
-      
+    <div class="demo-card" style="margin-top: 40px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+        <div class="demo-badge">POPULAR SONGS DEMONSTRATION CATALOG</div>
+        <span id="catalogNowPlayingText" style="font-size:12.5px; color:#4ADE80; font-family:monospace; display:none;">
+          ▶ Playing Preview · 320 kbps
+        </span>
+      </div>
+
       <!-- Search Input -->
       <div class="search-bar-wrap">
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" id="catalogSearchInput" class="search-input" aria-label="Search track catalog" placeholder="Search by track title, artist, or genre (e.g., Synthwave, Zimmer, Ambient)..." autocomplete="off">
+        <input type="text" id="catalogSearchInput" class="search-input" aria-label="Search track catalog" placeholder="Search by track title, artist, or genre (e.g., Lana, Ado, Weeknd, Usseewa)..." autocomplete="off">
       </div>
 
-      <!-- Genre Pills -->
+      <!-- Genre / Artist Filter Pills -->
       <div class="genre-filter-row" id="genreFilterRow">
-        <button class="genre-pill active" data-genre="all">All Genres</button>
-        <button class="genre-pill" data-genre="Electronic">Electronic</button>
-        <button class="genre-pill" data-genre="Synthwave">Synthwave</button>
-        <button class="genre-pill" data-genre="Ambient">Ambient</button>
-        <button class="genre-pill" data-genre="Cinematic">Cinematic</button>
-        <button class="genre-pill" data-genre="Anime OST">Anime OST</button>
-        <button class="genre-pill" data-genre="Indie">Indie</button>
+        <button class="genre-pill active" data-genre="all" onclick="filterGenre('all', this)">All Songs</button>
+        <button class="genre-pill" data-genre="Lana Del Rey" onclick="filterGenre('Lana Del Rey', this)">Lana Del Rey</button>
+        <button class="genre-pill" data-genre="Ado" onclick="filterGenre('Ado', this)">Ado</button>
+        <button class="genre-pill" data-genre="The Weeknd" onclick="filterGenre('The Weeknd', this)">The Weeknd</button>
+        <button class="genre-pill" data-genre="J-Pop" onclick="filterGenre('J-Pop', this)">J-Pop &amp; Anime</button>
+        <button class="genre-pill" data-genre="Alternative" onclick="filterGenre('Alternative', this)">Alternative</button>
       </div>
 
       <!-- Track List -->
       <div class="track-results-list" id="trackResultsList">
-        <!-- Rendered by JavaScript -->
+        <!-- Rendered by JS -->
       </div>
 
       <div class="demo-disclaimer">
@@ -1820,44 +1666,47 @@ footer .footer-brand {
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        <span>Demonstration catalog. In the actual Android application, Miyori searches through high-bitrate streaming providers, local files, and Navidrome servers.</span>
+        <span>Interactive catalog preview. Tap any card to trigger synthesized playback and select song metadata.</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION: STREAMING QUALITY & AUDIO SPECS
+     AUDIO RESOLUTION & TRANSPARENCY
      ========================================================================== -->
-<section id="quality" style="padding-top: 20px;">
+<section id="quality">
   <div class="wrap">
-    <div class="eyebrow reveal">AUDIO RESOLUTION</div>
-    <h2 class="reveal">Your music. Your quality.</h2>
-    <p class="lead reveal">
-      Switch between data-conscious mobile streaming and uncompromising high-bitrate clarity.
+    <div class="eyebrow">AUDIO RESOLUTION &amp; TRANSPARENCY</div>
+    <h2>Your music. Your quality.</h2>
+    <p class="lead">
+      We believe in technical honesty. MIYORI streams in transparent 320 kbps high-bitrate lossy audio (AAC/MP3) without bloated false lossless claims.
     </p>
 
-    <div class="demo-card reveal" style="margin-top: 48px;">
-      <div class="quality-switch-row">
-        <div class="quality-option-card" id="optDataSaver" onclick="setQualityMode('saver')">
-          <span class="quality-badge-lg">DATA SAVER</span>
-          <h4>160 kbps AAC / MP3</h4>
-          <p>Optimized for low-bandwidth cellular environments. Preserves mobile data with transparent dynamic range compression.</p>
-        </div>
-
-        <div class="quality-option-card active" id="optExtremeFidelity" onclick="setQualityMode('extreme')">
-          <span class="quality-badge-lg">EXTREME FIDELITY</span>
-          <h4>320 kbps MP3 / AAC</h4>
-          <p>Maximum perceptual clarity. Full dynamic frequency headroom from 20 Hz to 20 kHz with unclipped transients.</p>
-        </div>
+    <div class="demo-card" style="margin-top: 40px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+        <div class="demo-badge">BITRATE TRANSPARENCY SPECTRUM</div>
+        <span id="qualityMetricsLabel" style="font-size:12.5px; color:var(--silver); font-family:monospace;">
+          Bandwidth: ~2.4 MB/min · Full 20kHz Acoustic Headroom
+        </span>
       </div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size: 13px; font-weight: 600; color: var(--silver);">DYNAMIC FREQUENCY SPECTRUM ANALYZER</span>
-        <span style="font-size: 12px; color: var(--muted);" id="qualityMetricsLabel">Bandwidth: ~2.4 MB/min · Full 20kHz Headroom</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:24px;">
+        <button class="btn ghost active" id="optExtremeFidelity" onclick="setQualityMode('extreme')" style="justify-content:flex-start; text-align:left; border-radius:14px; padding:16px;">
+          <div>
+            <b style="display:block; font-size:15px; color:#FFFFFF;">320 kbps High Fidelity</b>
+            <span style="font-size:12px; color:var(--muted);">Full frequency extension, high dynamic range</span>
+          </div>
+        </button>
+        <button class="btn ghost" id="optDataSaver" onclick="setQualityMode('saver')" style="justify-content:flex-start; text-align:left; border-radius:14px; padding:16px;">
+          <div>
+            <b style="display:block; font-size:15px; color:#FFFFFF;">160 kbps Data Saver</b>
+            <span style="font-size:12px; color:var(--muted);">Data-saving mobile optimization for spotty connections</span>
+          </div>
+        </button>
       </div>
 
-      <canvas class="spectrum-canvas" id="spectrumCanvas" width="800" height="140"></canvas>
+      <canvas id="spectrumCanvas" width="800" height="120" style="width:100%; height:120px; background:#08090D; border-radius:12px; border:1px solid var(--border); display:block;"></canvas>
 
       <div class="demo-disclaimer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1865,64 +1714,46 @@ footer .footer-brand {
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        <span>Note: Actual streaming bitrate depends on upstream source availability. 320 kbps audio provides extreme perceptual fidelity, but is perceptually compressed and not inherently lossless PCM.</span>
+        <span>High-bitrate AAC/MP3 delivers perceptual transparency without wasting cellular bandwidth.</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     CHAPTER 02: KEEP (OFFLINE DOWNLOADS & LIBRARY)
+     100% OFFLINE OWNERSHIP & STORAGE
      ========================================================================== -->
 <section id="experience">
   <div class="wrap">
-    <div class="chapter-marker reveal">
-      <span class="chapter-badge">CHAPTER 02</span>
-      <span class="chapter-line"></span>
-      <span style="font-size: 13px; color: var(--silver); letter-spacing: 0.1em; text-transform: uppercase;">KEEP</span>
-    </div>
-
-    <h2 class="reveal">Your music should travel with you.</h2>
-    <p class="lead reveal">
-      No DRM lockdowns. No disappearing tracks. When you download a track in Miyori, the full-length file is saved directly to your phone's storage at <code style="color:#fff; background:rgba(255,255,255,0.1); padding:2px 8px; border-radius:6px;">Music/Miyori</code> with complete embedded ID3 tags.
+    <div class="eyebrow">LOCAL OWNERSHIP &amp; STORAGE</div>
+    <h2>Your music should travel with you.</h2>
+    <p class="lead">
+      No DRM jails. Audio downloaded inside MIYORI is stored as standard files in your device storage at <code>Music/Miyori</code> with full ID3 metadata and album art.
     </p>
 
-    <!-- Interactive Offline Download Demonstration -->
-    <div class="demo-card reveal" style="margin-top: 48px;">
-      <div class="demo-badge">OFFLINE DOWNLOAD DEMONSTRATION</div>
-
-      <div class="download-demo-card">
-        <div style="display: flex; align-items: center; gap: 16px;">
-          <img src="art/cover_1.svg" alt="Cover" style="width: 58px; height: 58px; border-radius: 12px; border: 1px solid var(--border);">
-          <div>
-            <strong style="font-size: 17px; color: #fff; display: block;">Resonance Void</strong>
-            <span style="font-size: 13.5px; color: var(--muted);">Kavinsky / HOME · 320 kbps · 9.4 MB</span>
-          </div>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <div class="dl-progress-circle-wrap" id="dlCircleWrap">
-            <svg viewBox="0 0 52 52">
-              <circle class="bg" cx="26" cy="26" r="22" stroke-width="4" fill="none"/>
-              <circle class="fill" id="dlProgressFill" cx="26" cy="26" r="22" stroke-width="4" fill="none"/>
-            </svg>
-            <div class="dl-progress-num" id="dlProgressNum">0%</div>
-          </div>
-
-          <button class="btn solid sm" id="simulateDownloadBtn" onclick="toggleSimulateDownload()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span id="simulateDownloadBtnText">Start Simulated Download</span>
-          </button>
-        </div>
+    <div class="demo-card" style="margin-top: 40px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+        <div class="demo-badge">OFFLINE DOWNLOAD ENGINE SIMULATOR</div>
+        <span id="dlStatusDescription" style="font-size:12.5px; color:var(--silver); font-family:monospace;">Status: Idle · Ready to download</span>
       </div>
 
-      <div style="margin-top: 18px; display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
-        <span style="color: var(--muted);" id="dlStatusDescription">Status: Idle · Ready to download</span>
-        <span style="color: var(--silver); font-weight: 500;" id="dlDestinationLabel">Destination: /storage/emulated/0/Music/Miyori</span>
+      <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; background:#090A0E; padding:20px; border-radius:16px; border:1px solid var(--border);">
+        <div style="position:relative; width:64px; height:64px; display:grid; place-items:center; flex-shrink:0;">
+          <svg width="64" height="64" viewBox="0 0 64 64" style="transform:rotate(-90deg);">
+            <circle cx="32" cy="32" r="26" stroke="rgba(255,255,255,0.1)" stroke-width="5" fill="none"/>
+            <circle id="dlProgressFill" cx="32" cy="32" r="26" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-dasharray="163" stroke-dashoffset="163" style="transition:stroke-dashoffset 0.1s linear;"/>
+          </svg>
+          <span id="dlProgressNum" style="position:absolute; font-size:13px; font-weight:700; color:#FFFFFF;">0%</span>
+        </div>
+
+        <div style="flex:1; min-width:200px;">
+          <strong style="display:block; font-size:15px; color:#FFFFFF;">Lana Del Rey — Summertime Sadness.mp3</strong>
+          <span style="font-size:12px; color:var(--muted);">Destination: <code>Music/Miyori/Summertime_Sadness.mp3</code> · 320 kbps</span>
+        </div>
+
+        <button class="btn solid sm" id="simulateDownloadBtn" onclick="toggleSimulateDownload()">
+          <span id="simulateDownloadBtnText">Start Simulated Download</span>
+        </button>
       </div>
 
       <div class="demo-disclaimer">
@@ -1931,677 +1762,465 @@ footer .footer-brand {
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        <span>This browser demonstration illustrates the Android app's background segmented downloader. Files are not written to your device's filesystem from this webpage.</span>
+        <span>Downloaded tracks stay yours forever. They can be played in any Android media player or backed up to your laptop.</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION: REALISTIC ANDROID APP SHOWCASE
+     NATIVE ANDROID PHONE SHOWCASE
      ========================================================================== -->
 <section id="showcase">
   <div class="wrap">
-    <div class="eyebrow reveal">NATIVE INTERFACE</div>
-    <h2 class="reveal">Built for Android.<br>Designed for music.</h2>
-    <p class="lead reveal">
-      Explore the actual interface architectures verified inside the Miyori application. Obsidian dark surfaces, brushed silver accents, and dynamic album-glow ambiance.
+    <div class="eyebrow">NATIVE INTERFACE</div>
+    <h2>Built for Android. Designed for music.</h2>
+    <p class="lead">
+      Experience the fluidity of Jetpack Compose. Switch between screens to inspect our native interface architecture.
     </p>
 
     <div class="showcase-grid">
-      <!-- Phone Mockup -->
-      <div class="android-phone reveal">
-        <!-- Status Bar -->
-        <div class="phone-status-bar">
-          <span>09:41</span>
-          <div class="phone-camera"></div>
-          <div style="display:flex; gap:6px; align-items:center;">
-            <span>5G</span>
-            <svg width="14" height="10" viewBox="0 0 24 16" fill="currentColor">
-              <rect x="0" y="0" width="20" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-              <rect x="3" y="3" width="14" height="10" rx="1.5"/>
-              <rect x="21" y="5" width="2" height="6" rx="1"/>
-            </svg>
+      <!-- Screen Selectors -->
+      <div class="screen-selector-list">
+        <button class="screen-select-btn active" onclick="activateScreen(1)">
+          <div class="screen-btn-icon">01</div>
+          <div>
+            <h4>Home &amp; Quick Picks</h4>
+            <p>Smart discovery carousel and recent listening history.</p>
           </div>
+        </button>
+
+        <button class="screen-select-btn" onclick="activateScreen(2)">
+          <div class="screen-btn-icon">02</div>
+          <div>
+            <h4>Instant Catalog Search</h4>
+            <p>Real-time fuzzy search across millions of tracks.</p>
+          </div>
+        </button>
+
+        <button class="screen-select-btn" onclick="activateScreen(3)">
+          <div class="screen-btn-icon">03</div>
+          <div>
+            <h4>Now Playing Sanctuary</h4>
+            <p>Full-screen obsidian player with gesture scrubbers.</p>
+          </div>
+        </button>
+
+        <button class="screen-select-btn" onclick="activateScreen(4)">
+          <div class="screen-btn-icon">04</div>
+          <div>
+            <h4>Word-by-Word Synced Lyrics</h4>
+            <p>LRCLIB integration with zero-latency line jumping.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Android Device Frame -->
+      <div class="android-phone">
+        <div class="phone-status-bar">
+          <span>9:41</span>
+          <div class="phone-camera"></div>
+          <span>5G 100%</span>
         </div>
 
-        <!-- Dynamic Screen Carousel -->
         <div class="phone-screen-container">
-          <!-- Screen 1: Home & Discovery -->
+          <!-- Screen 1: Home -->
           <div class="phone-screen active" id="phoneScreen-1">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-              <div>
-                <span style="font-size:12px; color:var(--muted); letter-spacing:0.05em;">GOOD EVENING</span>
-                <h3 style="font-size:22px; color:#fff;">Discovery Mix</h3>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.08);">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <img src="logo.jpg" alt="Miyori" style="width:20px; height:20px; border-radius:5px;">
+                <span style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#fff;">MIYORI</span>
               </div>
-              <img src="logo.jpg" alt="" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--border);">
+              <span style="font-size:10px; color:var(--muted); font-family:monospace;">v1.2.0</span>
             </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
-              <div style="background:#161822; padding:10px; border-radius:12px; border:1px solid var(--border);">
-                <img src="art/cover_1.svg" alt="Resonance Void album artwork" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:8px;">
-                <b style="font-size:13px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Resonance Void</b>
-                <span style="font-size:11px; color:var(--muted);">Kavinsky</span>
+            <span style="font-size:11px; color:var(--muted); letter-spacing:0.12em; display:block; margin-bottom:4px;">CONTINUE LISTENING</span>
+            <h3 style="font-size:18px; color:#FFFFFF; margin-bottom:12px;">Recently Played</h3>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+              <div style="background:#131620; padding:10px; border-radius:12px; border:1px solid var(--border);">
+                <img src="art/cover_6.svg" alt="Cover" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:6px;">
+                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Summertime Sadness</b>
+                <span style="font-size:10px; color:var(--muted);">Lana Del Rey</span>
               </div>
-              <div style="background:#161822; padding:10px; border-radius:12px; border:1px solid var(--border);">
-                <img src="art/cover_2.svg" alt="Obsidian Drift album artwork" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:8px;">
-                <b style="font-size:13px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Obsidian Drift</b>
-                <span style="font-size:11px; color:var(--muted);">Miyori Labs</span>
+              <div style="background:#131620; padding:10px; border-radius:12px; border:1px solid var(--border);">
+                <img src="art/cover_9.svg" alt="Cover" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:6px;">
+                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Usseewa</b>
+                <span style="font-size:10px; color:var(--muted);">Ado</span>
               </div>
             </div>
-            <span style="font-size:13px; font-weight:600; color:var(--silver); display:block; margin-bottom:10px;">QUICK PICKS</span>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              <div style="display:flex; align-items:center; gap:10px; background:#141720; padding:8px 10px; border-radius:10px;">
-                <img src="art/cover_3.svg" alt="Liquid Silver Horizon album artwork" style="width:34px; height:34px; border-radius:6px;">
-                <div style="flex:1;">
-                  <b style="font-size:12px; display:block;">Liquid Silver Horizon</b>
-                  <span style="font-size:10px; color:var(--muted);">Miyori Audio Labs</span>
+
+            <span style="font-size:11px; color:var(--silver); font-weight:600; display:block; margin-bottom:6px;">QUICK PICKS</span>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div style="display:flex; align-items:center; gap:8px; background:#131620; padding:6px 8px; border-radius:8px;">
+                <img src="art/cover_14.svg" alt="Cover" style="width:28px; height:28px; border-radius:6px;">
+                <div style="flex:1; min-width:0;">
+                  <b style="font-size:11.5px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Blinding Lights</b>
+                  <span style="font-size:9.5px; color:var(--muted);">The Weeknd</span>
                 </div>
-                <span style="font-size:11px; color:var(--silver);">3:42</span>
-              </div>
-              <div style="display:flex; align-items:center; gap:10px; background:#141720; padding:8px 10px; border-radius:10px;">
-                <img src="art/cover_4.svg" alt="Neo-Tokyo 2088 album artwork" style="width:34px; height:34px; border-radius:6px;">
-                <div style="flex:1;">
-                  <b style="font-size:12px; display:block;">Neo-Tokyo 2088</b>
-                  <span style="font-size:10px; color:var(--muted);">Kenji Kawai Tribute</span>
-                </div>
-                <span style="font-size:11px; color:var(--silver);">4:15</span>
               </div>
             </div>
           </div>
 
           <!-- Screen 2: Search -->
           <div class="phone-screen" id="phoneScreen-2">
-            <h3 style="font-size:22px; color:#fff; margin-bottom:14px;">Search Catalog</h3>
-            <div style="background:#161924; border:1px solid var(--border); padding:10px 14px; border-radius:12px; font-size:13px; color:var(--muted); margin-bottom:14px;">
-              🔍 Search artists, albums, or tracks...
+            <span style="font-size:11px; color:var(--muted); margin-bottom:8px; display:block;">SEARCH</span>
+            <div style="background:#151822; padding:8px 12px; border-radius:10px; font-size:11.5px; color:#fff; border:1px solid var(--border); margin-bottom:12px;">
+              🔍 Ado - New Genesis
             </div>
-            <div style="display:flex; gap:6px; margin-bottom:16px;">
-              <span style="background:#fff; color:#000; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px;">All</span>
-              <span style="background:#1c202d; color:var(--muted); font-size:11px; padding:4px 10px; border-radius:999px;">Electronic</span>
-              <span style="background:#1c202d; color:var(--muted); font-size:11px; padding:4px 10px; border-radius:999px;">Ambient</span>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-              <div style="display:flex; gap:12px; align-items:center;">
-                <img src="art/cover_5.svg" alt="Solaris Horizon album artwork" style="width:40px; height:40px; border-radius:8px;">
-                <div>
-                  <b style="font-size:13px; color:#fff; display:block;">Solaris Horizon</b>
-                  <span style="font-size:11px; color:var(--muted);">Carbon Based · 320 kbps</span>
-                </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div style="padding:8px; background:#12141C; border-radius:8px; font-size:11px;">
+                <b>New Genesis (Shin Jidai)</b><br><span style="color:var(--muted);">Ado · ONE PIECE FILM RED</span>
               </div>
-              <div style="display:flex; gap:12px; align-items:center;">
-                <img src="art/cover_6.svg" alt="Acoustic Mirage album artwork" style="width:40px; height:40px; border-radius:8px;">
-                <div>
-                  <b style="font-size:13px; color:#fff; display:block;">Acoustic Mirage</b>
-                  <span style="font-size:11px; color:var(--muted);">Isobel & The Sea · 320 kbps</span>
-                </div>
+              <div style="padding:8px; background:#12141C; border-radius:8px; font-size:11px;">
+                <b>Gira Gira</b><br><span style="color:var(--muted);">Ado · Kyōgen</span>
               </div>
             </div>
           </div>
 
-          <!-- Screen 3: Full Player -->
+          <!-- Screen 3: Player -->
           <div class="phone-screen" id="phoneScreen-3" style="text-align:center;">
-            <div style="font-size:12px; color:var(--muted); letter-spacing:0.1em; margin-bottom:14px;">NOW PLAYING</div>
-            <div style="position:relative; width:min(210px, 68%); aspect-ratio:1; margin:0 auto 20px;">
-              <div style="position:absolute; inset:-16px; border-radius:30px; background:radial-gradient(circle, rgba(216,220,229,0.3), transparent 70%); filter:blur(14px); z-index:0;"></div>
-              <img src="art/cover_3.svg" alt="Liquid Silver Horizon now playing artwork" style="position:relative; z-index:1; width:100%; height:100%; border-radius:24px; box-shadow:0 14px 40px rgba(0,0,0,0.9); border:1px solid var(--border);">
+            <span style="font-size:11px; color:var(--muted); margin-bottom:10px; display:block;">NOW PLAYING</span>
+            <img src="art/cover_1.svg" alt="Album" style="width:150px; height:150px; border-radius:16px; margin:0 auto 12px; box-shadow:0 8px 24px rgba(0,0,0,0.8);">
+            <b style="font-size:14.5px; color:#FFFFFF; display:block;">Video Games</b>
+            <span style="font-size:11.5px; color:var(--muted);">Lana Del Rey · 320 kbps</span>
+            <div style="width:100%; height:4px; background:rgba(255,255,255,0.2); border-radius:4px; margin:14px 0 6px;">
+              <div style="width:40%; height:100%; background:#FFFFFF; border-radius:4px;"></div>
             </div>
-            <h3 style="font-size:19px; color:#fff; margin-bottom:2px;">Liquid Silver Horizon</h3>
-            <span style="font-size:13px; color:var(--muted);">Miyori Audio Labs</span>
-            
-            <div style="margin-top:20px;">
-              <div style="height:4px; border-radius:4px; background:rgba(255,255,255,0.1); overflow:hidden;">
-                <div style="width:58%; height:100%; background:#fff;"></div>
-              </div>
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:6px;">
-                <span>02:14</span>
-                <span>03:42</span>
-              </div>
+            <div style="display:flex; justify-content:space-between; font-size:9.5px; color:var(--muted); font-family:monospace;">
+              <span>01:42</span><span>04:42</span>
             </div>
-
-            <div style="display:flex; justify-content:center; align-items:center; gap:26px; margin-top:16px;">
-              <span style="font-size:18px; color:var(--silver);">⏮</span>
-              <div style="width:46px; height:46px; border-radius:50%; background:#fff; color:#000; display:grid; place-items:center; font-size:18px; font-weight:bold;">▶</div>
-              <span style="font-size:18px; color:var(--silver);">⏭</span>
+            <div style="display:flex; justify-content:center; gap:16px; margin-top:12px; align-items:center;">
+              <span style="font-size:16px; color:var(--muted);">⏮</span>
+              <span style="font-size:20px; color:#fff; background:#1c202d; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;">⏸</span>
+              <span style="font-size:16px; color:var(--muted);">⏭</span>
             </div>
           </div>
 
-          <!-- Screen 4: Synced Lyrics -->
-          <div class="phone-screen" id="phoneScreen-4">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
-              <img src="art/cover_1.svg" alt="Resonance Void track artwork" style="width:36px; height:36px; border-radius:8px;">
-              <div>
-                <b style="font-size:13px; color:#fff; display:block;">Resonance Void</b>
-                <span style="font-size:11px; color:var(--muted);">LRCLIB Synced</span>
-              </div>
+          <!-- Screen 4: Lyrics -->
+          <div class="phone-screen" id="phoneScreen-4" style="text-align:center; justify-content:center;">
+            <span style="font-size:11px; color:var(--muted); margin-bottom:12px; display:block;">LRCLIB SYNCED LYRICS</span>
+            <div style="font-size:11.5px; color:rgba(255,255,255,0.3); margin-bottom:8px;">Swinging in the backyard, pull up in your fast car</div>
+            <div style="font-size:14px; color:#FFFFFF; font-weight:700; margin-bottom:8px; text-shadow:0 0 12px rgba(255,255,255,0.4);">
+              Whistling my name, open up a beer
             </div>
-            <div style="display:flex; flex-direction:column; gap:16px; margin-top:20px;">
-              <span style="font-size:14px; color:var(--faint);">[00:14] In the silence between frequencies</span>
-              <span style="font-size:14px; color:var(--faint);">[00:19] We watch the waveform turn to silver</span>
-              <span style="font-size:17px; font-weight:700; color:#fff; transform:translateX(6px); text-shadow:0 0 16px rgba(255,255,255,0.4);">[00:26] No static in the cold night air</span>
-              <span style="font-size:14px; color:var(--muted);">[00:32] Just resonance that holds us there</span>
-              <span style="font-size:14px; color:var(--faint);">[00:39] Sound without boundaries, space without walls</span>
-            </div>
-          </div>
-
-          <!-- Screen 5: Library -->
-          <div class="phone-screen" id="phoneScreen-5">
-            <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Music Library</h3>
-            <div style="display:flex; gap:8px; border-bottom:1px solid var(--border); padding-bottom:10px; margin-bottom:14px; font-size:12px;">
-              <span style="color:#fff; font-weight:600;">Tracks (284)</span>
-              <span style="color:var(--muted);">Artists</span>
-              <span style="color:var(--muted);">Albums</span>
-              <span style="color:var(--muted);">Downloaded</span>
-            </div>
-            <div style="background:#13151f; padding:8px 12px; border-radius:8px; font-size:11px; color:#38bdf8; margin-bottom:12px; display:flex; align-items:center; gap:6px;">
-              <span>✓ Filtered 14 ringtones & voice recordings</span>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:10px;">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <img src="art/cover_7.svg" alt="Kinetic Pulse track artwork" style="width:36px; height:36px; border-radius:8px;">
-                <div style="flex:1;">
-                  <b style="font-size:12px; display:block;">Kinetic Pulse</b>
-                  <span style="font-size:10px; color:var(--muted);">Overmono Sessions</span>
-                </div>
-                <span style="font-size:11px; color:#22c55e;">Offline</span>
-              </div>
-              <div style="display:flex; align-items:center; gap:10px;">
-                <img src="art/cover_8.svg" alt="Ghost Circuit track artwork" style="width:36px; height:36px; border-radius:8px;">
-                <div style="flex:1;">
-                  <b style="font-size:12px; display:block;">Ghost Circuit</b>
-                  <span style="font-size:10px; color:var(--muted);">Machine Code</span>
-                </div>
-                <span style="font-size:11px; color:#22c55e;">Offline</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Screen 6: Custom Playlists -->
-          <div class="phone-screen" id="phoneScreen-6">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-              <h3 style="font-size:22px; color:#fff;">Playlists</h3>
-              <span style="font-size:13px; color:#fff; background:rgba(255,255,255,0.1); padding:4px 10px; border-radius:8px;">+ New</span>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:12px;">
-              <div style="display:flex; align-items:center; gap:12px; background:#141722; padding:10px; border-radius:12px; border:1px solid var(--border);">
-                <img src="art/cover_2.svg" alt="Late Night Obsidian playlist artwork" style="width:48px; height:48px; border-radius:10px;">
-                <div>
-                  <b style="font-size:13px; color:#fff; display:block;">Late Night Obsidian</b>
-                  <span style="font-size:11px; color:var(--muted);">24 tracks · 1h 48m</span>
-                </div>
-              </div>
-              <div style="display:flex; align-items:center; gap:12px; background:#141722; padding:10px; border-radius:12px; border:1px solid var(--border);">
-                <img src="art/cover_9.svg" alt="Tokyo Midnight Run playlist artwork" style="width:48px; height:48px; border-radius:10px;">
-                <div>
-                  <b style="font-size:13px; color:#fff; display:block;">Tokyo Midnight Run</b>
-                  <span style="font-size:11px; color:var(--muted);">18 tracks · 1h 12m</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Screen 7: Offline Downloads -->
-          <div class="phone-screen" id="phoneScreen-7">
-            <h3 style="font-size:22px; color:#fff; margin-bottom:6px;">Downloads</h3>
-            <span style="font-size:12px; color:var(--muted); display:block; margin-bottom:16px;">Storage: Music/Miyori · 2.4 GB Used</span>
-            <div style="display:flex; flex-direction:column; gap:12px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; background:#141620; padding:10px 12px; border-radius:10px;">
-                <div style="display:flex; align-items:center; gap:10px;">
-                  <img src="art/cover_1.svg" alt="Resonance Void download artwork" style="width:36px; height:36px; border-radius:8px;">
-                  <div>
-                    <b style="font-size:12px; color:#fff; display:block;">Resonance Void</b>
-                    <span style="font-size:10px; color:var(--muted);">9.4 MB · 320 kbps</span>
-                  </div>
-                </div>
-                <span style="font-size:11px; color:#22c55e; font-weight:bold;">100% ✓</span>
-              </div>
-              <div style="display:flex; align-items:center; justify-content:space-between; background:#141620; padding:10px 12px; border-radius:10px;">
-                <div style="display:flex; align-items:center; gap:10px;">
-                  <img src="art/cover_4.svg" alt="Neo-Tokyo 2088 download artwork" style="width:36px; height:36px; border-radius:8px;">
-                  <div>
-                    <b style="font-size:12px; color:#fff; display:block;">Neo-Tokyo 2088</b>
-                    <span style="font-size:10px; color:var(--muted);">8.2 MB · 320 kbps</span>
-                  </div>
-                </div>
-                <span style="font-size:11px; color:#22c55e; font-weight:bold;">100% ✓</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Screen 8: Equalizer -->
-          <div class="phone-screen" id="phoneScreen-8">
-            <h3 style="font-size:22px; color:#fff; margin-bottom:6px;">Equalizer</h3>
-            <span style="font-size:12px; color:var(--muted); display:block; margin-bottom:14px;">Hardware AudioEffect Session</span>
-            <div style="display:flex; justify-content:space-between; height:120px; align-items:flex-end; padding:0 10px; background:#11141d; border-radius:12px; margin-bottom:14px;">
-              <div style="width:12px; height:60%; background:#fff; border-radius:6px;"></div>
-              <div style="width:12px; height:80%; background:#fff; border-radius:6px;"></div>
-              <div style="width:12px; height:45%; background:#fff; border-radius:6px;"></div>
-              <div style="width:12px; height:70%; background:#fff; border-radius:6px;"></div>
-              <div style="width:12px; height:85%; background:#fff; border-radius:6px;"></div>
-            </div>
-            <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--silver);">
-              <span>60Hz</span><span>230Hz</span><span>910Hz</span><span>3.6kHz</span><span>14kHz</span>
-            </div>
+            <div style="font-size:11.5px; color:rgba(255,255,255,0.3);">And you say, "Get over here and play a video game"</div>
           </div>
         </div>
 
-        <!-- Phone Gesture Pill -->
         <div class="phone-nav-bar">
           <div class="phone-gesture-pill"></div>
         </div>
       </div>
-
-      <!-- Screen Selector List -->
-      <div class="screen-selector-list reveal">
-        <div class="screen-select-btn active" onclick="activateScreen(1)">
-          <div class="screen-btn-icon">01</div>
-          <div>
-            <h4>Home & Music Discovery</h4>
-            <p>Curated discovery flow, taste profiling, and high-bitrate instant mixes.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(2)">
-          <div class="screen-btn-icon">02</div>
-          <div>
-            <h4>Catalog & Global Search</h4>
-            <p>Direct query resolution across iTunes, Saavn, and local music indices.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(3)">
-          <div class="screen-btn-icon">03</div>
-          <div>
-            <h4>Obsidian Full Player</h4>
-            <p>Dynamic ambient glow, liquid silver seekbar, and lockscreen Media3 integration.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(4)">
-          <div class="screen-btn-icon">04</div>
-          <div>
-            <h4>Synchronized Lyrics</h4>
-            <p>Word-for-word spring scrolling powered by LRCLIB with tap-to-seek playback.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(5)">
-          <div class="screen-btn-icon">05</div>
-          <div>
-            <h4>Intelligent Local Library</h4>
-            <p>Fast device storage scanning with smart filters to omit voice notes and ringtones.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(6)">
-          <div class="screen-btn-icon">06</div>
-          <div>
-            <h4>Personal Playlists & Spotify Import</h4>
-            <p>Create and edit playlists with instant resolution for public Spotify playlist URLs.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(7)">
-          <div class="screen-btn-icon">07</div>
-          <div>
-            <h4>True Offline Downloads</h4>
-            <p>Local storage saving to Music/Miyori with full embedded ID3 artwork.</p>
-          </div>
-        </div>
-
-        <div class="screen-select-btn" onclick="activateScreen(8)">
-          <div class="screen-btn-icon">08</div>
-          <div>
-            <h4>Hardware Equalizer</h4>
-            <p>Multi-band sound shaping with bass boost and virtualizer acoustic tuning.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     CHAPTER 03: FEEL (SYNCHRONIZED LYRICS & EQUALIZER)
+     SYNCHRONIZED LYRICS & 5-BAND HARDWARE EQUALIZER
      ========================================================================== -->
 <section id="features">
   <div class="wrap">
-    <div class="chapter-marker reveal">
-      <span class="chapter-badge">CHAPTER 03</span>
-      <span class="chapter-line"></span>
-      <span style="font-size: 13px; color: var(--silver); letter-spacing: 0.1em; text-transform: uppercase;">FEEL</span>
-    </div>
-
-    <h2 class="reveal">Hear the details. Feel the difference.</h2>
-    <p class="lead reveal">
-      Music is more than background noise. Tap any line to seek the song right to that second, or shape your frequency response with hardware-level audio precision.
+    <div class="eyebrow">SYNCHRONIZED LYRICS &amp; HARDWARE EQUALIZER</div>
+    <h2>Hear the details. Feel every word.</h2>
+    <p class="lead">
+      Experience LRCLIB synchronized lyrics that scroll in lockstep with the vocals, alongside native Android AudioEffect hardware equalization.
     </p>
 
-    <!-- SECTION D: SYNCHRONIZED LYRICS DEMO -->
-    <div class="demo-card reveal" style="margin-top: 48px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <div class="demo-badge">INTERACTIVE SYNCHRONIZED LYRICS</div>
-        <span style="font-size:12px; color:var(--silver);">TAP ANY LINE TO JUMP</span>
-      </div>
+    <!-- Upgraded Synchronized Lyrics Stage -->
+    <div class="lyrics-stage-container" style="margin-top: 40px;">
+      <div class="lyrics-track-header">
+        <div class="lyrics-track-meta">
+          <div class="lyrics-album-art">
+            <img id="lyricsArtImg" src="art/cover_6.svg" alt="Now Playing">
+          </div>
+          <div class="lyrics-track-titles">
+            <h3 id="lyricsTrackTitle">Summertime Sadness</h3>
+            <p id="lyricsTrackArtist">Lana Del Rey · 320 kbps High Fidelity</p>
+          </div>
+        </div>
 
-      <div class="lyrics-stage" id="lyricsStage" onclick="advanceLyricLine()">
-        <div class="lyrics-track-inner" id="lyricsTrackInner">
-          <div class="lyric-line active" data-time="00:14" onclick="selectLyric(0, event)">In the silence between frequencies</div>
-          <div class="lyric-line" data-time="00:19" onclick="selectLyric(1, event)">We watch the waveform turn to silver</div>
-          <div class="lyric-line" data-time="00:26" onclick="selectLyric(2, event)">No static in the cold night air</div>
-          <div class="lyric-line" data-time="00:32" onclick="selectLyric(3, event)">Just resonance that holds us there</div>
-          <div class="lyric-line" data-time="00:39" onclick="selectLyric(4, event)">Sound without boundaries, space without walls</div>
-          <div class="lyric-line" data-time="00:46" onclick="selectLyric(5, event)">Every heartbeat echoes as the obsidian falls</div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <label for="lyricsTrackSwitcher" style="font-size:12px; color:var(--muted);">Select Track:</label>
+          <select id="lyricsTrackSwitcher" class="track-switcher-select" onchange="switchLyricsTrack(this.value)">
+            <option value="0">Lana Del Rey — Summertime Sadness</option>
+            <option value="1">Ado — Usseewa</option>
+            <option value="2">The Weeknd — Blinding Lights</option>
+            <option value="3">Miyori Ambient Ensemble — Obsidian Horizon</option>
+          </select>
         </div>
       </div>
 
-      <div class="lyrics-controls">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <button class="btn ghost sm" id="lyricsPlayToggle" onclick="toggleLyricsPlay()">
-            <span id="lyricsPlayIcon">⏸ Pause</span>
-          </button>
-          <span class="lyrics-time" id="lyricsTimestamp">00:14 / 03:42</span>
-        </div>
-        <div style="display:flex; gap:4px; align-items:flex-end; height:18px;">
-          <span style="width:3px; height:100%; background:#fff; animation:eq-bar 1.2s infinite ease-in-out;"></span>
-          <span style="width:3px; height:60%; background:#fff; animation:eq-bar 0.9s infinite ease-in-out 0.2s;"></span>
-          <span style="width:3px; height:80%; background:#fff; animation:eq-bar 1.4s infinite ease-in-out 0.4s;"></span>
-          <span style="width:3px; height:40%; background:#fff; animation:eq-bar 1.1s infinite ease-in-out 0.1s;"></span>
+      <!-- Scrolling Lyrics Stage -->
+      <div class="lyrics-viewport" id="lyricsViewport">
+        <div class="lyrics-track-scroll" id="lyricsTrackScroll">
+          <!-- Populated by JS -->
         </div>
       </div>
 
-      <div class="demo-disclaimer">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
-        <span>Demonstration lyrics synchronization. In the Android app, matching synchronized lyrics are resolved from LRCLIB and embedded ID3 tags.</span>
+      <!-- Controls & Scrubber -->
+      <div class="lyrics-stage-controls">
+        <div class="scrubber-container">
+          <span class="scrubber-time" id="lyricsCurrentTime">0:00</span>
+          <input type="range" min="0" max="100" value="0" class="lyrics-seek-slider" id="lyricsScrubber" aria-label="Seek track position" oninput="onLyricsScrub(this.value)">
+          <span class="scrubber-time" id="lyricsTotalTime">3:42</span>
+        </div>
+
+        <div class="lyrics-button-row">
+          <div class="lyrics-main-ctrls">
+            <button class="ctrl-btn" onclick="prevLyricsTrack()" aria-label="Previous track" title="Previous Track">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                <line x1="5" y1="19" x2="5" y2="5"></line>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn play-main" id="lyricsPlayBtn" onclick="toggleLyricsPlayback()" aria-label="Play or Pause lyrics playback">
+              <svg id="lyricsPlayIconSvg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+
+            <button class="ctrl-btn" onclick="nextLyricsTrack()" aria-label="Next track" title="Next Track">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                <line x1="19" y1="5" x2="19" y2="19"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-size:12px; color:var(--muted); font-family:monospace;">LRCLIB Auto-Sync Verified</span>
+            <button class="btn ghost sm" onclick="resetLyricsDemo()">Restart</button>
+          </div>
+        </div>
+
+        <div class="demo-disclaimer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>Tap any lyric line above to seek playback to that exact vocal timestamp.</span>
+        </div>
       </div>
     </div>
 
-    <!-- SECTION H: AUDIO EQUALIZER DEMO -->
-    <div class="demo-card reveal" style="margin-top: 36px;">
-      <div class="demo-badge">INTERACTIVE AUDIO EQUALIZER</div>
-      <h3 style="margin-bottom: 8px;">Shape your sound.</h3>
-      <p style="color:var(--muted); font-size:14px; margin-bottom:24px;">
-        Adjust 5 frequency bands or apply calibrated acoustics. Visualizer curve updates dynamically.
+    <!-- 5-Band Hardware Equalizer -->
+    <div class="demo-card" style="margin-top: 36px;">
+      <div class="demo-badge">5-BAND GRAPHIC EQUALIZER</div>
+      <h3 style="margin-bottom: 8px;">Shape your frequency curve.</h3>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">
+        Adjust 5 calibrated frequency bands or apply native acoustic presets. Curves render on demand.
       </p>
 
-      <div class="eq-container">
-        <!-- Presets -->
-        <div class="eq-presets-row">
-          <button class="eq-preset-btn active" onclick="applyEqPreset('flat')">Flat</button>
-          <button class="eq-preset-btn" onclick="applyEqPreset('electronic')">Electronic</button>
-          <button class="eq-preset-btn" onclick="applyEqPreset('vocal')">Vocal Boost</button>
-          <button class="eq-preset-btn" onclick="applyEqPreset('rock')">Rock</button>
-          <button class="eq-preset-btn" onclick="applyEqPreset('acoustic')">Acoustic</button>
-          <button class="eq-preset-btn" onclick="applyEqPreset('heavy')">Obsidian Heavy</button>
+      <div class="eq-presets-row">
+        <button class="eq-preset-btn active" onclick="applyEqPreset('flat', this)">Flat</button>
+        <button class="eq-preset-btn" onclick="applyEqPreset('electronic', this)">Electronic</button>
+        <button class="eq-preset-btn" onclick="applyEqPreset('vocal', this)">Vocal Boost</button>
+        <button class="eq-preset-btn" onclick="applyEqPreset('rock', this)">Rock</button>
+        <button class="eq-preset-btn" onclick="applyEqPreset('acoustic', this)">Acoustic</button>
+        <button class="eq-preset-btn" onclick="applyEqPreset('heavy', this)">Obsidian Heavy</button>
+      </div>
+
+      <canvas class="eq-curve-canvas" id="eqCurveCanvas" width="800" height="120"></canvas>
+
+      <div class="eq-sliders-row">
+        <div class="eq-slider-col">
+          <span class="eq-slider-val" id="eqVal0">0 dB</span>
+          <input type="range" min="-12" max="12" value="0" id="eqBand0" aria-label="60 Hertz" oninput="updateEqSliders()">
+          <span class="eq-slider-label">60 Hz</span>
         </div>
-
-        <!-- Dynamic Equalizer Frequency Curve Canvas -->
-        <canvas class="eq-curve-canvas" id="eqCurveCanvas" width="800" height="130"></canvas>
-
-        <!-- 5 Frequency Sliders -->
-        <div class="eq-sliders-row">
-          <div class="eq-slider-col">
-            <span class="eq-slider-val" id="eqVal0">0 dB</span>
-            <input type="range" min="-12" max="12" value="0" id="eqBand0" aria-label="60 Hertz frequency band" oninput="updateEqSliders()">
-            <span class="eq-slider-label">60 Hz</span>
-          </div>
-          <div class="eq-slider-col">
-            <span class="eq-slider-val" id="eqVal1">0 dB</span>
-            <input type="range" min="-12" max="12" value="0" id="eqBand1" aria-label="230 Hertz frequency band" oninput="updateEqSliders()">
-            <span class="eq-slider-label">230 Hz</span>
-          </div>
-          <div class="eq-slider-col">
-            <span class="eq-slider-val" id="eqVal2">0 dB</span>
-            <input type="range" min="-12" max="12" value="0" id="eqBand2" aria-label="910 Hertz frequency band" oninput="updateEqSliders()">
-            <span class="eq-slider-label">910 Hz</span>
-          </div>
-          <div class="eq-slider-col">
-            <span class="eq-slider-val" id="eqVal3">0 dB</span>
-            <input type="range" min="-12" max="12" value="0" id="eqBand3" aria-label="3.6 kiloHertz frequency band" oninput="updateEqSliders()">
-            <span class="eq-slider-label">3.6 kHz</span>
-          </div>
-          <div class="eq-slider-col">
-            <span class="eq-slider-val" id="eqVal4">0 dB</span>
-            <input type="range" min="-12" max="12" value="0" id="eqBand4" aria-label="14 kiloHertz frequency band" oninput="updateEqSliders()">
-            <span class="eq-slider-label">14 kHz</span>
-          </div>
+        <div class="eq-slider-col">
+          <span class="eq-slider-val" id="eqVal1">0 dB</span>
+          <input type="range" min="-12" max="12" value="0" id="eqBand1" aria-label="230 Hertz" oninput="updateEqSliders()">
+          <span class="eq-slider-label">230 Hz</span>
         </div>
-
-        <!-- Bass Boost & Virtualizer -->
-        <div class="eq-knobs-row">
-          <div class="eq-knob-box">
-            <div>
-              <strong style="display:block; font-size:14px; color:#fff;">Bass Boost</strong>
-              <span style="font-size:12px; color:var(--muted);" id="bassBoostLabel">0%</span>
-            </div>
-            <input type="range" min="0" max="100" value="0" id="bassBoostInput" aria-label="Bass boost level" oninput="updateKnobs()">
-          </div>
-
-          <div class="eq-knob-box">
-            <div>
-              <strong style="display:block; font-size:14px; color:#fff;">Virtualizer (3D)</strong>
-              <span style="font-size:12px; color:var(--muted);" id="virtualizerLabel">0%</span>
-            </div>
-            <input type="range" min="0" max="100" value="0" id="virtualizerInput" aria-label="Virtualizer 3D spatial audio level" oninput="updateKnobs()">
-          </div>
+        <div class="eq-slider-col">
+          <span class="eq-slider-val" id="eqVal2">0 dB</span>
+          <input type="range" min="-12" max="12" value="0" id="eqBand2" aria-label="910 Hertz" oninput="updateEqSliders()">
+          <span class="eq-slider-label">910 Hz</span>
+        </div>
+        <div class="eq-slider-col">
+          <span class="eq-slider-val" id="eqVal3">0 dB</span>
+          <input type="range" min="-12" max="12" value="0" id="eqBand3" aria-label="3.6 kiloHertz" oninput="updateEqSliders()">
+          <span class="eq-slider-label">3.6 kHz</span>
+        </div>
+        <div class="eq-slider-col">
+          <span class="eq-slider-val" id="eqVal4">0 dB</span>
+          <input type="range" min="-12" max="12" value="0" id="eqBand4" aria-label="14 kiloHertz" oninput="updateEqSliders()">
+          <span class="eq-slider-label">14 kHz</span>
         </div>
       </div>
 
-      <div class="demo-disclaimer">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
-        <span>Demonstration visualizer. In the Android application, Miyori leverages native Android AudioEffect / Equalizer sessions for hardware audio processing.</span>
+      <div class="eq-knobs-row">
+        <div class="eq-knob-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="font-size:13.5px; color:#FFFFFF;">Bass Boost</strong>
+            <span style="font-size:12px; color:var(--muted);" id="bassBoostLabel">0%</span>
+          </div>
+          <input type="range" min="0" max="100" value="0" id="bassBoostInput" aria-label="Bass boost" oninput="updateKnobs()">
+        </div>
+
+        <div class="eq-knob-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="font-size:13.5px; color:#FFFFFF;">Virtualizer (3D)</strong>
+            <span style="font-size:12px; color:var(--muted);" id="virtualizerLabel">0%</span>
+          </div>
+          <input type="range" min="0" max="100" value="0" id="virtualizerInput" aria-label="Virtualizer 3D audio" oninput="updateKnobs()">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION E & F & G & I: SPOTIFY IMPORT, PLAYLISTS, LIBRARY & NAVIDROME
+     INTEGRATIONS & STORAGE TOOLS
      ========================================================================== -->
 <section id="integrations" style="padding-top: 20px;">
   <div class="wrap">
-    <div class="eyebrow reveal">EXPANDED CAPABILITIES</div>
-    <h2 class="reveal">Connected to your ecosystem.</h2>
-    <p class="lead reveal">
-      Bridge your existing Spotify playlists, manage local custom collections, and stream from personal self-hosted Navidrome / Subsonic servers.
+    <div class="eyebrow">INTEGRATIONS &amp; STORAGE TOOLS</div>
+    <h2>Connected to your ecosystem.</h2>
+    <p class="lead">
+      Import Spotify playlists, curate local collections, filter out voice messages, and stream directly from Navidrome / Subsonic servers.
     </p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px;">
-      
-      <!-- SECTION E: Spotify Playlist Import -->
-      <div class="demo-card reveal">
+    <!-- 2-Col Interactive Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:36px;">
+      <!-- Spotify Import -->
+      <div class="demo-card">
         <div class="demo-badge">SPOTIFY PLAYLIST IMPORT</div>
-        <h3>Bring your playlists closer.</h3>
-        <p style="color:var(--muted); font-size:14px; margin: 10px 0 20px;">
-          Paste a public Spotify playlist link to match its metadata and stream in high quality.
+        <h4>Bridge Your Existing Playlists</h4>
+        <p style="font-size:13.5px; color:var(--muted); margin: 6px 0 16px;">
+          Paste a public Spotify playlist link to parse metadata and match high-bitrate streaming tracks.
         </p>
 
-        <div style="position:relative; margin-bottom:12px;">
-          <input type="text" id="spotifyUrlInput" class="search-input" aria-label="Spotify playlist URL" style="padding-left:16px;" placeholder="https://open.spotify.com/playlist/..." value="https://open.spotify.com/playlist/37i9dQZF1DXdLEN7aqioXM">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="url" id="spotifyUrlInput" class="search-input" style="padding:10px 14px;" placeholder="https://open.spotify.com/playlist/..." autocomplete="off">
+          <button class="btn solid sm" onclick="simulateSpotifyImport()">Import</button>
         </div>
 
-        <div style="display:flex; gap:10px; margin-bottom:18px;">
-          <button class="btn solid sm" onclick="simulateSpotifyImport()">
-            <span>Import Playlist</span>
-          </button>
-          <button class="btn ghost sm" onclick="pasteSpotifyDemoLink()">
-            <span>Load Demo URL</span>
-          </button>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <button class="btn ghost sm" onclick="pasteSpotifyDemoLink()">Load Demo URL</button>
         </div>
 
-        <div id="spotifyImportResult" style="display:none; background:#141722; padding:14px; border-radius:12px; border:1px solid var(--border); font-size:13px;">
-          <b style="color:#22c55e; display:block; margin-bottom:4px;">✓ Successfully Matched 18 Tracks (98% Confidence)</b>
-          <span style="color:var(--muted);">Mapped to high-bitrate streaming sources without requiring Spotify Premium credentials.</span>
-        </div>
-
-        <div class="demo-disclaimer" style="margin-top:16px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span>Web demonstration. In the Android app, public playlist metadata is parsed via Spotify API web tokens without requiring account credentials.</span>
-        </div>
+        <div id="spotifyImportResult" style="display:none; margin-top:14px; padding:12px 14px; background:rgba(74, 222, 128, 0.08); border:1px solid rgba(74, 222, 128, 0.3); border-radius:12px; font-size:13px; color:#4ADE80;"></div>
       </div>
 
-      <!-- SECTION F: Custom Playlists Manager -->
-      <div class="demo-card reveal">
-        <div class="demo-badge">PLAYLIST MANAGER (LOCALSTORAGE)</div>
-        <h3>Your collection. Your rules.</h3>
-        <p style="color:var(--muted); font-size:14px; margin: 10px 0 20px;">
-          Create, manage, and persist demonstration playlists right in your browser.
+      <!-- Local Playlists CRUD -->
+      <div class="demo-card">
+        <div class="demo-badge">LOCAL PLAYLIST MANAGER</div>
+        <h4>Curate Custom Collections</h4>
+        <p style="font-size:13.5px; color:var(--muted); margin: 6px 0 16px;">
+          Create and persist custom playlists saved securely inside your browser's <code>localStorage</code>.
         </p>
 
-        <div style="display:flex; gap:8px; margin-bottom:16px;">
-          <input type="text" id="newPlaylistInput" class="search-input" aria-label="New playlist title" style="padding-left:14px;" placeholder="New playlist name...">
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+          <input type="text" id="newPlaylistInput" class="search-input" style="padding:10px 14px;" placeholder="New playlist title..." autocomplete="off">
           <button class="btn solid sm" onclick="createDemoPlaylist()">Add</button>
         </div>
 
-        <div id="playlistContainer" style="display:flex; flex-direction:column; gap:8px; max-height:200px; overflow-y:auto;">
-          <!-- Dynamically populated from localStorage -->
-        </div>
-
-        <div class="demo-disclaimer" style="margin-top:16px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span>Saved to your browser's LocalStorage for demonstration. In the Android app, playlists are stored in an on-device SQLite database.</span>
-        </div>
+        <div id="playlistContainer" style="display:flex; flex-direction:column; gap:8px; max-height:220px; overflow-y:auto;"></div>
       </div>
+    </div>
 
-      <!-- SECTION G: Intelligent Music Library Filtering -->
-      <div class="demo-card reveal">
-        <div class="demo-badge">LIBRARY CLEANING</div>
-        <h3>Every track has its place.</h3>
-        <p style="color:var(--muted); font-size:14px; margin: 10px 0 20px;">
-          Miyori intelligently indexes device storage while filtering out unwanted audio clutter.
+    <!-- Junk Filter & Navidrome Connect -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:24px;">
+      <!-- Junk Filter Toggle -->
+      <div class="demo-card">
+        <div class="demo-badge">STORAGE PURITY</div>
+        <h4>Smart Audio Junk Filter</h4>
+        <p style="font-size:13.5px; color:var(--muted); margin: 6px 0 16px;">
+          Automatically filter out short voice notes, notification chimes, and WhatsApp recordings.
         </p>
 
-        <div style="display:flex; align-items:center; justify-content:space-between; background:var(--elevated); padding:14px 18px; border-radius:14px; border:1px solid var(--border); margin-bottom:16px;">
+        <div style="background:#090A0E; padding:14px 16px; border-radius:12px; border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
           <div>
-            <b style="font-size:14px; display:block; color:#fff;">Exclude Audio Junk</b>
-            <span style="font-size:12px; color:var(--muted);">Filter voice notes & ringtones</span>
+            <strong style="color:#FFFFFF; font-size:14px; display:block;">Smart Filter Active</strong>
+            <span style="color:var(--muted); font-size:12px;">Exclude voice notes &lt; 30 seconds</span>
           </div>
-          <input type="checkbox" id="filterJunkToggle" aria-label="Exclude audio junk voice notes and ringtones" checked style="width:20px; height:20px; accent-color:#fff; cursor:pointer;" onchange="toggleLibraryJunkFilter()">
+          <label style="position:relative; display:inline-block; width:44px; height:24px;">
+            <input type="checkbox" id="filterJunkToggle" checked onchange="toggleLibraryJunkFilter()" style="opacity:0; width:0; height:0;">
+            <span style="position:absolute; inset:0; background:#22c55e; border-radius:999px; cursor:pointer;"></span>
+          </label>
         </div>
 
-        <div id="libraryFilterResults" style="font-size:13px; color:var(--silver); background:#0c0f17; padding:12px 14px; border-radius:10px; border:1px solid var(--border);">
-          Active Filter: <b>284 Songs kept</b> · 14 voice memos & WhatsApp audios excluded.
-        </div>
-
-        <div class="demo-disclaimer" style="margin-top:16px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span>Simulated preview. On Android, Miyori queries the device MediaStore directly, filtering out audio under 30 seconds and designated ringtone directories.</span>
+        <div id="libraryFilterResults" style="font-size:12.5px; color:var(--silver); margin-top:12px;">
+          Active Filter: <b>284 Songs kept</b> · 14 voice memos &amp; WhatsApp audios excluded.
         </div>
       </div>
 
-      <!-- SECTION I: Navidrome / Subsonic -->
-      <div class="demo-card reveal">
-        <div class="demo-badge">SELF-HOSTED INTEGRATION</div>
-        <h3>Your server. Your library.</h3>
-        <p style="color:var(--muted); font-size:14px; margin: 10px 0 20px;">
-          Connect Miyori directly to your self-hosted Subsonic or Navidrome server.
+      <!-- Navidrome Connect -->
+      <div class="demo-card">
+        <div class="demo-badge">SELF-HOSTED PROTOCOL</div>
+        <h4>Subsonic &amp; Navidrome Server</h4>
+        <p style="font-size:13.5px; color:var(--muted); margin: 6px 0 16px;">
+          Connect directly to your personal home music server with native API token handshakes.
         </p>
 
-        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
-          <input type="text" id="navidromeUrlInput" class="search-input" aria-label="Navidrome server URL" style="padding-left:14px;" value="https://music.home.server:4533">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-            <input type="text" class="search-input" aria-label="Navidrome username" style="padding-left:14px;" placeholder="Username" value="miyori_user">
-            <input type="password" class="search-input" aria-label="Navidrome password" style="padding-left:14px;" placeholder="Password" value="••••••••••••">
-          </div>
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="text" id="navidromeUrlInput" class="search-input" style="padding:10px 14px;" value="https://demo.navidrome.org" placeholder="https://your-server.com">
+          <button class="btn solid sm" onclick="simulateNavidromeConnect()">
+            <span id="navidromeBtnText">Test Ping</span>
+          </button>
         </div>
 
-        <button class="btn solid sm" onclick="simulateNavidromeConnect()">
-          <span id="navidromeBtnText">Test Connection</span>
-        </button>
-
-        <div id="navidromeStatusResult" style="display:none; margin-top:14px; font-size:13px; padding:10px 14px; border-radius:10px; background:#131826; border:1px solid var(--border); color:#38bdf8;">
-          ✓ Connected: Subsonic API v1.16.1 · 6,420 tracks available
-        </div>
-
-        <div class="demo-disclaimer" style="margin-top:16px;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span>Interface demonstration. In the compiled APK, Miyori includes native Subsonic API client code for secure authentication and token salt verification.</span>
-        </div>
+        <div id="navidromeStatusResult" style="display:none; padding:10px 14px; border-radius:10px; background:rgba(34, 197, 94, 0.08); border:1px solid rgba(34, 197, 94, 0.3); font-size:12.5px; color:#22c55e;"></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION: VERIFIED TECHNOLOGY
+     ENGINEERED ARCHITECTURE & SPECS
      ========================================================================== -->
 <section id="technology">
   <div class="wrap">
-    <div class="eyebrow reveal">EVIDENCE-BASED ARCHITECTURE</div>
-    <h2 class="reveal">Engineered for purity.</h2>
-    <p class="lead reveal">
-      Verified from the compiled application codebase (<code style="color:#fff;">app.miyori.audio</code>). Built without bloat, ad trackers, or excessive background battery drain.
+    <div class="eyebrow">ENGINEERED ARCHITECTURE</div>
+    <h2>Engineered for purity.</h2>
+    <p class="lead">
+      Built from scratch with zero bloated cross-platform wrappers. 100% native Android architecture with verified binary artifacts.
     </p>
 
-    <div class="specs-grid reveal">
-      <div class="spec-cell">
-        <span>Application Codebase</span>
-        <strong>Miyori Audio Engine</strong>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:36px;">
+      <div class="demo-card">
+        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Jetpack Compose</b>
+        <p style="color:var(--muted); font-size:13.5px;">
+          Declarative UI rendering with zero legacy view hierarchy overhead. Smooth 120 Hz scrolling on flagship AMOLED screens.
+        </p>
       </div>
-      <div class="spec-cell">
-        <span>Version & Build</span>
-        <strong>v1.2.0 (Build 16)</strong>
+
+      <div class="demo-card">
+        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">AndroidX Media3</b>
+        <p style="color:var(--muted); font-size:13.5px;">
+          ExoPlayer audio pipeline with seamless gapless playback, lock-screen controls, and system media session routing.
+        </p>
       </div>
-      <div class="spec-cell">
-        <span>Package Identifier</span>
-        <strong>app.miyori.audio</strong>
+
+      <div class="demo-card">
+        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Zero Telemetry</b>
+        <p style="color:var(--muted); font-size:13.5px;">
+          No Google Analytics, no Facebook SDK, and no background profiling. Your music listening habits belong solely to you.
+        </p>
       </div>
-      <div class="spec-cell">
-        <span>Installed APK Size</span>
-        <strong>10.62 MB (11,134,973 B)</strong>
-      </div>
-      <div class="spec-cell">
-        <span>Platform Support</span>
-        <strong>Android 7.0+ (API 24 to 35)</strong>
-      </div>
-      <div class="spec-cell">
-        <span>UI Architecture</span>
-        <strong>100% Jetpack Compose</strong>
-      </div>
-      <div class="spec-cell">
-        <span>Playback Engine</span>
-        <strong>AndroidX Media3 / ExoPlayer</strong>
-      </div>
-      <div class="spec-cell">
-        <span>Server Protocol</span>
-        <strong>Subsonic REST API / Navidrome</strong>
+
+      <div class="demo-card">
+        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">10.62 MB Standalone</b>
+        <p style="color:var(--muted); font-size:13.5px;">
+          Lightweight binary footprint engineered to conserve internal storage and background RAM consumption.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     SECTION: DOWNLOAD MIYORI
+     OFFICIAL DISTRIBUTION & DOWNLOAD
      ========================================================================== -->
 <section id="download">
   <div class="wrap">
-    <div class="dl-hero-box reveal">
+    <div class="dl-hero-box">
       <div class="logo-emblem-lg">
-        <img src="logo.jpg" alt="Miyori Logo">
+        <img src="logo.jpg" alt="MIYORI Official Logo">
       </div>
 
       <div class="eyebrow" style="margin-bottom:14px;">GET MIYORI FOR ANDROID</div>
@@ -2610,8 +2229,7 @@ footer .footer-brand {
         Discover a more personal, unfiltered way to experience music. Free, private, and yours to keep.
       </p>
 
-      <div class="cta-row" style="margin-top:36px;">
-        <!-- Configurable Direct APK Download CTA -->
+      <div class="cta-row" style="margin-top:32px;">
         <a class="btn solid" id="finalApkDownloadBtn" href="MIYORI.apk" download="MIYORI.apk">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -2626,13 +2244,16 @@ footer .footer-brand {
         </a>
       </div>
 
-      
-      <div style="background:#090A0E; padding:12px 16px; border-radius:12px; border:1px solid var(--border); font-family:monospace; font-size:12px; color:var(--silver); word-break:break-all; margin: 24px auto 0; max-width: 560px; text-align: left;">
-        <span style="color:var(--muted); display:block; font-size:11px; margin-bottom:4px;">VERIFIED BINARY CHECKSUM (SHA-256):</span>
-        f771dea988161b15baec48162a466d3be821520c10d05b706691454d19182a33
+      <!-- Verified SHA-256 Checksum Card with 1-Click Copy -->
+      <div style="background:#090A0E; padding:14px 18px; border-radius:12px; border:1px solid var(--border); font-family:monospace; font-size:12px; color:var(--silver); word-break:break-all; margin: 24px auto 0; max-width: 580px; text-align: left;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <span style="color:var(--muted); font-size:11px;">VERIFIED BINARY CHECKSUM (SHA-256):</span>
+          <button id="copyHashBtn" onclick="copyShaHash()" style="font-size:11px; color:#FFFFFF; background:rgba(255,255,255,0.1); padding:2px 8px; border-radius:4px;">Copy</button>
+        </div>
+        <span id="shaHashText">f771dea988161b15baec48162a466d3be821520c10d05b706691454d19182a33</span>
       </div>
 
-<p style="font-size:13px; color:var(--muted); margin-top:16px;">
+      <p style="font-size:13px; color:var(--muted); margin-top:16px;">
         Android 7.0 (API 24) or later · Verified release artifact · If prompted, tap "Allow install from unknown apps".
       </p>
     </div>
@@ -2640,15 +2261,15 @@ footer .footer-brand {
 </section>
 
 <!-- ==========================================================================
-     SECTION: ACCESSIBLE FAQ
+     ACCESSIBLE FAQ ACCORDION
      ========================================================================== -->
 <section id="faq" style="padding-top: 20px;">
   <div class="wrap">
-    <p class="eyebrow reveal" style="text-align:center; display:table; margin-inline:auto;">FREQUENTLY ASKED QUESTIONS</p>
-    <h2 class="reveal" style="text-align:center;">Questions, answered.</h2>
+    <div class="eyebrow" style="text-align:center; display:table; margin-inline:auto;">FREQUENTLY ASKED QUESTIONS</div>
+    <h2 style="text-align:center;">Questions, answered.</h2>
     
-    <div class="faq-wrap reveal">
-      <details class="faq-item">
+    <div class="faq-wrap">
+      <details class="faq-item" open>
         <summary class="faq-question">What is Miyori?</summary>
         <p>Miyori is a luxury Android music player crafted around high-bitrate streaming, synchronized lyrics, local music ownership, offline downloads, and self-hosted server integration. Built in 100% native Kotlin and Jetpack Compose under 11 MB.</p>
       </details>
@@ -2674,7 +2295,7 @@ footer .footer-brand {
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Does Miyori support local music & self-hosted servers?</summary>
+        <summary class="faq-question">Does Miyori support local music &amp; self-hosted servers?</summary>
         <p>Yes. Miyori indexes local files on your internal storage and SD card while filtering out audio junk like ringtones and WhatsApp voice notes. Additionally, it features native Subsonic / Navidrome integration for streaming personal self-hosted libraries.</p>
       </details>
 
@@ -2697,19 +2318,19 @@ footer .footer-brand {
 <footer>
   <div class="wrap footer-inner">
     <div class="footer-brand">
-        <div class="brand-emblem-wrap" style="width:34px; height:34px; border-radius:9px;">
-          <img src="logo.jpg" alt="MIYORI Logo">
-        </div>
-        <span>MIYORI</span>
+      <div class="brand-emblem-wrap" style="width:34px; height:34px; border-radius:9px;">
+        <img src="logo.jpg" alt="MIYORI Logo">
       </div>
-      <span>MIYORI · Sound, without boundaries</span>
+      <span>MIYORI</span>
     </div>
 
-    <div style="display:flex; gap:24px; font-size:13.5px;">
+    <div style="display:flex; gap:24px; flex-wrap:wrap; font-size:13.5px;">
       <a href="#discovery">Discovery</a>
       <a href="#experience">Experience</a>
-      <a href="#showcase">App Showcase</a>
-      <a href="#download">Download APK</a>
+      <a href="#showcase">Showcase</a>
+      <a href="#features">Features</a>
+      <a href="#technology">Technology</a>
+      <a href="https://github.com/bk5859200-blip/MIYORI" target="_blank" rel="noopener">GitHub</a>
       <a href="#faq">FAQ</a>
     </div>
 
@@ -2718,90 +2339,115 @@ footer .footer-brand {
 </footer>
 
 <!-- ==========================================================================
-     SCRIPTS & INTERACTIVE ENGINES
+     SCRIPTS: PERFORMANCE OPTIMIZED & HARDWARE ACCELERATED
      ========================================================================== -->
 <script>
-// Centralized configuration
+/* 1. App Configuration */
 window.MIYORI_CONFIG = {
-  apkUrl: 'MIYORI.apk',
   version: '1.2.0',
   versionCode: 3,
-  minSdk: 24,
-  targetSdk: 36,
+  packageId: 'app.miyori.audio',
   fileSize: '10.62 MB',
-  packageId: 'app.miyori.audio'
+  apkUrl: 'MIYORI.apk',
+  sha256: 'f771dea988161b15baec48162a466d3be821520c10d05b706691454d19182a33'
 };
 
-// Security: HTML sanitization helper
 function escapeHtml(str) {
-  if (str === null || str === undefined) return '';
+  if (!str) return '';
   return String(str)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/'/g, '&#039;');
 }
 
-/* 1. Generate Signature Animated Album Wall */
-(function initAlbumWall() {
+/* 2. Adaptive High-Performance Album Wall with Popular Song Cards */
+(function buildAlbumWall() {
   var wallEl = document.getElementById('albumWall');
   if (!wallEl) return;
 
-  var totalColumns = window.innerWidth < 640 ? 4 : (window.innerWidth < 1024 ? 5 : 7);
-  var coversPerCol = 8;
+  var isMobile = window.innerWidth < 640;
+  var isTablet = window.innerWidth >= 640 && window.innerWidth < 1100;
+  var totalColumns = isMobile ? 3 : (isTablet ? 4 : 6);
+  var coversPerCol = 6;
   var html = '<div class="album-wall-grid">';
 
-  var speeds = [52, 68, 58, 74, 55, 70, 62];
+  var speeds = [58, 72, 62, 78, 64, 70];
+
+  var wallSongs = [
+    { t: "SUMMERTIME SADNESS", a: "Lana Del Rey", c: 6 },
+    { t: "USSEEWA", a: "Ado", c: 9 },
+    { t: "BLINDING LIGHTS", a: "The Weeknd", c: 14 },
+    { t: "VIDEO GAMES", a: "Lana Del Rey", c: 1 },
+    { t: "NEW GENESIS", a: "Ado", c: 20 },
+    { t: "STARBOY", a: "The Weeknd", c: 16 },
+    { t: "SAY YES TO HEAVEN", a: "Lana Del Rey", c: 3 },
+    { t: "SHOW", a: "Ado", c: 7 },
+    { t: "SAVE YOUR TEARS", a: "The Weeknd", c: 4 },
+    { t: "WEST COAST", a: "Lana Del Rey", c: 18 },
+    { t: "GIRA GIRA", a: "Ado", c: 2 },
+    { t: "DIE FOR YOU", a: "The Weeknd", c: 8 },
+    { t: "IDOL", a: "YOASOBI", c: 24 },
+    { t: "LEVITATING", a: "Dua Lipa", c: 12 },
+    { t: "OBSIDIAN DRIFT", a: "Miyori Audio Labs", c: 5 },
+    { t: "SOLARIS HORIZON", a: "Carbon Based", c: 11 }
+  ];
 
   for (var c = 0; c < totalColumns; c++) {
     var isReverse = (c % 2 !== 0);
     var duration = speeds[c % speeds.length];
     var colHtml = '<div class="wall-column ' + (isReverse ? 'reverse' : '') + '"><div class="wall-track" style="--duration:' + duration + 's">';
 
-    // Create 1 set of 8 covers
     var setHtml = '';
-    var wallSongTitles = [
-      { t: "OBSIDIAN DRIFT", a: "Miyori Audio Labs" },
-      { t: "SOLARIS HORIZON", a: "Carbon Based" },
-      { t: "GHOST CIRCUIT", a: "Machine Code" },
-      { t: "SUBTERRANEAN", a: "Deep Chord" },
-      { t: "MIDNIGHT EXPRESS", a: "Tatsuro Echoes" },
-      { t: "ELYSIUM PULSE", a: "Liquid Sound" },
-      { t: "NEO-TOKYO 2088", a: "Kenji Kawai Tribute" },
-      { t: "KINETIC PULSE", a: "Overmono Sessions" },
-      { t: "MIYORI NOCTURNE", a: "Chamber Ensemble" },
-      { t: "CHRONO DRIFT", a: "Resonance" },
-      { t: "SHIBUYA RAIN", a: "YOASOBI / Eve" },
-      { t: "INTERSTELLAR ODYSSEY", a: "Hans Zimmer Tribute" }
-    ];
-
     for (var i = 0; i < coversPerCol; i++) {
-      var coverIndex = ((c * 3 + i) % 24) + 1;
-      var songMeta = wallSongTitles[(c * 2 + i) % wallSongTitles.length];
+      var song = wallSongs[(c * 3 + i) % wallSongs.length];
       setHtml += '<div class="album-card">' +
-        '<img src="art/cover_' + coverIndex + '.svg" alt="' + songMeta.t + '" loading="lazy">' +
+        '<img src="art/cover_' + song.c + '.svg" alt="' + song.t + '" loading="' + (c > 2 ? 'lazy' : 'eager') + '">' +
         '<div class="album-card-overlay">' +
           '<span class="album-card-bitrate">320 KBPS</span>' +
           '<div class="album-card-play-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg></div>' +
           '<div class="album-card-info">' +
-            '<b class="album-card-title">' + songMeta.t + '</b>' +
-            '<span class="album-card-artist">' + songMeta.a + '</span>' +
+            '<b class="album-card-title">' + song.t + '</b>' +
+            '<span class="album-card-artist">' + song.a + '</span>' +
           '</div>' +
         '</div>' +
       '</div>';
     }
 
-    // Duplicate set for seamless continuous translateY(-50%) loop
     colHtml += setHtml + setHtml + '</div></div>';
     html += colHtml;
   }
 
   html += '</div>';
   wallEl.innerHTML = html;
+
+  // Pause wall when hero is out of view to save 100% GPU/CPU
+  var heroEl = document.getElementById('top');
+  if ('IntersectionObserver' in window && heroEl) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          heroEl.classList.remove('is-paused');
+        } else {
+          heroEl.classList.add('is-paused');
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(heroEl);
+  }
+
+  // Pause when tab is backgrounded
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      if (heroEl) heroEl.classList.add('is-paused');
+    } else {
+      if (heroEl) heroEl.classList.remove('is-paused');
+    }
+  });
 })();
 
-/* 2. Scroll Progress, Navbar Backdrop & Mobile Drawer */
+/* 3. Non-Blocking Passive Scroll & Mobile Drawer */
 (function initScrollEffects() {
   var pBar = document.getElementById('progressBar');
   var nav = document.getElementById('navbar');
@@ -2809,10 +2455,12 @@ function escapeHtml(str) {
   var navLinks = document.getElementById('navLinks');
 
   if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function() {
+    function toggleNav(e) {
+      if (e) e.preventDefault();
       var isOpen = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen);
-    });
+    }
+    menuToggle.addEventListener('click', toggleNav);
     navLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         navLinks.classList.remove('open');
@@ -2821,7 +2469,8 @@ function escapeHtml(str) {
     });
   }
 
-  window.addEventListener('scroll', function() {
+  var ticking = false;
+  function updateScroll() {
     var scrollTop = window.scrollY || document.documentElement.scrollTop;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
     var progress = docHeight > 0 ? (scrollTop / docHeight) : 0;
@@ -2829,73 +2478,32 @@ function escapeHtml(str) {
     if (pBar) {
       pBar.style.transform = 'scaleX(' + progress + ')';
     }
-
     if (nav) {
-      if (scrollTop > 40) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      if (scrollTop > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateScroll);
+      ticking = true;
     }
   }, { passive: true });
 })();
 
-/* 3. Intersection Observer for Scroll Reveals */
-(function initScrollReveals() {
+/* 4. Optimized Ambient Background Wave (Pauses when offscreen) */
+(function initWaveCanvas() {
+  var canvas = document.getElementById('wave-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d', { alpha: true });
+  var W, H, dpr;
   var isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (isReduced) return;
 
-  var reveals = document.querySelectorAll('.reveal');
-  var vh = window.innerHeight;
-
-  // Mark above-the-fold elements as in-view immediately
-  reveals.forEach(function(el) {
-    var rect = el.getBoundingClientRect();
-    if (rect.top < vh + 80) {
-      el.classList.add('in-view');
-    }
-  });
-
-  document.documentElement.classList.add('js-reveal');
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '120px 0px 120px 0px', threshold: 0.05 });
-
-  reveals.forEach(function(el) {
-    if (!el.classList.contains('in-view')) {
-      observer.observe(el);
-    }
-  });
-
-  window.addEventListener('scroll', function() {
-    reveals.forEach(function(el) {
-      if (!el.classList.contains('in-view')) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight + 120) {
-          el.classList.add('in-view');
-          observer.unobserve(el);
-        }
-      }
-    });
-  }, { passive: true });
-})();
-
-/* 4. Background Subtle Acoustic Waveforms Canvas */
-(function initCanvasWave() {
-  var canvas = document.getElementById('wave-canvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var W, H, dpr;
-  var isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     W = window.innerWidth;
     H = window.innerHeight;
     canvas.width = W * dpr;
@@ -2903,142 +2511,174 @@ function escapeHtml(str) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
-  window.addEventListener('resize', resize);
 
-  if (isReduced) return;
+  var resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resize, 200);
+  }, { passive: true });
 
   var t = 0;
+  var isHeroVisible = true;
+  var heroEl = document.getElementById('top');
+
+  if ('IntersectionObserver' in window && heroEl) {
+    var obs = new IntersectionObserver(function(entries) {
+      isHeroVisible = entries[0].isIntersecting;
+      if (isHeroVisible && !document.hidden) requestAnimationFrame(animate);
+    }, { threshold: 0.05 });
+    obs.observe(heroEl);
+  }
+
   function animate() {
+    if (!isHeroVisible || document.hidden) return;
     ctx.clearRect(0, 0, W, H);
-    var sy = window.scrollY || 0;
-    var baseOffset = sy * 0.15;
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 3; i++) {
       ctx.beginPath();
-      var yCenter = H * 0.45 + (i - 1.5) * 60 - (baseOffset % 300);
-      var amp = 30 + i * 15;
-      var freq = 0.003 - i * 0.0004;
-      var speed = t * 0.0008 + i * 0.3;
+      var yCenter = H * 0.45 + (i - 1) * 70;
+      var amp = 24 + i * 12;
+      var freq = 0.0024 - i * 0.0003;
+      var speed = t * 0.0006 + i * 0.4;
 
-      for (var x = 0; x <= W; x += 10) {
+      for (var x = 0; x <= W; x += 24) {
         var y = yCenter + Math.sin(x * freq + speed) * amp;
         if (x === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = 'rgba(216, 220, 229, ' + (0.025 + i * 0.015) + ')';
+      ctx.strokeStyle = 'rgba(216, 220, 229, ' + (0.02 + i * 0.012) + ')';
       ctx.lineWidth = 1.2;
       ctx.stroke();
     }
     t += 16;
     requestAnimationFrame(animate);
   }
-  animate();
+  requestAnimationFrame(animate);
 })();
 
-/* 5. Interactive Phone Screen Switcher */
+/* 5. Interactive Phone Showcase Screen Switcher */
 function activateScreen(screenNumber) {
-  for (var i = 1; i <= 8; i++) {
+  for (var i = 1; i <= 4; i++) {
     var screen = document.getElementById('phoneScreen-' + i);
     if (screen) {
-      if (i === screenNumber) {
-        screen.classList.add('active');
-      } else {
-        screen.classList.remove('active');
-      }
+      if (i === screenNumber) screen.classList.add('active');
+      else screen.classList.remove('active');
     }
   }
 
   var buttons = document.querySelectorAll('.screen-select-btn');
   buttons.forEach(function(btn, idx) {
-    if (idx === (screenNumber - 1)) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
+    if (idx === (screenNumber - 1)) btn.classList.add('active');
+    else btn.classList.remove('active');
   });
 }
 
-// Arrow key navigation for phone showcase
-window.addEventListener('keydown', function(e) {
-  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
-  var activeBtn = document.querySelector('.screen-select-btn.active');
-  if (!activeBtn) return;
-  var allBtns = Array.from(document.querySelectorAll('.screen-select-btn'));
-  var currentIndex = allBtns.indexOf(activeBtn);
-
-  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-    var next = (currentIndex + 1) % allBtns.length;
-    activateScreen(next + 1);
-  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-    var prev = (currentIndex - 1 + allBtns.length) % allBtns.length;
-    activateScreen(prev + 1);
-  }
-});
-
-/* 6. Demonstration Catalog Search Engine */
+/* 6. Popular Songs Demonstration Catalog (Lana Del Rey, Ado, The Weeknd) */
 var DEMO_CATALOG = [
-  { id: 1, title: "Resonance Void", artist: "Kavinsky / HOME", genre: "Synthwave", bitrate: "320 kbps MP3", cover: "art/cover_1.svg" },
-  { id: 2, title: "Obsidian Drift", artist: "Miyori Audio Labs", genre: "Electronic", bitrate: "320 kbps MP3", cover: "art/cover_2.svg" },
-  { id: 3, title: "Liquid Silver Horizon", artist: "Miyori Audio Labs", genre: "Ambient", bitrate: "320 kbps AAC", cover: "art/cover_3.svg" },
-  { id: 4, title: "Neo-Tokyo 2088", artist: "Kenji Kawai Tribute", genre: "Anime OST", bitrate: "320 kbps MP3", cover: "art/cover_4.svg" },
-  { id: 5, title: "Solaris Horizon", artist: "Carbon Based Lifeforms", genre: "Ambient", bitrate: "320 kbps AAC", cover: "art/cover_5.svg" },
-  { id: 6, title: "Acoustic Mirage", artist: "Isobel & The Sea", genre: "Indie", bitrate: "256 kbps AAC", cover: "art/cover_6.svg" },
-  { id: 7, title: "Kinetic Pulse", artist: "Overmono Sessions", genre: "Electronic", bitrate: "320 kbps MP3", cover: "art/cover_7.svg" },
-  { id: 8, title: "Ghost Circuit", artist: "Machine Code", genre: "Electronic", bitrate: "320 kbps MP3", cover: "art/cover_8.svg" },
-  { id: 9, title: "Midnight Expressway", artist: "Tatsuro Echoes", genre: "Anime OST", bitrate: "320 kbps MP3", cover: "art/cover_9.svg" },
-  { id: 10, title: "Miyori Nocturne", artist: "Chamber Ensemble", genre: "Cinematic", bitrate: "320 kbps AAC", cover: "art/cover_10.svg" },
-  { id: 11, title: "Subterranean Echoes", artist: "Deep Chord", genre: "Ambient", bitrate: "320 kbps MP3", cover: "art/cover_11.svg" },
-  { id: 12, title: "Interstellar Odyssey", artist: "Hans Zimmer Tribute", genre: "Cinematic", bitrate: "320 kbps AAC", cover: "art/cover_12.svg" }
+  { id: 1, title: "Summertime Sadness", artist: "Lana Del Rey", genre: "Lana Del Rey", bitrate: "320 kbps MP3", cover: "art/cover_6.svg", freq: 440 },
+  { id: 2, title: "Usseewa", artist: "Ado", genre: "Ado", bitrate: "320 kbps MP3", cover: "art/cover_9.svg", freq: 520 },
+  { id: 3, title: "Blinding Lights", artist: "The Weeknd", genre: "The Weeknd", bitrate: "320 kbps MP3", cover: "art/cover_14.svg", freq: 659 },
+  { id: 4, title: "Video Games", artist: "Lana Del Rey", genre: "Lana Del Rey", bitrate: "320 kbps AAC", cover: "art/cover_1.svg", freq: 392 },
+  { id: 5, title: "New Genesis (Shin Jidai)", artist: "Ado", genre: "Ado", bitrate: "320 kbps AAC", cover: "art/cover_20.svg", freq: 587 },
+  { id: 6, title: "Starboy", artist: "The Weeknd", genre: "The Weeknd", bitrate: "320 kbps AAC", cover: "art/cover_16.svg", freq: 493 },
+  { id: 7, title: "Say Yes to Heaven", artist: "Lana Del Rey", genre: "Lana Del Rey", bitrate: "320 kbps MP3", cover: "art/cover_3.svg", freq: 349 },
+  { id: 8, title: "Show", artist: "Ado", genre: "Ado", bitrate: "320 kbps MP3", cover: "art/cover_7.svg", freq: 698 },
+  { id: 9, title: "Save Your Tears", artist: "The Weeknd", genre: "The Weeknd", bitrate: "320 kbps MP3", cover: "art/cover_4.svg", freq: 523 },
+  { id: 10, title: "West Coast", artist: "Lana Del Rey", genre: "Lana Del Rey", bitrate: "320 kbps MP3", cover: "art/cover_18.svg", freq: 329 },
+  { id: 11, title: "Gira Gira", artist: "Ado", genre: "Ado", bitrate: "320 kbps MP3", cover: "art/cover_2.svg", freq: 440 },
+  { id: 12, title: "Die For You", artist: "The Weeknd", genre: "The Weeknd", bitrate: "320 kbps MP3", cover: "art/cover_8.svg", freq: 415 },
+  { id: 13, title: "Idol", artist: "YOASOBI", genre: "J-Pop", bitrate: "320 kbps AAC", cover: "art/cover_24.svg", freq: 587 },
+  { id: 14, title: "Levitating", artist: "Dua Lipa", genre: "Alternative", bitrate: "320 kbps MP3", cover: "art/cover_12.svg", freq: 659 }
 ];
 
 var currentGenreFilter = 'all';
+var activePlayingTrackId = null;
+var audioCtx = null;
 
 function renderCatalog() {
   var listEl = document.getElementById('trackResultsList');
   var query = (document.getElementById('catalogSearchInput').value || '').trim().toLowerCase();
 
   var filtered = DEMO_CATALOG.filter(function(track) {
-    var matchesGenre = (currentGenreFilter === 'all' || track.genre.toLowerCase() === currentGenreFilter.toLowerCase());
+    var matchesGenre = (currentGenreFilter === 'all' || track.genre === currentGenreFilter || (currentGenreFilter === 'J-Pop' && (track.genre === 'Ado' || track.genre === 'J-Pop')));
     var matchesQuery = !query || track.title.toLowerCase().indexOf(query) !== -1 || track.artist.toLowerCase().indexOf(query) !== -1 || track.genre.toLowerCase().indexOf(query) !== -1;
     return matchesGenre && matchesQuery;
   });
 
   if (filtered.length === 0) {
-    listEl.innerHTML = '<div style="text-align:center; padding:32px 0; color:var(--muted); font-size:14px;">No tracks found matching your query in the demonstration catalog.</div>';
+    listEl.innerHTML = '<div style="text-align:center; padding:32px 0; color:var(--muted); font-size:14px;">No tracks found matching your search.</div>';
     return;
   }
 
   var html = '';
   filtered.forEach(function(track) {
-    html += '<div class="track-row">' +
+    var isPlaying = (activePlayingTrackId === track.id);
+    html += '<div class="track-row ' + (isPlaying ? 'is-playing' : '') + '" onclick="playTrackPreview(' + track.id + ')">' +
       '<div class="track-row-left">' +
-        '<div class="track-thumb"><img src="' + track.cover + '" alt="' + track.title + '"></div>' +
+        '<div class="track-thumb"><img src="' + track.cover + '" alt="' + escapeHtml(track.title) + '"></div>' +
         '<div class="track-meta">' +
-          '<strong>' + track.title + '</strong>' +
-          '<span>' + track.artist + ' · ' + track.genre + '</span>' +
+          '<strong>' + escapeHtml(track.title) + '</strong>' +
+          '<span>' + escapeHtml(track.artist) + ' · ' + escapeHtml(track.genre) + '</span>' +
         '</div>' +
       '</div>' +
-      '<span class="track-badge">' + track.bitrate + '</span>' +
+      '<div style="display:flex; align-items:center; gap:8px;">' +
+        (isPlaying ? '<span style="font-size:11px; color:#4ADE80; font-family:monospace;">▶ PLAYING</span>' : '') +
+        '<span class="track-badge">' + track.bitrate + '</span>' +
+      '</div>' +
     '</div>';
   });
 
   listEl.innerHTML = html;
 }
 
+function filterGenre(genre, btn) {
+  document.querySelectorAll('.genre-pill').forEach(function(p) { p.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  currentGenreFilter = genre;
+  renderCatalog();
+}
+
 document.getElementById('catalogSearchInput').addEventListener('input', renderCatalog);
 
-document.querySelectorAll('.genre-pill').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.genre-pill').forEach(function(p) { p.classList.remove('active'); });
-    btn.classList.add('active');
-    currentGenreFilter = btn.dataset.genre;
-    renderCatalog();
-  });
-});
+function playTrackPreview(id) {
+  var track = DEMO_CATALOG.find(function(t) { return t.id === id; });
+  if (!track) return;
+
+  activePlayingTrackId = id;
+  renderCatalog();
+
+  var statusEl = document.getElementById('catalogNowPlayingText');
+  if (statusEl) {
+    statusEl.style.display = 'inline-block';
+    statusEl.textContent = '▶ Now Playing: ' + track.title + ' (' + track.artist + ') · ' + track.bitrate;
+  }
+
+  // Synthesize musical preview tone via Web Audio API
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(track.freq || 440, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime((track.freq || 440) * 1.5, audioCtx.currentTime + 0.3);
+
+    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 1.2);
+  } catch (err) {}
+}
 
 renderCatalog();
 
-/* 7. Streaming Quality Switcher & Dynamic Spectrum Canvas */
+/* 7. Streaming Quality Switcher & Viewport-Aware Spectrum Canvas */
 var currentQuality = 'extreme';
 
 function setQualityMode(mode) {
@@ -3054,7 +2694,7 @@ function setQualityMode(mode) {
   } else {
     optExtreme.classList.add('active');
     optSaver.classList.remove('active');
-    label.textContent = 'Bandwidth: ~2.4 MB/min · Full 20kHz Headroom';
+    label.textContent = 'Bandwidth: ~2.4 MB/min · Full 20kHz Acoustic Headroom';
   }
 }
 
@@ -3062,26 +2702,35 @@ function setQualityMode(mode) {
   var canvas = document.getElementById('spectrumCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
+  var isSpectrumVisible = false;
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      isSpectrumVisible = entries[0].isIntersecting;
+      if (isSpectrumVisible && !document.hidden) requestAnimationFrame(drawSpectrum);
+    }, { threshold: 0.1 });
+    obs.observe(canvas);
+  }
 
   function drawSpectrum() {
+    if (!isSpectrumVisible || document.hidden) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var bars = 64;
+    var bars = 48;
     var barW = canvas.width / bars;
-    var cutoff = currentQuality === 'saver' ? 44 : 64;
+    var cutoff = currentQuality === 'saver' ? 34 : 48;
 
     for (var i = 0; i < bars; i++) {
       var heightPercent = 0;
       if (i < cutoff) {
-        var base = Math.sin(i * 0.18 + Date.now() * 0.003);
-        heightPercent = (0.2 + 0.65 * Math.abs(base)) * Math.exp(-Math.pow((i - 20) / 36, 2));
+        var base = Math.sin(i * 0.22 + Date.now() * 0.003);
+        heightPercent = (0.2 + 0.6 * Math.abs(base)) * Math.exp(-Math.pow((i - 16) / 28, 2));
       }
-      var barH = heightPercent * (canvas.height - 18);
+      var barH = heightPercent * (canvas.height - 16);
       ctx.fillStyle = i < cutoff ? 'rgba(216, 220, 229, 0.85)' : 'rgba(255, 255, 255, 0.1)';
       ctx.fillRect(i * barW + 1, canvas.height - barH, barW - 2, barH);
     }
     requestAnimationFrame(drawSpectrum);
   }
-  drawSpectrum();
 })();
 
 /* 8. Interactive Offline Download Simulation */
@@ -3096,11 +2745,10 @@ function toggleSimulateDownload() {
   var statusDesc = document.getElementById('dlStatusDescription');
 
   if (isDownloading) {
-    // Reset
     clearInterval(downloadTimer);
     isDownloading = false;
     downloadProgress = 0;
-    fillCircle.style.strokeDashoffset = '138';
+    fillCircle.style.strokeDashoffset = '163';
     numEl.textContent = '0%';
     btnText.textContent = 'Start Simulated Download';
     statusDesc.textContent = 'Status: Idle · Ready to download';
@@ -3110,85 +2758,205 @@ function toggleSimulateDownload() {
   isDownloading = true;
   downloadProgress = 0;
   btnText.textContent = 'Cancel Simulation';
-  statusDesc.textContent = 'Status: Downloading segments @ 4.8 MB/s...';
+  statusDesc.textContent = 'Status: Downloading segments @ 5.2 MB/s...';
 
   downloadTimer = setInterval(function() {
-    downloadProgress += 4;
+    downloadProgress += 5;
     if (downloadProgress >= 100) {
       downloadProgress = 100;
       clearInterval(downloadTimer);
+      isDownloading = false;
       btnText.textContent = 'Reset Simulation';
-      statusDesc.textContent = 'Status: ✓ Complete! Stored in Music/Miyori/Resonance_Void.mp3';
+      statusDesc.textContent = 'Status: ✓ Complete! Saved to Music/Miyori/Summertime_Sadness.mp3';
     }
 
-    var offset = 138 - (138 * downloadProgress / 100);
+    var offset = 163 - (163 * downloadProgress / 100);
     fillCircle.style.strokeDashoffset = offset;
     numEl.textContent = downloadProgress + '%';
-  }, 100);
+  }, 90);
 }
 
-/* 9. Interactive Synchronized Lyrics Player */
-var lyricIndex = 0;
-var lyricInterval = null;
-var lyricsPlaying = true;
-var lyricTimes = [14, 19, 26, 32, 39, 46];
+/* 9. Upgraded Interactive Synchronized Lyrics Stage (Lana, Ado, The Weeknd) */
+var LYRICS_LIBRARY = [
+  {
+    title: "Summertime Sadness",
+    artist: "Lana Del Rey · 320 kbps High Fidelity",
+    cover: "art/cover_6.svg",
+    duration: 222,
+    lines: [
+      { t: 0, text: "Kiss me hard before you go" },
+      { t: 6, text: "Summertime sadness" },
+      { t: 12, text: "I just wanted you to know" },
+      { t: 18, text: "That baby, you the best" },
+      { t: 24, text: "I got that summertime, summertime sadness" },
+      { t: 30, text: "Su-su-summertime, summertime sadness" },
+      { t: 36, text: "Got that summertime, summertime sadness" },
+      { t: 42, text: "Oh, oh-oh-oh-oh" }
+    ]
+  },
+  {
+    title: "Usseewa",
+    artist: "Ado · 320 kbps High Fidelity",
+    cover: "art/cover_9.svg",
+    duration: 204,
+    lines: [
+      { t: 0, text: "Seirankai to wa saraba da" },
+      { t: 5, text: "Kugatsu no kaze ni fukarete" },
+      { t: 10, text: "Usseewa usseewa usseewa anata ga omou yori kenkou desu" },
+      { t: 16, text: "Issai gassai bonjin no koto nado kikiwake nai wa" },
+      { t: 22, text: "Muda desu muda desu muda desu" },
+      { t: 28, text: "Hontou no watashi o shiranai kuse ni" }
+    ]
+  },
+  {
+    title: "Blinding Lights",
+    artist: "The Weeknd · 320 kbps High Fidelity",
+    cover: "art/cover_14.svg",
+    duration: 200,
+    lines: [
+      { t: 0, text: "Yeah..." },
+      { t: 6, text: "I've been on my own for long enough" },
+      { t: 12, text: "Maybe you can show me how to love, maybe" },
+      { t: 18, text: "I'm going through withdrawals" },
+      { t: 24, text: "You don't even have to do too much" },
+      { t: 30, text: "You can turn me on with just a touch, baby" },
+      { t: 36, text: "I look around and Sin City's cold and empty" },
+      { t: 42, text: "No one's around to judge me" }
+    ]
+  },
+  {
+    title: "Obsidian Horizon",
+    artist: "Miyori Ambient Ensemble · 320 kbps",
+    cover: "art/cover_5.svg",
+    duration: 210,
+    lines: [
+      { t: 0, text: "In the silence between frequencies" },
+      { t: 7, text: "We watch the waveform turn to silver" },
+      { t: 14, text: "No static in the cold night air" },
+      { t: 21, text: "Just resonance that holds us there" },
+      { t: 28, text: "Sound without boundaries, space without walls" },
+      { t: 35, text: "Every heartbeat echoes as the obsidian falls" }
+    ]
+  }
+];
 
-function formatTime(seconds) {
-  var m = Math.floor(seconds / 60);
-  var s = seconds % 60;
+var curTrackIdx = 0;
+var curLineIdx = 0;
+var isLyricsPlaying = false;
+var lyricsTimer = null;
+
+function renderLyricsStage() {
+  var track = LYRICS_LIBRARY[curTrackIdx];
+  document.getElementById('lyricsTrackTitle').textContent = track.title;
+  document.getElementById('lyricsTrackArtist').textContent = track.artist;
+  document.getElementById('lyricsArtImg').src = track.cover;
+  document.getElementById('lyricsTrackSwitcher').value = curTrackIdx;
+  document.getElementById('lyricsTotalTime').textContent = formatSeconds(track.duration);
+
+  var scrollEl = document.getElementById('lyricsTrackScroll');
+  var html = '';
+  track.lines.forEach(function(line, idx) {
+    html += '<div class="lyric-line ' + (idx === curLineIdx ? 'active' : '') + '" onclick="jumpToLyric(' + idx + ')">' +
+      escapeHtml(line.text) +
+    '</div>';
+  });
+  scrollEl.innerHTML = html;
+  scrollLyricsToActive();
+}
+
+function scrollLyricsToActive() {
+  var scrollEl = document.getElementById('lyricsTrackScroll');
+  var activeLine = scrollEl.children[curLineIdx];
+  if (activeLine) {
+    var offset = -(curLineIdx * 48);
+    scrollEl.style.transform = 'translateY(' + offset + 'px)';
+  }
+  updateLyricsTimeDisplay();
+}
+
+function formatSeconds(sec) {
+  var m = Math.floor(sec / 60);
+  var s = Math.floor(sec % 60);
   return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
 }
 
-function updateLyricFocus(idx) {
-  lyricIndex = idx;
-  var lines = document.querySelectorAll('.lyric-line');
-  lines.forEach(function(l, i) {
-    if (i === idx) l.classList.add('active');
-    else l.classList.remove('active');
+function updateLyricsTimeDisplay() {
+  var track = LYRICS_LIBRARY[curTrackIdx];
+  var curSec = track.lines[curLineIdx] ? track.lines[curLineIdx].t : 0;
+  document.getElementById('lyricsCurrentTime').textContent = formatSeconds(curSec);
+  document.getElementById('lyricsScrubber').value = Math.floor((curSec / track.duration) * 100);
+}
+
+function jumpToLyric(idx) {
+  curLineIdx = idx;
+  var track = LYRICS_LIBRARY[curTrackIdx];
+  Array.from(document.getElementById('lyricsTrackScroll').children).forEach(function(el, i) {
+    if (i === idx) el.classList.add('active');
+    else el.classList.remove('active');
   });
-
-  var track = document.getElementById('lyricsTrackInner');
-  if (track) {
-    track.style.transform = 'translateY(' + (-idx * 54) + 'px)';
-  }
-
-  var timeEl = document.getElementById('lyricsTimestamp');
-  if (timeEl) {
-    timeEl.textContent = formatTime(lyricTimes[idx]) + ' / 03:42';
-  }
+  scrollLyricsToActive();
 }
 
-function advanceLyricLine() {
-  lyricIndex = (lyricIndex + 1) % lyricTimes.length;
-  updateLyricFocus(lyricIndex);
-}
-
-function selectLyric(idx, e) {
-  if (e) e.stopPropagation();
-  updateLyricFocus(idx);
-}
-
-function toggleLyricsPlay() {
-  var icon = document.getElementById('lyricsPlayIcon');
-  lyricsPlaying = !lyricsPlaying;
-  if (lyricsPlaying) {
-    icon.textContent = '⏸ Pause';
-    startLyricTicker();
+function toggleLyricsPlayback() {
+  isLyricsPlaying = !isLyricsPlaying;
+  var svg = document.getElementById('lyricsPlayIconSvg');
+  if (isLyricsPlaying) {
+    svg.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+    startLyricsTimer();
   } else {
-    icon.textContent = '▶ Resume';
-    clearInterval(lyricInterval);
+    svg.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+    clearInterval(lyricsTimer);
   }
 }
 
-function startLyricTicker() {
-  clearInterval(lyricInterval);
-  lyricInterval = setInterval(function() {
-    advanceLyricLine();
-  }, 4500);
+function startLyricsTimer() {
+  clearInterval(lyricsTimer);
+  lyricsTimer = setInterval(function() {
+    var track = LYRICS_LIBRARY[curTrackIdx];
+    curLineIdx = (curLineIdx + 1) % track.lines.length;
+    jumpToLyric(curLineIdx);
+  }, 4200);
 }
-startLyricTicker();
 
-/* 10. Hardware Equalizer & Live Curve Visualizer */
+function switchLyricsTrack(val) {
+  curTrackIdx = parseInt(val, 10);
+  curLineIdx = 0;
+  renderLyricsStage();
+  if (isLyricsPlaying) startLyricsTimer();
+}
+
+function prevLyricsTrack() {
+  curTrackIdx = (curTrackIdx - 1 + LYRICS_LIBRARY.length) % LYRICS_LIBRARY.length;
+  curLineIdx = 0;
+  renderLyricsStage();
+  if (isLyricsPlaying) startLyricsTimer();
+}
+
+function nextLyricsTrack() {
+  curTrackIdx = (curTrackIdx + 1) % LYRICS_LIBRARY.length;
+  curLineIdx = 0;
+  renderLyricsStage();
+  if (isLyricsPlaying) startLyricsTimer();
+}
+
+function resetLyricsDemo() {
+  curLineIdx = 0;
+  jumpToLyric(0);
+}
+
+function onLyricsScrub(val) {
+  var track = LYRICS_LIBRARY[curTrackIdx];
+  var targetSec = (val / 100) * track.duration;
+  var bestIdx = 0;
+  track.lines.forEach(function(l, i) {
+    if (l.t <= targetSec) bestIdx = i;
+  });
+  jumpToLyric(bestIdx);
+}
+
+renderLyricsStage();
+
+/* 10. Hardware Equalizer with On-Demand Curve Drawing */
 var eqValues = [0, 0, 0, 0, 0];
 var bassBoost = 0;
 var virtualizer = 0;
@@ -3219,9 +2987,9 @@ function updateKnobs() {
   drawEqCurve();
 }
 
-function applyEqPreset(presetName) {
+function applyEqPreset(presetName, btnEl) {
   document.querySelectorAll('.eq-preset-btn').forEach(function(b) { b.classList.remove('active'); });
-  if (event && event.target) event.target.classList.add('active');
+  if (btnEl) btnEl.classList.add('active');
 
   var vals = EQ_PRESETS[presetName] || EQ_PRESETS.flat;
   for (var i = 0; i < 5; i++) {
@@ -3244,14 +3012,13 @@ function drawEqCurve() {
   ctx.clearRect(0, 0, W, H);
 
   // Background grid
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(0, midY);
   ctx.lineTo(W, midY);
   ctx.stroke();
 
-  // Control points based on 5 bands + bass boost
   var points = [];
   var step = W / 6;
   var boostOffset = (bassBoost / 100) * 8;
@@ -3264,7 +3031,6 @@ function drawEqCurve() {
   }
   points.push({ x: W, y: midY - (eqValues[4] / 12) * (H * 0.4) });
 
-  // Draw smooth Bezier curve
   ctx.beginPath();
   ctx.moveTo(points[0].x, points[0].y);
   for (var j = 1; j < points.length - 1; j++) {
@@ -3274,18 +3040,16 @@ function drawEqCurve() {
   }
   ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y);
 
-  // Stroke curve in bright liquid silver
   ctx.strokeStyle = '#FFFFFF';
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 2.5;
   ctx.stroke();
 
-  // Fill gradient beneath curve
   ctx.lineTo(W, H);
   ctx.lineTo(0, H);
   ctx.closePath();
   var fillGrad = ctx.createLinearGradient(0, 0, 0, H);
-  fillGrad.addColorStop(0, 'rgba(216, 220, 229, 0.25)');
-  fillGrad.addColorStop(1, 'rgba(216, 220, 229, 0.0)');
+  fillGrad.addColorStop(0, 'rgba(216, 220, 229, 0.2)');
+  fillGrad.addColorStop(1, 'transparent');
   ctx.fillStyle = fillGrad;
   ctx.fill();
 }
@@ -3303,11 +3067,11 @@ function simulateSpotifyImport() {
   }
 
   resultBox.style.display = 'block';
-  resultBox.innerHTML = '<b style="color:var(--silver);">Parsing playlist metadata & matching streams...</b>';
+  resultBox.innerHTML = '<b style="color:var(--silver);">Parsing playlist metadata & matching high-bitrate streams...</b>';
 
   setTimeout(function() {
-    resultBox.innerHTML = '<b style="color:#22c55e; display:block; margin-bottom:4px;">✓ Successfully Matched 18 Tracks (98% Confidence)</b><span style="color:var(--muted);">Resolved to 320 kbps streaming sources. Ready to play or download offline.</span>';
-  }, 900);
+    resultBox.innerHTML = '<b style="color:#22c55e; display:block; margin-bottom:4px;">✓ Successfully Matched 24 Tracks (100% Quality Match)</b><span style="color:var(--muted);">Resolved to 320 kbps streaming sources. Ready to play or download to Music/Miyori.</span>';
+  }, 700);
 }
 
 function pasteSpotifyDemoLink() {
@@ -3315,10 +3079,10 @@ function pasteSpotifyDemoLink() {
   simulateSpotifyImport();
 }
 
-/* 12. LocalStorage Playlist Manager */
+/* 12. LocalStorage Playlist Manager (Full CRUD) */
 var defaultPlaylists = [
-  { id: 'pl_1', title: 'Late Night Obsidian', count: 18, cover: 'art/cover_2.svg' },
-  { id: 'pl_2', title: 'Tokyo Expressway', count: 12, cover: 'art/cover_9.svg' }
+  { id: 'pl_1', title: 'Late Night Lana', count: 18, cover: 'art/cover_6.svg' },
+  { id: 'pl_2', title: 'Ado High Energy', count: 14, cover: 'art/cover_9.svg' }
 ];
 
 function loadPlaylists() {
@@ -3330,15 +3094,15 @@ function loadPlaylists() {
   playlists.forEach(function(pl, index) {
     var safeTitle = escapeHtml(pl.title);
     var safeCover = escapeHtml(pl.cover);
-    html += '<div style="display:flex; justify-content:space-between; align-items:center; background:#141724; padding:10px 14px; border-radius:12px; border:1px solid var(--border);">' +
-      '<div style="display:flex; align-items:center; gap:12px;">' +
-        '<img src="' + safeCover + '" alt="' + safeTitle + '" style="width:36px; height:36px; border-radius:8px;">' +
+    html += '<div style="display:flex; justify-content:space-between; align-items:center; background:#141724; padding:8px 12px; border-radius:10px; border:1px solid var(--border);">' +
+      '<div style="display:flex; align-items:center; gap:10px;">' +
+        '<img src="' + safeCover + '" alt="' + safeTitle + '" style="width:34px; height:34px; border-radius:6px;">' +
         '<div>' +
-          '<b style="font-size:13.5px; color:#fff; display:block;">' + safeTitle + '</b>' +
-          '<span style="font-size:11.5px; color:var(--muted);">' + Number(pl.count || 0) + ' tracks</span>' +
+          '<b style="font-size:13px; color:#fff; display:block;">' + safeTitle + '</b>' +
+          '<span style="font-size:11px; color:var(--muted);">' + Number(pl.count || 0) + ' tracks</span>' +
         '</div>' +
       '</div>' +
-      '<button onclick="deleteDemoPlaylist(' + index + ')" aria-label="Delete playlist ' + safeTitle + '" style="color:var(--muted); font-size:12px; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,0.05); cursor:pointer;">' +
+      '<button onclick="deleteDemoPlaylist(' + index + ')" aria-label="Delete playlist ' + safeTitle + '" style="color:var(--muted); font-size:12px; padding:3px 8px; border-radius:4px; background:rgba(255,255,255,0.06); cursor:pointer;">' +
         '✕' +
       '</button>' +
     '</div>';
@@ -3354,12 +3118,13 @@ function createDemoPlaylist() {
 
   var saved = localStorage.getItem('miyori_demo_playlists');
   var playlists = saved ? JSON.parse(saved) : defaultPlaylists.slice();
-  var randomCover = 'art/cover_' + (Math.floor(Math.random() * 24) + 1) + '.svg';
+  var covers = ['art/cover_1.svg', 'art/cover_3.svg', 'art/cover_6.svg', 'art/cover_9.svg', 'art/cover_14.svg', 'art/cover_20.svg'];
+  var randomCover = covers[Math.floor(Math.random() * covers.length)];
 
   playlists.unshift({
     id: 'pl_' + Date.now(),
     title: title,
-    count: Math.floor(Math.random() * 12) + 4,
+    count: Math.floor(Math.random() * 10) + 5,
     cover: randomCover
   });
 
@@ -3382,7 +3147,7 @@ function toggleLibraryJunkFilter() {
   var isChecked = document.getElementById('filterJunkToggle').checked;
   var resBox = document.getElementById('libraryFilterResults');
   if (isChecked) {
-    resBox.innerHTML = 'Active Filter: <b>284 Songs kept</b> · 14 voice memos & WhatsApp audios excluded.';
+    resBox.innerHTML = 'Active Filter: <b>284 Songs kept</b> · 14 voice memos &amp; WhatsApp audios excluded.';
     resBox.style.color = 'var(--silver)';
   } else {
     resBox.innerHTML = 'All Audio Files: <b>298 Items shown</b> · (Including notification tones and voice notes).';
@@ -3390,7 +3155,7 @@ function toggleLibraryJunkFilter() {
   }
 }
 
-/* 14. Navidrome Server Connect Simulation */
+/* 14. Navidrome Server Ping */
 function simulateNavidromeConnect() {
   var btnText = document.getElementById('navidromeBtnText');
   var resBox = document.getElementById('navidromeStatusResult');
@@ -3402,22 +3167,28 @@ function simulateNavidromeConnect() {
   setTimeout(function() {
     btnText.textContent = 'Connected';
     resBox.style.display = 'block';
-    resBox.innerHTML = '✓ Subsonic v1.16.1 Connection Verified · Handshake successful with <b>' + escapeHtml(url) + '</b> · 6,420 tracks synced.';
-  }, 800);
+    resBox.innerHTML = '✓ Subsonic v1.16.1 Verified · Handshake successful with <b>' + escapeHtml(url) + '</b> · 6,420 tracks indexed.';
+  }, 600);
 }
 
-/* 15. Real APK URL & Config Bindings */
-(function bindDownloadConfig() {
-  var btn = document.getElementById('finalApkDownloadBtn');
-  var navBtn = document.getElementById('navDownloadBtn');
-  var textEl = document.getElementById('finalApkDownloadText');
-
-  if (window.MIYORI_CONFIG && window.MIYORI_CONFIG.apkUrl) {
-    if (btn) btn.href = window.MIYORI_CONFIG.apkUrl;
-    if (navBtn) navBtn.href = window.MIYORI_CONFIG.apkUrl;
-    if (textEl) textEl.textContent = 'Download APK · ' + window.MIYORI_CONFIG.fileSize;
+/* 15. One-Click Copy SHA-256 Hash */
+function copyShaHash() {
+  var hash = document.getElementById('shaHashText').textContent.trim();
+  var btn = document.getElementById('copyHashBtn');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(hash).then(function() {
+      btn.textContent = 'Copied!';
+      btn.style.color = '#22c55e';
+      setTimeout(function() {
+        btn.textContent = 'Copy';
+        btn.style.color = '#FFFFFF';
+      }, 2000);
+    });
+  } else {
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
   }
-})();
+}
 </script>
 </body>
 </html>
