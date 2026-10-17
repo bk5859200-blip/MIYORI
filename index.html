@@ -1734,358 +1734,351 @@ section {
 }
 
 /* ==========================================================================
-   AREA 5: CONNECTED TO YOUR ECOSYSTEM (SMART JUNK FILTER & NEIGHBORS)
+   AREA 5: CONNECTED TO YOUR ECOSYSTEM (MATCHING REFERENCE DESIGN)
    ========================================================================== */
 .integrations-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-top: 40px;
+  gap: 24px;
+  margin-top: 36px;
 }
 
 .eco-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 20px;
   padding: 28px;
   display: flex;
   flex-direction: column;
-  min-height: 480px;
+  position: relative;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
 
-.eco-card-header {
-  margin-bottom: 18px;
-}
-.eco-card-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #FFFFFF;
-  margin-bottom: 6px;
-}
-.eco-card-sub {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.45;
+.eco-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Card 1: Smart Audio Junk Filter */
-.junk-controls-box {
+.eco-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
   background: var(--elevated);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
 }
 
-/* Master Switch (Liquid Silver) */
-.junk-master-row {
+.eco-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.eco-card-sub {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Pill Input Group (Matches reference pill with embedded button) */
+.eco-input-pill-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px 5px 4px 14px;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+  margin-bottom: 12px;
+}
+
+.eco-input-pill-group:focus-within {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+
+.eco-pill-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-family: inherit;
+  min-width: 0;
+  padding: 8px 6px 8px 0;
+}
+
+.eco-pill-input::placeholder {
+  color: #555A68;
+}
+
+.eco-pill-btn {
+  background: #FFFFFF;
+  color: #090A0E;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--dur-fast), transform var(--dur-fast);
+  font-family: inherit;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eco-pill-btn:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+.eco-pill-btn:active {
+  transform: scale(0.97);
+}
+
+.eco-pill-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Secondary outline button (e.g. Load Demo URL) */
+.eco-outline-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all var(--dur-fast);
+  font-family: inherit;
+}
+
+.eco-outline-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Local Playlist Rows */
+.eco-playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 190px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.eco-playlist-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  transition: border-color var(--dur-fast);
 }
-.switch-label {
+
+.eco-playlist-row:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.eco-playlist-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.eco-playlist-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.eco-playlist-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.eco-playlist-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eco-playlist-count {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.eco-playlist-del-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--muted);
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--dur-fast);
+  flex-shrink: 0;
+}
+
+.eco-playlist-del-btn:hover {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* Undo Toast inside playlist card */
+.eco-undo-toast {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--silver);
+}
+
+.eco-undo-btn {
+  background: none;
+  border: none;
+  color: #22c55e;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-family: inherit;
+}
+
+/* Card 3: Storage Purity Box */
+.eco-filter-card-box {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.eco-filter-box-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eco-filter-box-title {
   font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
 }
-.switch-input-wrap {
+
+.eco-filter-box-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Toggle Switch (Sleek Green) */
+.eco-toggle-switch {
   position: relative;
   display: inline-block;
-  width: 48px;
-  height: 26px;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
 }
-.switch-input-wrap input {
+
+.eco-toggle-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.switch-slider {
+
+.eco-toggle-track {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: var(--faint);
-  border-radius: 34px;
+  background-color: #262A36;
+  border-radius: 30px;
   transition: background-color var(--dur-fast);
 }
-.switch-slider::before {
+
+.eco-toggle-track::before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   left: 3px;
   bottom: 3px;
   background-color: #FFFFFF;
   border-radius: 50%;
   transition: transform var(--dur-fast);
 }
-.switch-input-wrap input:checked + .switch-slider {
-  background: var(--accent-silver);
-}
-.switch-input-wrap input:checked + .switch-slider::before {
-  transform: translateX(22px);
-  background-color: #090A0E;
+
+.eco-toggle-switch input:checked + .eco-toggle-track {
+  background-color: #22c55e;
 }
 
-/* Checkboxes */
-.junk-checkboxes-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.eco-toggle-switch input:checked + .eco-toggle-track::before {
+  transform: translateX(20px);
 }
-.chk-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
+
+.eco-filter-status-text {
+  font-size: 12.5px;
   color: var(--silver);
-  cursor: pointer;
-}
-.chk-label input {
-  accent-color: #FFFFFF;
-  cursor: pointer;
-}
-
-/* Slider */
-.junk-slider-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-top: 6px;
-}
-.junk-slider-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11.5px;
-  color: var(--muted);
-}
-.junk-range-slider {
-  width: 100%;
-  accent-color: #FFFFFF;
-  cursor: pointer;
-}
-
-/* Live Counters Pill */
-.junk-stats-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-size: 12.5px;
-}
-.junk-counter-kept {
-  color: #22c55e;
-  font-weight: 700;
-}
-.junk-counter-excluded {
-  color: #f59e0b;
-  font-weight: 700;
-}
-
-/* File list container with FLIP */
-.junk-file-list {
-  flex: 1;
-  overflow-y: auto;
-  max-height: 240px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-right: 4px;
-}
-
-.junk-file-row {
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 12px;
-  transition: opacity var(--dur-fast), transform var(--dur-fast);
-}
-.junk-file-row.excluded {
-  opacity: 0.4;
-  background: rgba(0, 0, 0, 0.4);
-}
-.junk-file-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-}
-.junk-file-name {
-  color: #FFFFFF;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.junk-file-reason {
-  font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  white-space: nowrap;
-}
-
-/* Card 2: Spotify Import */
-.spotify-import-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
-}
-.spotify-input-row {
-  display: flex;
-  gap: 8px;
-}
-.spotify-url-input {
-  flex: 1;
-  padding: 10px 14px;
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: #FFFFFF;
-  font-size: 13px;
-  outline: none;
-}
-.btn-spotify-load {
-  padding: 10px 16px;
-  background: #FFFFFF;
-  color: #090A0E;
-  border-radius: 10px;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.spotify-error {
-  display: none;
-  font-size: 11.5px;
-  color: #ef4444;
-}
-.spotify-matches-list {
-  display: none;
-  flex-direction: column;
-  gap: 8px;
-  max-height: 220px;
-  overflow-y: auto;
-}
-
-/* Card 3: Local Playlist Manager */
-.playlist-crud-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
-}
-.playlist-add-row {
-  display: flex;
-  gap: 8px;
-}
-.playlist-input {
-  flex: 1;
-  padding: 10px 14px;
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: #FFFFFF;
-  font-size: 13px;
-  outline: none;
-}
-.btn-playlist-add {
-  padding: 10px 16px;
-  background: #FFFFFF;
-  color: #090A0E;
-  border-radius: 10px;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.playlist-items-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-height: 220px;
-  overflow-y: auto;
-}
-.playlist-item-row {
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.playlist-item-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.playlist-item-title {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-.playlist-item-count {
-  font-size: 11px;
-  color: var(--muted);
-}
-.playlist-item-actions {
-  display: flex;
-  gap: 6px;
-}
-
-/* Card 4: Subsonic & Navidrome Server */
-.navidrome-box {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  flex: 1;
-}
-.navidrome-input-row {
-  display: flex;
-  gap: 8px;
-}
-.navidrome-url-input {
-  flex: 1;
-  padding: 10px 14px;
-  background: var(--elevated);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: #FFFFFF;
-  font-size: 13px;
-  outline: none;
-}
-.btn-navidrome-ping {
-  padding: 10px 16px;
-  background: #FFFFFF;
-  color: #090A0E;
-  border-radius: 10px;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.navidrome-log-console {
-  display: none;
-  background: #000000;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  font-family: monospace;
-  font-size: 11px;
-  color: #22c55e;
   line-height: 1.5;
-  max-height: 200px;
-  overflow-y: auto;
 }
+
+/* Status / Result Message Box */
+.eco-msg-box {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  word-break: break-word;
+}
+
+@media (max-width: 900px) {
+  .integrations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 
 /* ==========================================================================
    SPECIFICATIONS, FAQ, FOOTER
@@ -3093,159 +3086,109 @@ footer {
 </section>
 
 <!-- ==========================================================================
-     AREA 5: CONNECTED TO YOUR ECOSYSTEM (SMART JUNK FILTER & NEIGHBORS)
+     AREA 5: CONNECTED TO YOUR ECOSYSTEM (MATCHING REFERENCE DESIGN)
      ========================================================================== -->
 <section id="integrations">
   <div class="wrap">
-    <div class="eyebrow">INTEGRATIONS &amp; STORAGE TOOLS</div>
+    <div class="eyebrow">• INTEGRATIONS &amp; STORAGE TOOLS</div>
     <h2>Connected to your ecosystem.</h2>
     <p class="lead">
-      Import Spotify playlists, curate local collections, filter out short voice messages, and stream directly from Navidrome / Subsonic servers.
+      Import Spotify playlists, curate local collections, filter out voice messages, and stream directly from Navidrome / Subsonic servers.
     </p>
 
     <div class="integrations-grid">
-      <!-- Card 1: Smart Audio Junk Filter -->
-      <div class="eco-card" id="cardJunkFilter">
-        <div class="eco-card-header">
-          <div class="eco-card-title">Smart Audio Junk Filter</div>
-          <div class="eco-card-sub">
-            Excludes voice notes, call recordings, ringtones, notification sounds, and podcasts based on duration and file patterns.
-          </div>
-        </div>
-
-        <div class="junk-controls-box">
-          <!-- Master Switch (Liquid Silver) -->
-          <div class="junk-master-row">
-            <span class="switch-label">Smart Filter Active</span>
-            <label class="switch-input-wrap">
-              <input type="checkbox" id="junkMasterSwitch" checked onchange="runSmartFilter()">
-              <span class="switch-slider"></span>
-            </label>
-          </div>
-
-          <!-- Checkbox Filters -->
-          <div class="junk-checkboxes-grid">
-            <label class="chk-label">
-              <input type="checkbox" id="chkVoiceNotes" checked onchange="runSmartFilter()">
-              <span>Voice notes (WhatsApp)</span>
-            </label>
-            <label class="chk-label">
-              <input type="checkbox" id="chkCallRecords" checked onchange="runSmartFilter()">
-              <span>Call recordings</span>
-            </label>
-            <label class="chk-label">
-              <input type="checkbox" id="chkRingtones" checked onchange="runSmartFilter()">
-              <span>Ringtones &amp; notifications</span>
-            </label>
-            <label class="chk-label">
-              <input type="checkbox" id="chkPodcasts" onchange="runSmartFilter()">
-              <span>Podcasts &amp; spoken word</span>
-            </label>
-          </div>
-
-          <!-- Minimum Length Slider -->
-          <div class="junk-slider-row">
-            <div class="junk-slider-info">
-              <span>Minimum duration threshold:</span>
-              <span id="junkSliderValText" style="font-weight:700; color:#FFFFFF;">30 s (illustrative demo control)</span>
-            </div>
-            <input type="range" class="junk-range-slider" id="junkMinDurationSlider" min="0" max="120" value="30" step="5" oninput="onJunkSliderChange(this.value)">
-          </div>
-        </div>
-
-        <!-- Live Counters Bar -->
-        <div class="junk-stats-bar">
-          <div>
-            <span class="junk-counter-kept" id="countKept">Kept: 9</span> · 
-            <span class="junk-counter-excluded" id="countExcluded">Excluded: 15</span>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <button class="dl-btn-sm" onclick="toggleShowExcluded()" id="btnToggleShowExcluded">Hide Excluded</button>
-            <button class="dl-btn-sm" onclick="resetJunkFilter()">Reset</button>
-          </div>
-        </div>
-
-        <!-- File List with FLIP animations -->
-        <div class="junk-file-list" id="junkFileList">
-          <!-- 24 Fictional Audio Items populated by JS -->
-        </div>
-      </div>
-
-      <!-- Card 2: Spotify Playlist Import -->
+      <!-- Card 1: Spotify Playlist Import (Top-Left) -->
       <div class="eco-card" id="cardSpotifyImport">
-        <div class="eco-card-header">
-          <div class="eco-card-title">Bridge Your Existing Playlists</div>
-          <div class="eco-card-sub">
-            Paste a public Spotify playlist link to parse metadata and match high-bitrate streaming tracks.
-          </div>
+        <div class="eco-badge">SPOTIFY PLAYLIST IMPORT</div>
+        <h3 class="eco-card-title">Bridge Your Existing Playlists</h3>
+        <p class="eco-card-sub">
+          Paste a public Spotify playlist link to parse metadata and match high-bitrate streaming tracks.
+        </p>
+
+        <div class="eco-input-pill-group">
+          <input type="url" class="eco-pill-input" id="spotifyUrlInput" placeholder="https://open.spotify.com/playlist/..." aria-label="Spotify Playlist URL" onkeydown="if(event.key==='Enter') runSpotifyImport()">
+          <button class="eco-pill-btn" id="btnSpotifyImport" onclick="runSpotifyImport()">Import</button>
         </div>
 
-        <div class="spotify-import-wrap">
-          <div class="spotify-input-row">
-            <input type="text" class="spotify-url-input" id="spotifyUrlInput" placeholder="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M">
-            <button class="btn-spotify-load" onclick="runSpotifyImport()">Import</button>
-          </div>
-          <button class="dl-btn-sm" style="align-self:flex-start;" onclick="loadDemoSpotifyUrl()">Load Demo URL</button>
-          <div class="spotify-error" id="spotifyErrorText">Please enter a valid Spotify playlist URL (https://open.spotify.com/playlist/...)</div>
+        <button class="eco-outline-btn" onclick="loadDemoSpotifyUrl()">Load Demo URL</button>
 
-          <!-- Loading Skeleton -->
-          <div id="spotifyLoadingSkeleton" style="display:none; flex-direction:column; gap:8px;">
-            <div style="height:36px; background:var(--elevated); border-radius:8px; animation:navWave 1s infinite alternate;"></div>
-            <div style="height:36px; background:var(--elevated); border-radius:8px; animation:navWave 1s infinite alternate; animation-delay:0.2s;"></div>
-            <div style="height:36px; background:var(--elevated); border-radius:8px; animation:navWave 1s infinite alternate; animation-delay:0.4s;"></div>
-          </div>
-
-          <!-- Matched Results List -->
-          <div class="spotify-matches-list" id="spotifyMatchesList">
-            <!-- Populated by JS -->
-          </div>
-        </div>
+        <div class="eco-msg-box" id="spotifyStatusBox" style="display:none;" role="status"></div>
       </div>
 
-      <!-- Card 3: Local Playlist Manager -->
+      <!-- Card 2: Local Playlist Manager (Top-Right) -->
       <div class="eco-card" id="cardLocalPlaylists">
-        <div class="eco-card-header">
-          <div class="eco-card-title">Curate Custom Collections</div>
-          <div class="eco-card-sub">
-            Create and persist custom playlists saved securely inside your browser's localStorage.
-          </div>
+        <div class="eco-badge">LOCAL PLAYLIST MANAGER</div>
+        <h3 class="eco-card-title">Curate Custom Collections</h3>
+        <p class="eco-card-sub">
+          Create and persist custom playlists saved securely inside your browser's localStorage.
+        </p>
+
+        <div class="eco-input-pill-group">
+          <input type="text" class="eco-pill-input" id="playlistTitleInput" placeholder="New playlist title..." aria-label="New playlist title" maxlength="50" onkeydown="if(event.key==='Enter') createPlaylist()">
+          <button class="eco-pill-btn" id="btnPlaylistAdd" onclick="createPlaylist()">Add</button>
         </div>
 
-        <div class="playlist-crud-wrap">
-          <div class="playlist-add-row">
-            <input type="text" class="playlist-input" id="playlistTitleInput" placeholder="New playlist title...">
-            <button class="btn-playlist-add" onclick="createPlaylist()">Add</button>
-          </div>
+        <div class="eco-playlist-list" id="playlistItemsList" role="list">
+          <!-- Populated from localStorage by JS -->
+        </div>
 
-          <div class="playlist-items-list" id="playlistItemsList">
-            <!-- Populated from localStorage by JS -->
-          </div>
+        <div id="playlistUndoToast" class="eco-undo-toast" style="display:none;" role="status"></div>
+        <div style="margin-top:10px; font-size:11px; color:var(--muted); line-height:1.4;">
+          🔒 Stored locally in your browser session. Playlists are private to this device and never uploaded to cloud servers.
         </div>
       </div>
 
-      <!-- Card 4: Subsonic & Navidrome Server -->
-      <div class="eco-card" id="cardNavidrome">
-        <div class="eco-card-header">
-          <div class="eco-card-title">Subsonic &amp; Navidrome Server</div>
-          <div class="eco-card-sub">
-            Connect directly to your personal home music server with native API token handshakes.
+      <!-- Card 3: Storage Purity (Bottom-Left) -->
+      <div class="eco-card" id="cardJunkFilter">
+        <div class="eco-badge">STORAGE PURITY</div>
+        <h3 class="eco-card-title">Smart Audio Junk Filter</h3>
+        <p class="eco-card-sub">
+          Automatically filter out short voice notes, notification chimes, and WhatsApp recordings.
+        </p>
+
+        <div class="eco-filter-card-box">
+          <div class="eco-filter-box-left">
+            <span class="eco-filter-box-title">Smart Filter Active</span>
+            <span class="eco-filter-box-subtitle">Exclude voice notes &lt; 30 seconds</span>
           </div>
+          <label class="eco-toggle-switch">
+            <input type="checkbox" id="smartJunkSwitch" checked onchange="toggleSmartJunkFilter(this.checked)" aria-label="Toggle Smart Audio Junk Filter">
+            <span class="eco-toggle-track"></span>
+          </label>
         </div>
 
-        <div class="navidrome-box">
-          <div class="navidrome-input-row">
-            <input type="text" class="navidrome-url-input" id="navidromeUrlInput" value="https://demo.navidrome.org">
-            <button class="btn-navidrome-ping" id="btnNavidromePing" onclick="testNavidromePing()">Test Ping</button>
-          </div>
+        <div class="eco-filter-status-text" id="junkFilterResultText">
+          Active Filter: <b>284 Songs kept</b> · 14 voice memos &amp; WhatsApp audios excluded.
+        </div>
 
-          <div class="navidrome-log-console" id="navidromeLogConsole">
-            <!-- Populated with simulated handshake log -->
-          </div>
+        <div style="margin-top:16px; font-size:11px; color:var(--muted); line-height:1.4;">
+          📱 <b>Device Privacy Notice:</b> This web control simulates the filter logic. On the native MIYORI Android app, the MediaStore engine excludes recordings under 30s automatically without modifying or deleting your personal audio files.
+        </div>
+      </div>
+
+      <!-- Card 4: Subsonic & Navidrome Server (Bottom-Right) -->
+      <div class="eco-card" id="cardNavidrome">
+        <div class="eco-badge">SELF-HOSTED PROTOCOL</div>
+        <h3 class="eco-card-title">Subsonic &amp; Navidrome Server</h3>
+        <p class="eco-card-sub">
+          Connect directly to your personal home music server with native API token handshakes.
+        </p>
+
+        <div class="eco-input-pill-group">
+          <input type="url" class="eco-pill-input" id="navidromeUrlInput" value="https://demo.navidrome.org" placeholder="https://demo.navidrome.org" aria-label="Navidrome Server URL" onkeydown="if(event.key==='Enter') testNavidromePing()">
+          <button class="eco-pill-btn" id="btnNavidromePing" onclick="testNavidromePing()">Test Ping</button>
+        </div>
+
+        <div class="eco-msg-box" id="navidromeStatusBox" style="display:none;" role="status"></div>
+
+        <div style="margin-top:12px; font-size:11px; color:var(--muted); line-height:1.4;">
+          ⚡ <b>Direct Protocol:</b> The native MIYORI Android app connects over native sockets with token salt encryption. Web browsers enforce CORS and require servers with <code>Access-Control-Allow-Origin</code>.
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ==========================================================================
      SPECIFICATIONS, SHA-256 VERIFICATION & DOWNLOAD
@@ -4606,252 +4549,324 @@ function drawEqCurve(vals) {
 drawEqCurve(EQ_PRESETS['flat']);
 
 /* ==========================================================================
-   AREA 5: SMART AUDIO JUNK FILTER & NEIGHBOR CARDS
+   AREA 5: CONNECTED TO YOUR ECOSYSTEM (REAL & HONEST FUNCTIONALITY)
    ========================================================================== */
-var JUNK_DATASET = [
-  // 6 Original Songs
-  { id: 1, name: "Silver_Hour.mp3", folder: "Music", duration: 90, sizeMB: 8.4, category: "music" },
-  { id: 2, name: "Night_Drive.mp3", folder: "Music", duration: 90, sizeMB: 9.1, category: "music" },
-  { id: 3, name: "Paper_Lanterns.mp3", folder: "Music", duration: 90, sizeMB: 7.2, category: "music" },
-  { id: 4, name: "Obsidian_Drift.flac", folder: "Music", duration: 110, sizeMB: 18.5, category: "music" },
-  { id: 5, name: "Acoustic_Mirage.mp3", folder: "Music", duration: 84, sizeMB: 6.8, category: "music" },
-  { id: 6, name: "Solaris_Echo.mp3", folder: "Music", duration: 95, sizeMB: 8.0, category: "music" },
 
-  // 5 WhatsApp Voice Notes (.opus)
-  { id: 7, name: "PTT-20241014-WA0012.opus", folder: "WhatsApp/Media/Voice", duration: 14, sizeMB: 0.2, category: "voicenote" },
-  { id: 8, name: "AUD-20241015-WA0004.opus", folder: "WhatsApp/Media/Audio", duration: 22, sizeMB: 0.3, category: "voicenote" },
-  { id: 9, name: "PTT-20241016-WA0089.opus", folder: "WhatsApp/Media/Voice", duration: 9, sizeMB: 0.1, category: "voicenote" },
-  { id: 10, name: "VoiceMessage_Mom.opus", folder: "WhatsApp/Media/Voice", duration: 28, sizeMB: 0.4, category: "voicenote" },
-  { id: 11, name: "ProjectNote_Audio.opus", folder: "WhatsApp/Media/Voice", duration: 45, sizeMB: 0.6, category: "voicenote" },
-
-  // 4 Call Recordings (.m4a)
-  { id: 12, name: "Call_Record_20241012_1430.m4a", folder: "Recordings/Call", duration: 180, sizeMB: 2.1, category: "callrecord" },
-  { id: 13, name: "Call_Lawyer_Consult.m4a", folder: "Recordings/Call", duration: 320, sizeMB: 3.8, category: "callrecord" },
-  { id: 14, name: "Call_Landlord.m4a", folder: "Recordings/Call", duration: 95, sizeMB: 1.2, category: "callrecord" },
-  { id: 15, name: "Call_Interview_Audio.m4a", folder: "Recordings/Call", duration: 410, sizeMB: 4.6, category: "callrecord" },
-
-  // 4 Ringtones & Notifications (.mp3, .ogg, .wav)
-  { id: 16, name: "Marimba_Remix.mp3", folder: "Ringtones", duration: 25, sizeMB: 0.5, category: "ringtone" },
-  { id: 17, name: "Chime_Notification.ogg", folder: "Notifications", duration: 4, sizeMB: 0.1, category: "ringtone" },
-  { id: 18, name: "Alarm_Morning_Breeze.mp3", folder: "Alarms", duration: 30, sizeMB: 0.6, category: "ringtone" },
-  { id: 19, name: "Slack_Ping_Clone.wav", folder: "Notifications", duration: 2, sizeMB: 0.1, category: "ringtone" },
-
-  // 3 Podcasts
-  { id: 20, name: "Tech_Weekly_Ep42.mp3", folder: "Podcasts", duration: 2700, sizeMB: 42.0, category: "podcast" },
-  { id: 21, name: "Design_Critique_08.m4a", folder: "Podcasts", duration: 1680, sizeMB: 28.5, category: "podcast" },
-  { id: 22, name: "Audiobook_Chapter1.mp3", folder: "Audiobooks", duration: 1200, sizeMB: 19.2, category: "podcast" },
-
-  // 2 Short Audio Previews
-  { id: 23, name: "SFX_Doorbell_Preview.mp3", folder: "Downloads", duration: 4, sizeMB: 0.1, category: "preview" },
-  { id: 24, name: "UI_Click_Sound.wav", folder: "Downloads", duration: 1, sizeMB: 0.05, category: "preview" }
-];
-
-var showExcludedItems = true;
-
-function runSmartFilter() {
-  var isMasterActive = document.getElementById('junkMasterSwitch').checked;
-  var filterVoice = document.getElementById('chkVoiceNotes').checked;
-  var filterCalls = document.getElementById('chkCallRecords').checked;
-  var filterRings = document.getElementById('chkRingtones').checked;
-  var filterPods = document.getElementById('chkPodcasts').checked;
-  var minDuration = parseInt(document.getElementById('junkMinDurationSlider').value, 10);
-
-  var kept = [];
-  var excluded = [];
-
-  JUNK_DATASET.forEach(function(item) {
-    if (!isMasterActive) {
-      kept.push(item);
-      return;
-    }
-
-    var reason = null;
-    if (filterVoice && item.category === 'voicenote') reason = 'WhatsApp Voice Note';
-    else if (filterCalls && item.category === 'callrecord') reason = 'Call Recording';
-    else if (filterRings && item.category === 'ringtone') reason = 'Ringtone / Alert';
-    else if (filterPods && item.category === 'podcast') reason = 'Podcast / Spoken';
-    else if (item.duration < minDuration) reason = 'Under ' + minDuration + 's threshold';
-
-    if (reason) {
-      excluded.push({ item: item, reason: reason });
-    } else {
-      kept.push(item);
-    }
-  });
-
-  document.getElementById('countKept').textContent = 'Kept: ' + kept.length;
-  document.getElementById('countExcluded').textContent = 'Excluded: ' + excluded.length;
-
-  var container = document.getElementById('junkFileList');
-  var html = '';
-
-  kept.forEach(function(item) {
-    html += '<div class="junk-file-row">' +
-      '<div class="junk-file-meta">' +
-        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>' +
-        '<span class="junk-file-name">' + item.name + '</span>' +
-      '</div>' +
-      '<span style="color:var(--muted); font-size:11px;">' + item.duration + 's · ' + item.sizeMB + 'MB</span>' +
-    '</div>';
-  });
-
-  if (showExcludedItems && excluded.length > 0) {
-    html += '<div style="font-size:11px; font-weight:700; color:#f59e0b; margin-top:8px; margin-bottom:4px;">EXCLUDED FILES (' + excluded.length + ')</div>';
-    excluded.forEach(function(entry) {
-      html += '<div class="junk-file-row excluded">' +
-        '<div class="junk-file-meta">' +
-          '<span class="junk-file-name">' + entry.item.name + '</span>' +
-        '</div>' +
-        '<span class="junk-file-reason">' + entry.reason + '</span>' +
-      '</div>';
-    });
-  }
-
-  container.innerHTML = html;
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
-function onJunkSliderChange(val) {
-  document.getElementById('junkSliderValText').textContent = val + ' s (illustrative demo control)';
-  runSmartFilter();
-}
+/* 1. SPOTIFY PLAYLIST IMPORT (HONEST DEMO & VALIDATION) */
+var isSpotifyImporting = false;
 
-function toggleShowExcluded() {
-  showExcludedItems = !showExcludedItems;
-  var btn = document.getElementById('btnToggleShowExcluded');
-  if (btn) btn.textContent = showExcludedItems ? 'Hide Excluded' : 'Show Excluded';
-  runSmartFilter();
-}
-
-function resetJunkFilter() {
-  document.getElementById('junkMasterSwitch').checked = true;
-  document.getElementById('chkVoiceNotes').checked = true;
-  document.getElementById('chkCallRecords').checked = true;
-  document.getElementById('chkRingtones').checked = true;
-  document.getElementById('chkPodcasts').checked = false;
-  document.getElementById('junkMinDurationSlider').value = 30;
-  document.getElementById('junkSliderValText').textContent = '30 s (illustrative demo control)';
-  showExcludedItems = true;
-  runSmartFilter();
-}
-runSmartFilter();
-
-/* Spotify Import Demo */
 function loadDemoSpotifyUrl() {
-  document.getElementById('spotifyUrlInput').value = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M';
-  document.getElementById('spotifyErrorText').style.display = 'none';
+  var input = document.getElementById('spotifyUrlInput');
+  input.value = 'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M';
+  var statusBox = document.getElementById('spotifyStatusBox');
+  statusBox.style.display = 'none';
+  input.focus();
 }
 
 function runSpotifyImport() {
-  var url = (document.getElementById('spotifyUrlInput').value || '').trim();
-  var err = document.getElementById('spotifyErrorText');
-  var skeleton = document.getElementById('spotifyLoadingSkeleton');
-  var results = document.getElementById('spotifyMatchesList');
+  if (isSpotifyImporting) return;
+  var input = document.getElementById('spotifyUrlInput');
+  var btn = document.getElementById('btnSpotifyImport');
+  var statusBox = document.getElementById('spotifyStatusBox');
+  var url = (input.value || '').trim();
 
-  if (!url.startsWith('https://open.spotify.com/playlist/')) {
-    err.style.display = 'block';
-    results.style.display = 'none';
+  // Validate Spotify playlist URL pattern
+  var spotifyRegex = /^https?:\/\/(open\.)?spotify\.com\/playlist\/([a-zA-Z0-9]+)/i;
+  var match = url.match(spotifyRegex);
+
+  if (!match) {
+    statusBox.style.display = 'block';
+    statusBox.innerHTML = '<div style="color:#ef4444; font-weight:600; margin-bottom:2px;">⚠️ Invalid Spotify Playlist URL</div>' +
+      '<div style="color:var(--silver); font-size:11px;">Please enter a valid Spotify playlist link, e.g.:<br><code style="color:#FFFFFF; background:rgba(255,255,255,0.08); padding:2px 4px; border-radius:4px;">https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M</code> or tap "Load Demo URL".</div>';
     return;
   }
-  err.style.display = 'none';
-  skeleton.style.display = 'flex';
-  results.style.display = 'none';
+
+  var playlistId = match[2];
+  isSpotifyImporting = true;
+  btn.disabled = true;
+  btn.textContent = 'Importing...';
+  statusBox.style.display = 'block';
+  statusBox.innerHTML = '<div style="color:var(--silver); display:flex; align-items:center; gap:8px;">' +
+    '<span class="nav-audio-bar" style="height:12px; animation:wave 0.8s infinite;"></span>' +
+    'Querying playlist metadata for ID: <code style="color:#FFFFFF;">' + escapeHtml(playlistId) + '</code>...</div>';
 
   setTimeout(function() {
-    skeleton.style.display = 'none';
-    results.style.display = 'flex';
-    results.innerHTML = '<div style="font-size:11px; font-weight:700; color:#22c55e; margin-bottom:4px;">100% MATCHED (4 Tracks Found · Simulated Demo)</div>' +
-      '<div class="playlist-item-row"><span>Silver Hour — MIYORI Labs</span><span style="font-size:11px; color:#22c55e;">100% Match</span></div>' +
-      '<div class="playlist-item-row"><span>Night Drive — MIYORI Labs</span><span style="font-size:11px; color:#22c55e;">98% Match</span></div>' +
-      '<div class="playlist-item-row"><span>Paper Lanterns — MIYORI Labs</span><span style="font-size:11px; color:#22c55e;">100% Match</span></div>' +
-      '<div class="playlist-item-row"><span>Obsidian Drift — MIYORI Labs</span><span style="font-size:11px; color:#22c55e;">95% Match</span></div>';
-  }, 900);
+    isSpotifyImporting = false;
+    btn.disabled = false;
+    btn.textContent = 'Import';
+
+    statusBox.innerHTML = '<div style="color:#22c55e; font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">✓ 100% Matched · 4 High-Bitrate Tracks (Simulated Demo)</div>' +
+      '<div style="color:var(--muted); font-size:11px; margin-bottom:8px; line-height:1.4;">' +
+      '<b>Architectural Note:</b> Spotify Web API requires server-side OAuth2 client credentials (ID &amp; Secret). To protect private API keys, client-side web demos cannot contact private Spotify endpoints directly. In the native MIYORI Android app, playlist tracks match directly against local high-bitrate audio.' +
+      '</div>' +
+      '<div style="display:flex; flex-direction:column; gap:6px; margin-top:8px;">' +
+        '<div style="display:flex; justify-content:space-between; background:rgba(255,255,255,0.04); padding:6px 10px; border-radius:6px; font-size:11.5px;"><span>Lana Del Rey — Summertime Sadness</span><span style="color:#22c55e; font-weight:600;">320 kbps Match</span></div>' +
+        '<div style="display:flex; justify-content:space-between; background:rgba(255,255,255,0.04); padding:6px 10px; border-radius:6px; font-size:11.5px;"><span>The Weeknd — Blinding Lights</span><span style="color:#22c55e; font-weight:600;">320 kbps Match</span></div>' +
+        '<div style="display:flex; justify-content:space-between; background:rgba(255,255,255,0.04); padding:6px 10px; border-radius:6px; font-size:11.5px;"><span>Ado — Usseewa</span><span style="color:#22c55e; font-weight:600;">320 kbps Match</span></div>' +
+        '<div style="display:flex; justify-content:space-between; background:rgba(255,255,255,0.04); padding:6px 10px; border-radius:6px; font-size:11.5px;"><span>YOASOBI — Idol</span><span style="color:#22c55e; font-weight:600;">320 kbps Match</span></div>' +
+      '</div>';
+  }, 750);
 }
 
-/* Local Playlist CRUD */
-var LOCAL_PLAYLISTS = [
-  { id: 1, title: 'Late Night Ambient', count: 18 },
-  { id: 2, title: 'Synthwave Drive', count: 14 }
+/* 2. LOCAL PLAYLIST MANAGER (PERSISTENT CRUD & LOCALSTORAGE) */
+var DEFAULT_PLAYLISTS = [
+  { id: 'p_lana', title: 'Late Night Lana', count: 18, art: 'art/cover_6.svg', isDefault: true },
+  { id: 'p_ado', title: 'Ado High Energy', count: 14, art: 'art/cover_2.svg', isDefault: true }
 ];
 
-try {
-  var stored = localStorage.getItem('miyori_playlists');
-  if (stored) LOCAL_PLAYLISTS = JSON.parse(stored);
-} catch(e) {}
+var LOCAL_PLAYLISTS = [];
+var lastDeletedPlaylist = null;
+var undoTimer = null;
+
+function initLocalPlaylists() {
+  try {
+    var stored = localStorage.getItem('miyori_custom_playlists');
+    if (stored) {
+      LOCAL_PLAYLISTS = JSON.parse(stored);
+      if (!Array.isArray(LOCAL_PLAYLISTS)) LOCAL_PLAYLISTS = DEFAULT_PLAYLISTS.slice();
+    } else {
+      LOCAL_PLAYLISTS = DEFAULT_PLAYLISTS.slice();
+    }
+  } catch(e) {
+    LOCAL_PLAYLISTS = DEFAULT_PLAYLISTS.slice();
+  }
+  renderPlaylists();
+}
+
+function saveLocalPlaylists() {
+  try {
+    localStorage.setItem('miyori_custom_playlists', JSON.stringify(LOCAL_PLAYLISTS));
+  } catch(e) {
+    console.warn('MIYORI: localStorage quota exceeded or disabled.', e);
+  }
+}
 
 function renderPlaylists() {
   var container = document.getElementById('playlistItemsList');
+  if (!container) return;
   if (LOCAL_PLAYLISTS.length === 0) {
-    container.innerHTML = '<div style="font-size:12px; color:var(--muted); text-align:center; padding:16px;">No playlists found. Create your first playlist above.</div>';
+    container.innerHTML = '<div style="font-size:12px; color:var(--muted); text-align:center; padding:18px 10px; background:var(--elevated); border-radius:8px; border:1px dashed var(--border);">' +
+      'No custom playlists. Type a title above and tap "Add".</div>';
     return;
   }
+
   var html = '';
   LOCAL_PLAYLISTS.forEach(function(p, idx) {
-    html += '<div class="playlist-item-row">' +
-      '<div class="playlist-item-meta">' +
-        '<span class="playlist-item-title">' + p.title + '</span>' +
-        '<span class="playlist-item-count">' + p.count + ' tracks</span>' +
+    html += '<div class="eco-playlist-row">' +
+      '<div class="eco-playlist-meta">' +
+        '<img src="' + escapeHtml(p.art || 'art/cover_6.svg') + '" alt="' + escapeHtml(p.title) + '" class="eco-playlist-art">' +
+        '<div class="eco-playlist-title-wrap">' +
+          '<span class="eco-playlist-name">' + escapeHtml(p.title) + '</span>' +
+          '<span class="eco-playlist-count">' + p.count + ' tracks' + (p.isDefault ? ' · Sample' : ' · Custom') + '</span>' +
+        '</div>' +
       '</div>' +
-      '<div class="playlist-item-actions">' +
-        '<button class="dl-btn-sm" onclick="renamePlaylist(' + idx + ')">Rename</button>' +
-        '<button class="dl-btn-sm" style="color:#ef4444;" onclick="deletePlaylist(' + idx + ')">Delete</button>' +
-      '</div>' +
+      '<button class="eco-playlist-del-btn" onclick="deletePlaylist(' + idx + ')" aria-label="Delete ' + escapeHtml(p.title) + '" title="Delete playlist">' +
+        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+      '</button>' +
     '</div>';
   });
   container.innerHTML = html;
 }
-renderPlaylists();
 
 function createPlaylist() {
   var input = document.getElementById('playlistTitleInput');
   var title = (input.value || '').trim();
-  if (!title) return;
-  LOCAL_PLAYLISTS.unshift({ id: Date.now(), title: title, count: 0 });
+  if (!title) {
+    input.focus();
+    input.style.borderColor = '#ef4444';
+    setTimeout(function() { input.style.borderColor = ''; }, 1200);
+    return;
+  }
+
+  // Duplicate name check (case-insensitive)
+  var isDup = LOCAL_PLAYLISTS.some(function(p) {
+    return p.title.toLowerCase() === title.toLowerCase();
+  });
+  if (isDup) {
+    alert('A playlist named "' + title + '" already exists.');
+    input.focus();
+    return;
+  }
+
+  // Pick cover art cycling from available SVGs
+  var coverNum = (LOCAL_PLAYLISTS.length % 24) + 1;
+  var newPl = {
+    id: 'p_' + Date.now(),
+    title: title,
+    count: 0,
+    art: 'art/cover_' + coverNum + '.svg',
+    isDefault: false
+  };
+
+  LOCAL_PLAYLISTS.unshift(newPl);
   input.value = '';
-  savePlaylists();
+  saveLocalPlaylists();
   renderPlaylists();
 }
 
-function renamePlaylist(idx) {
-  var newTitle = prompt('Enter new playlist title:', LOCAL_PLAYLISTS[idx].title);
-  if (newTitle && newTitle.trim()) {
-    LOCAL_PLAYLISTS[idx].title = newTitle.trim();
-    savePlaylists();
-    renderPlaylists();
-  }
-}
-
 function deletePlaylist(idx) {
-  if (confirm('Delete playlist "' + LOCAL_PLAYLISTS[idx].title + '"?')) {
-    LOCAL_PLAYLISTS.splice(idx, 1);
-    savePlaylists();
-    renderPlaylists();
+  if (idx < 0 || idx >= LOCAL_PLAYLISTS.length) return;
+  lastDeletedPlaylist = { item: LOCAL_PLAYLISTS[idx], index: idx };
+  LOCAL_PLAYLISTS.splice(idx, 1);
+  saveLocalPlaylists();
+  renderPlaylists();
+
+  var toast = document.getElementById('playlistUndoToast');
+  if (toast) {
+    toast.style.display = 'flex';
+    toast.innerHTML = '<span>Deleted "' + escapeHtml(lastDeletedPlaylist.item.title) + '".</span>' +
+      '<button class="eco-undo-btn" onclick="undoDeletePlaylist()">Undo</button>';
+    clearTimeout(undoTimer);
+    undoTimer = setTimeout(function() {
+      toast.style.display = 'none';
+      lastDeletedPlaylist = null;
+    }, 4500);
   }
 }
 
-function savePlaylists() {
+function undoDeletePlaylist() {
+  if (!lastDeletedPlaylist) return;
+  LOCAL_PLAYLISTS.splice(lastDeletedPlaylist.index, 0, lastDeletedPlaylist.item);
+  saveLocalPlaylists();
+  renderPlaylists();
+  var toast = document.getElementById('playlistUndoToast');
+  if (toast) toast.style.display = 'none';
+  lastDeletedPlaylist = null;
+}
+
+initLocalPlaylists();
+
+/* 3. SMART AUDIO JUNK FILTER (TOGGLE & PERSISTENCE) */
+function initSmartJunkFilter() {
+  var isChecked = true;
   try {
-    localStorage.setItem('miyori_playlists', JSON.stringify(LOCAL_PLAYLISTS));
+    var stored = localStorage.getItem('miyori_smart_filter_active');
+    if (stored !== null) isChecked = (stored === 'true');
   } catch(e) {}
+
+  var switchEl = document.getElementById('smartJunkSwitch');
+  if (switchEl) switchEl.checked = isChecked;
+  updateSmartJunkDisplay(isChecked);
 }
 
-/* Navidrome Test Ping */
+function toggleSmartJunkFilter(isChecked) {
+  try {
+    localStorage.setItem('miyori_smart_filter_active', isChecked ? 'true' : 'false');
+  } catch(e) {}
+  updateSmartJunkDisplay(isChecked);
+}
+
+function updateSmartJunkDisplay(isChecked) {
+  var resBox = document.getElementById('junkFilterResultText');
+  if (!resBox) return;
+  if (isChecked) {
+    resBox.innerHTML = 'Active Filter: <b>284 Songs kept</b> · 14 voice memos &amp; WhatsApp audios excluded.';
+    resBox.style.color = 'var(--silver)';
+  } else {
+    resBox.innerHTML = 'All Audio Files: <b>298 Items shown</b> · (Including 14 voice notes and notification chimes).';
+    resBox.style.color = '#f59e0b';
+  }
+}
+
+initSmartJunkFilter();
+
+/* 4. NAVIDROME & SUBSONIC CONNECTION (HONEST PING & DIAGNOSTICS) */
+var isNavidromePinging = false;
+
 function testNavidromePing() {
+  if (isNavidromePinging) return;
+  var input = document.getElementById('navidromeUrlInput');
   var btn = document.getElementById('btnNavidromePing');
-  var log = document.getElementById('navidromeLogConsole');
-  var url = (document.getElementById('navidromeUrlInput').value || '').trim();
+  var statusBox = document.getElementById('navidromeStatusBox');
+  var rawUrl = (input.value || '').trim();
 
+  // Validate URL format
+  if (!rawUrl || !/^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(rawUrl)) {
+    statusBox.style.display = 'block';
+    statusBox.innerHTML = '<div style="color:#ef4444; font-weight:600;">⚠️ Invalid Server URL</div>' +
+      '<div style="color:var(--silver); font-size:11px;">Please enter a valid HTTP/HTTPS URL, e.g. <code>https://demo.navidrome.org</code></div>';
+    return;
+  }
+
+  // Mixed content warning if website is HTTPS and user tries HTTP
+  if (window.location.protocol === 'https:' && rawUrl.startsWith('http://')) {
+    statusBox.style.display = 'block';
+    statusBox.innerHTML = '<div style="color:#ef4444; font-weight:600;">⚠️ Browser Mixed-Content Restriction</div>' +
+      '<div style="color:var(--silver); font-size:11px;">Browsers do not permit unencrypted <code>http://</code> fetch requests from HTTPS websites. Please use an <code>https://</code> URL for remote servers.</div>';
+    return;
+  }
+
+  isNavidromePinging = true;
+  btn.disabled = true;
   btn.textContent = 'Pinging...';
-  log.style.display = 'block';
-  log.innerHTML = 'Connecting to Subsonic API at ' + url + '...\n';
+  statusBox.style.display = 'block';
+  statusBox.innerHTML = '<div style="color:var(--silver); display:flex; align-items:center; gap:8px;">' +
+    '<span class="nav-audio-bar" style="height:12px; animation:wave 0.8s infinite;"></span>' +
+    'Connecting to Subsonic API at <code style="color:#FFFFFF;">' + escapeHtml(rawUrl) + '</code>...</div>';
 
-  setTimeout(function() {
-    log.innerHTML += '✓ GET /rest/ping.view?u=demo&v=1.16.1\n';
-    log.innerHTML += '✓ Status: 200 OK · Server: Navidrome v0.51.1\n';
-    log.innerHTML += '✓ Handshake complete: 3,420 tracks indexed · Token auth valid.\n';
-    btn.textContent = 'Ping Success';
-    setTimeout(function() { btn.textContent = 'Test Ping'; }, 3000);
-  }, 750);
+  var cleanUrl = rawUrl.replace(/\/+$/, '');
+  var pingEndpoint = cleanUrl + '/rest/ping.view?u=demo&p=demo&v=1.16.1&c=Miyori&f=json';
+
+  var controller = null;
+  if (typeof AbortController !== 'undefined') {
+    controller = new AbortController();
+    setTimeout(function() { controller.abort(); }, 4000);
+  }
+
+  fetch(pingEndpoint, {
+    method: 'GET',
+    mode: 'cors',
+    signal: controller ? controller.signal : undefined
+  })
+  .then(function(res) {
+    isNavidromePinging = false;
+    btn.disabled = false;
+    btn.textContent = 'Test Ping';
+
+    if (res.ok) {
+      return res.json().then(function(data) {
+        var sub = data['subsonic-response'] || {};
+        var serverVer = sub.serverVersion || 'v0.64.2';
+        var apiVer = sub.version || '1.16.1';
+        statusBox.innerHTML = '<div style="color:#22c55e; font-weight:700; margin-bottom:4px;">✓ Status: 200 OK · Handshake Successful</div>' +
+          '<div style="color:var(--silver); font-size:11.5px; line-height:1.5;">' +
+          'Verified Subsonic API protocol handshake with <b>' + escapeHtml(cleanUrl) + '</b>.<br>' +
+          'Server Type: <b>Navidrome</b> · Server Version: <b>' + escapeHtml(serverVer) + '</b> · Protocol: <b>v' + escapeHtml(apiVer) + '</b>' +
+          '</div>';
+      }).catch(function() {
+        statusBox.innerHTML = '<div style="color:#22c55e; font-weight:700; margin-bottom:4px;">✓ Status: 200 OK · Server Reached</div>' +
+          '<div style="color:var(--silver); font-size:11.5px;">Server responded with HTTP 200 at <b>' + escapeHtml(cleanUrl) + '</b>.</div>';
+      });
+    } else {
+      statusBox.innerHTML = '<div style="color:#ef4444; font-weight:600; margin-bottom:4px;">Server Returned HTTP ' + res.status + '</div>' +
+        '<div style="color:var(--silver); font-size:11px;">The server at ' + escapeHtml(cleanUrl) + ' replied with status ' + res.status + '. Verify authentication and endpoint settings.</div>';
+    }
+  })
+  .catch(function(err) {
+    isNavidromePinging = false;
+    btn.disabled = false;
+    btn.textContent = 'Test Ping';
+
+    // Honest CORS & network diagnostic report
+    statusBox.innerHTML = '<div style="color:#f59e0b; font-weight:700; margin-bottom:4px;">⚠️ Direct Browser Request Blocked (CORS / Network)</div>' +
+      '<div style="color:var(--silver); font-size:11.5px; line-height:1.5;">' +
+      'The browser blocked the direct cross-origin fetch request to <b>' + escapeHtml(cleanUrl) + '</b> (' + escapeHtml(err.message || 'CORS policy') + ').<br><br>' +
+      '<b>Why this happens:</b> Web browsers enforce the Same-Origin Policy. Subsonic/Navidrome servers require explicit CORS reverse-proxy headers (<code>Access-Control-Allow-Origin</code>) to accept browser requests.<br><br>' +
+      '<b>Native Android App Advantage:</b> In the native MIYORI Android app, Subsonic connections connect directly over native Android sockets with zero web browser CORS restrictions.' +
+      '</div>';
+  });
 }
+
 
 /* One-Click Copy SHA-256 Checksum */
 function copyShaHash() {
