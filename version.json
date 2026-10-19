@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "name": "MIYORI",
   "projectUrl": "https://miyori.vercel.app",
   "releases": {
@@ -41,13 +42,30 @@
     "inPlaceUpdateFromAuralis": false,
     "packageMigrationRequired": true,
     "reason": "Android OS security architecture requires identical applicationId for in-place updates. Target package is com.miyori.music whereas installed package is com.example.auralis.",
+    "coexistenceSupported": true
+  },
+  "migration": {
+    "isPackageMigration": true,
+    "inPlaceUpdateAllowedByAndroidOS": false,
+    "packageIdentityExplanation": "Android OS PackageManagerService enforces application sandbox isolation by package name. Because the package identifier changed from com.example.auralis to com.miyori.music, Android treats Miyori as a distinct, separate application. In-place replacement of com.example.auralis by com.miyori.music is technically impossible under the Android OS security model.",
     "coexistenceSupported": true,
-    "coexistenceDetails": "Both Auralis and Miyori can be installed side-by-side on the same device without conflict. Installing Miyori does not erase or modify existing Auralis files.",
-    "migrationInstructions": [
-      "Download Miyori-Release.apk from https://miyori.vercel.app/Miyori-Release.apk.",
-      "Install Miyori. Android Package Manager will register it as a new app alongside Auralis.",
-      "Open Miyori and grant Audio / Storage permissions. Miyori will automatically scan and index your existing audio files.",
-      "Verify your library in Miyori. You can keep Auralis as a backup or safely uninstall it."
+    "coexistenceGuarantee": "Both Auralis and Miyori can be installed side-by-side on the same device without conflict. Installing Miyori will never delete, corrupt, or modify your existing Auralis app or files.",
+    "dataPreservationNotice": "Shared audio files saved in standard device storage (e.g., Music/Miyori or shared audio folders) with ID3v2.4 tags remain completely accessible and are automatically indexed by Miyori on first launch. However, internal app databases, in-app playlists, and private settings stored inside /data/data/com.example.auralis/ do NOT transfer automatically across different application IDs due to Android application sandboxing.",
+    "recoveryGuidance": [
+      "If installation is blocked: Open Android Settings -> Apps -> Special App Access -> Install unknown apps, and enable permission for your browser or file manager.",
+      "If 'App not installed' error occurs: Verify at least 50 MB of free internal storage, and ensure the downloaded APK SHA-256 matches 8ddb0520f46a6a7ae28c5ca178fc54e160ad36c087de38cec8ef543bc59104e4.",
+      "If a corrupt download occurs: Delete the damaged file from your Downloads folder and re-download from https://miyori.vercel.app/Miyori-Release.apk."
+    ],
+    "stepByStepFlow": [
+      "Step 1: Download Miyori-Release.apk from https://miyori.vercel.app/Miyori-Release.apk.",
+      "Step 2: Tap the downloaded file to install. Android will install MIYORI as a new app alongside Auralis.",
+      "Step 3: Launch MIYORI and grant Audio / Media permissions; all existing local music files are discovered automatically.",
+      "Step 4: Verify playback. You may safely keep Auralis as a backup or uninstall it whenever desired."
     ]
+  },
+  "futureUpdates": {
+    "applicationId": "com.miyori.music",
+    "updatePolicy": "All future Miyori releases will retain the applicationId 'com.miyori.music' and the same signing certificate, incrementing versionCode sequentially (15, 16, etc.) to guarantee seamless in-place updates without requiring migration.",
+    "inPlaceUpdateEligible": true
   }
 }
