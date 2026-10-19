@@ -2142,6 +2142,282 @@ section {
   cursor: pointer;
 }
 
+
+/* ==========================================================================
+   ANDROID UPDATE & COMPATIBILITY HUB STYLES
+   ========================================================================== */
+.compat-card {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 600px) {
+  .compat-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+}
+.compat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.compat-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--silver);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.compat-api-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--silver);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.compat-api-pill .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+.compat-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.compat-preset-btn {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.compat-preset-btn:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+.compat-preset-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.06);
+}
+.preset-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.preset-sub {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-family: monospace;
+}
+.compat-custom-drawer {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.compat-custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.compat-input-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--silver);
+  margin-bottom: 6px;
+}
+.compat-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: #FFFFFF;
+  outline: none;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+.compat-input:focus {
+  border-color: var(--silver);
+}
+.compat-results-stage {
+  border-radius: 18px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+@media (max-width: 600px) {
+  .compat-results-stage {
+    padding: 16px;
+  }
+}
+.diag-warning {
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.diag-success {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.diag-info {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.diag-error {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.diag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.diag-badge.warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.diag-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.diag-badge.info {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.diag-badge.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.compat-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.compat-meta-item {
+  font-size: 12px;
+}
+.compat-meta-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.compat-meta-val {
+  font-family: monospace;
+  color: #FFFFFF;
+  font-weight: 600;
+  word-break: break-all;
+}
+.compat-explanation {
+  font-size: 13.5px;
+  color: var(--silver);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.compat-notice-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid #F59E0B;
+  border-radius: 4px 8px 8px 4px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: var(--silver);
+  line-height: 1.5;
+}
+.compat-steps {
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.compat-step-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--silver);
+  line-height: 1.45;
+}
+.compat-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.btn-compat-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #FFFFFF;
+  color: #000000;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 10px;
+}
+.btn-compat-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
+}
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -2322,6 +2598,7 @@ footer {
       <li><a href="#showcase">The App</a></li>
       <li><a href="#features">Lyrics</a></li>
       <li><a href="#integrations">Ecosystem</a></li>
+      <li><a href="#compatibility">Updates</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
 
@@ -2363,6 +2640,7 @@ footer {
   <a href="#showcase" onclick="closeMobileNav()">The App (Phone Interface)</a>
   <a href="#features" onclick="closeMobileNav()">Synchronized Lyrics &amp; EQ</a>
   <a href="#integrations" onclick="closeMobileNav()">Ecosystem &amp; Junk Filter</a>
+  <a href="#compatibility" onclick="closeMobileNav()">Updates &amp; Migration</a>
   <a href="#faq" onclick="closeMobileNav()">FAQ</a>
   <a href="Miyori-Release.apk" download="Miyori-Release.apk" style="color:#FFFFFF; font-weight:700;">Download MIYORI APK (10.25 MB)</a>
 </div>
@@ -3234,6 +3512,80 @@ footer {
 <!-- ==========================================================================
      FREQUENTLY ASKED QUESTIONS
      ========================================================================== -->
+<!-- ==========================================================================
+     ANDROID UPDATE & PACKAGE MIGRATION COMPATIBILITY HUB
+     ========================================================================== -->
+<section id="compatibility">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center; display:table; margin-inline:auto;">ANDROID SYSTEM COMPATIBILITY</div>
+    <h2 style="text-align:center;">Auralis &rarr; MIYORI Migration &amp; Update Hub</h2>
+    <p class="section-sub" style="text-align:center; max-width:760px; margin-inline:auto; margin-bottom:32px;">
+      Android security enforces package identity. Tapping "Update" in legacy Auralis downloads MIYORI as a separate application rather than an in-place update. Select your setup below to verify compatibility, preserve your music, and migrate cleanly.
+    </p>
+
+    <!-- Main Compatibility Card -->
+    <div class="compat-card">
+      <div class="compat-header">
+        <div>
+          <span class="compat-tag">COMPATIBILITY INSPECTOR</span>
+          <h3 style="margin-top:6px; font-size:20px; font-weight:700; color:#FFFFFF;">Select Your Installed Application</h3>
+        </div>
+        <div class="compat-api-pill">
+          <span class="status-dot"></span>
+          <span>Target: com.miyori.music v1.3.1 (Build 14)</span>
+        </div>
+      </div>
+
+      <!-- Quick Preset Selection Buttons -->
+      <div class="compat-presets">
+        <button type="button" class="compat-preset-btn active" id="presetAuralis120" onclick="selectCompatPreset('auralis_120')">
+          <span class="preset-name">Auralis v1.2.0</span>
+          <span class="preset-sub">com.example.auralis · Build 3</span>
+        </button>
+        <button type="button" class="compat-preset-btn" id="presetAuralis128" onclick="selectCompatPreset('auralis_128')">
+          <span class="preset-name">Auralis v1.2.8</span>
+          <span class="preset-sub">com.example.auralis · Build 11</span>
+        </button>
+        <button type="button" class="compat-preset-btn" id="presetMiyori130" onclick="selectCompatPreset('miyori_130')">
+          <span class="preset-name">Miyori v1.3.0</span>
+          <span class="preset-sub">com.miyori.music · Build 10</span>
+        </button>
+        <button type="button" class="compat-preset-btn" id="presetMiyori131" onclick="selectCompatPreset('miyori_131')">
+          <span class="preset-name">Miyori v1.3.1</span>
+          <span class="preset-sub">com.miyori.music · Build 14 (Current)</span>
+        </button>
+        <button type="button" class="compat-preset-btn" id="presetCustom" onclick="selectCompatPreset('custom')">
+          <span class="preset-name">Custom Verification</span>
+          <span class="preset-sub">Check Custom Build / Hash</span>
+        </button>
+      </div>
+
+      <!-- Custom Input Drawer (Hidden by default) -->
+      <div class="compat-custom-drawer" id="compatCustomDrawer" style="display:none;">
+        <div class="compat-custom-grid">
+          <div>
+            <label class="compat-input-label" for="customPackageInput">Installed Package ID</label>
+            <input type="text" id="customPackageInput" class="compat-input" placeholder="e.g. com.example.auralis" value="com.example.auralis" oninput="runCustomCompatCheck()">
+          </div>
+          <div>
+            <label class="compat-input-label" for="customVersionInput">Installed Version Code</label>
+            <input type="number" id="customVersionInput" class="compat-input" placeholder="e.g. 3" value="3" oninput="runCustomCompatCheck()">
+          </div>
+          <div>
+            <label class="compat-input-label" for="customCertInput">Signing Key SHA-256 Digest</label>
+            <input type="text" id="customCertInput" class="compat-input" placeholder="e.g. e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320" value="e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320" oninput="runCustomCompatCheck()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagnostic Results Stage -->
+      <div class="compat-results-stage" id="compatResultsStage">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <div class="eyebrow" style="text-align:center; display:table; margin-inline:auto;">FREQUENTLY ASKED QUESTIONS</div>
@@ -3243,6 +3595,21 @@ footer {
       <details class="faq-item" open>
         <summary class="faq-question">What is MIYORI?</summary>
         <p>MIYORI is a luxury native Android music player crafted around high-bitrate streaming, synchronized lyrics, local music ownership, and self-hosted Navidrome integration. Built in 100% native Kotlin under 11 MB.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Why did my Auralis app fail to update when I tapped "Update" inside the app?</summary>
+        <p>The legacy Auralis application was built using the package identifier <code>com.example.auralis</code>. Production MIYORI transitioned to the official production package identifier <code>com.miyori.music</code>. Android OS security architecture enforces strict package identity: an in-place update is only permitted when package identifiers match. When Auralis downloads MIYORI, Android detects a different application ID and presents an "Install" prompt for a new app rather than an "Update" prompt for Auralis. Both apps will coexist safely without data conflict.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Can Auralis and MIYORI coexist on the same phone?</summary>
+        <p>Yes, 100%. Because they possess distinct package identifiers (<code>com.example.auralis</code> and <code>com.miyori.music</code>), Android treats them as completely separate, sandboxed applications. Installing MIYORI will never overwrite, corrupt, or delete your existing Auralis app or its internal data.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Will I lose my downloaded songs when migrating to MIYORI?</summary>
+        <p>No. Both Auralis and MIYORI store downloaded music directly in standard device storage (<code>Music/Miyori</code> and shared Android audio directories) with unencrypted ID3v2.4 tags and high-res cover art. When you install and open MIYORI, its universal audio indexer automatically scans and presents your entire local music library on first launch.</p>
       </details>
 
       <details class="faq-item">
@@ -4867,6 +5234,189 @@ function testNavidromePing() {
   });
 }
 
+
+/* ==========================================================================
+   ANDROID UPDATE & MIGRATION COMPATIBILITY ENGINE
+   Evaluates package divergence, signature matches, version codes, and coexistence.
+   ========================================================================== */
+var TARGET_RELEASE_DATA = {
+  applicationId: 'com.miyori.music',
+  appName: 'Miyori',
+  versionName: '1.3.1',
+  versionCode: 14,
+  fileName: 'Miyori-Release.apk',
+  fileSizeFormatted: '10.25 MB',
+  fileSizeBytes: 10748397,
+  sha256: '8ddb0520f46a6a7ae28c5ca178fc54e160ad36c087de38cec8ef543bc59104e4',
+  certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+};
+
+var COMPAT_PRESETS = {
+  auralis_120: {
+    applicationId: 'com.example.auralis',
+    appName: 'Auralis',
+    versionName: '1.2.0',
+    versionCode: 3,
+    certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  },
+  auralis_128: {
+    applicationId: 'com.example.auralis',
+    appName: 'Auralis',
+    versionName: '1.2.8',
+    versionCode: 11,
+    certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  },
+  miyori_130: {
+    applicationId: 'com.miyori.music',
+    appName: 'Miyori',
+    versionName: '1.3.0',
+    versionCode: 10,
+    certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  },
+  miyori_131: {
+    applicationId: 'com.miyori.music',
+    appName: 'Miyori',
+    versionName: '1.3.1',
+    versionCode: 14,
+    certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  }
+};
+
+function selectCompatPreset(presetKey) {
+  var btns = document.querySelectorAll('.compat-preset-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+
+  var customDrawer = document.getElementById('compatCustomDrawer');
+  if (presetKey === 'custom') {
+    var cBtn = document.getElementById('presetCustom');
+    if (cBtn) cBtn.classList.add('active');
+    if (customDrawer) customDrawer.style.display = 'block';
+    runCustomCompatCheck();
+  } else {
+    if (customDrawer) customDrawer.style.display = 'none';
+    var activeBtn = document.getElementById(
+      presetKey === 'auralis_120' ? 'presetAuralis120' :
+      presetKey === 'auralis_128' ? 'presetAuralis128' :
+      presetKey === 'miyori_130' ? 'presetMiyori130' : 'presetMiyori131'
+    );
+    if (activeBtn) activeBtn.classList.add('active');
+    renderCompatDiagnosis(COMPAT_PRESETS[presetKey]);
+  }
+}
+
+function runCustomCompatCheck() {
+  var pkgInput = document.getElementById('customPackageInput');
+  var verInput = document.getElementById('customVersionInput');
+  var certInput = document.getElementById('customCertInput');
+  var pkg = pkgInput ? pkgInput.value.trim() : 'com.example.auralis';
+  var verCode = parseInt(verInput ? verInput.value.trim() : '3', 10) || 1;
+  var cert = certInput ? certInput.value.trim() : TARGET_RELEASE_DATA.certSha256;
+
+  renderCompatDiagnosis({
+    applicationId: pkg,
+    appName: pkg.indexOf('auralis') !== -1 ? 'Auralis' : (pkg.indexOf('miyori') !== -1 ? 'Miyori' : 'Custom App'),
+    versionName: 'Custom',
+    versionCode: verCode,
+    certSha256: cert
+  });
+}
+
+function renderCompatDiagnosis(installed) {
+  var stage = document.getElementById('compatResultsStage');
+  if (!stage) return;
+
+  var certMatch = installed.certSha256.toLowerCase() === TARGET_RELEASE_DATA.certSha256.toLowerCase();
+  var pkgMatch = installed.applicationId === TARGET_RELEASE_DATA.applicationId;
+
+  // Case 1: Certificate mismatch
+  if (!certMatch) {
+    stage.className = 'compat-results-stage diag-error';
+    stage.innerHTML = 
+      '<span class="diag-badge error">Signature Mismatch (Android Security Warning)</span>' +
+      '<div class="compat-meta-grid">' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Installed Certificate</div><div class="compat-meta-val">' + escapeHtml(installed.certSha256.slice(0, 20)) + '...</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Release Certificate</div><div class="compat-meta-val">' + TARGET_RELEASE_DATA.certSha256.slice(0, 20) + '...</div></div>' +
+      '</div>' +
+      '<div class="compat-explanation">' +
+        '<strong>Installation Failure Notice:</strong> The installed APK is signed with a different key than this release. Android OS Package Manager will reject an update with <code>INSTALL_FAILED_UPDATE_INCOMPATIBLE</code>. You must backup your audio files and uninstall the conflicting build before installing this release.' +
+      '</div>';
+    return;
+  }
+
+  // Case 2: Package Divergence (Auralis -> Miyori)
+  if (!pkgMatch) {
+    stage.className = 'compat-results-stage diag-warning';
+    stage.innerHTML = 
+      '<span class="diag-badge warning">Package Migration Required &middot; Not an In-Place Update</span>' +
+      '<div class="compat-meta-grid">' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Installed App</div><div class="compat-meta-val">' + escapeHtml(installed.appName) + ' (' + escapeHtml(installed.applicationId) + ')</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Target Release</div><div class="compat-meta-val">Miyori (' + TARGET_RELEASE_DATA.applicationId + ')</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Signing Key</div><div class="compat-meta-val">Verified Match (CN=Android Debug)</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Update Feasibility</div><div class="compat-meta-val" style="color:#F59E0B;">Separate App Install</div></div>' +
+      '</div>' +
+      '<div class="compat-explanation">' +
+        '<strong>Why the in-app Update button prompted a new install:</strong><br>' +
+        'Android enforces package identity at the OS level. Because the application package changed from <code>com.example.auralis</code> to <code>com.miyori.music</code>, Android does not allow an in-place update. Instead, Android Package Manager installs MIYORI as an independent, side-by-side app.' +
+      '</div>' +
+      '<div class="compat-notice-box">' +
+        '<strong>Safe Coexistence Guarantee:</strong> Installing MIYORI will <em>never</em> overwrite, delete, or modify your existing Auralis app. Both apps will coexist peacefully. Your downloaded songs in <code>Music/Miyori</code> are standard DRM-free audio and will be recognized by MIYORI automatically.' +
+      '</div>' +
+      '<div style="font-size:12.5px; font-weight:700; color:#FFFFFF; margin-bottom:8px;">RECOMMENDED MIGRATION FLOW:</div>' +
+      '<div class="compat-steps">' +
+        '<div class="compat-step-row"><span class="compat-step-num">1</span><span>Download the official <strong>Miyori-Release.apk</strong> (' + TARGET_RELEASE_DATA.fileSizeFormatted + ').</span></div>' +
+        '<div class="compat-step-row"><span class="compat-step-num">2</span><span>Open the downloaded APK and tap <strong>Install</strong>. Android adds MIYORI alongside Auralis.</span></div>' +
+        '<div class="compat-step-row"><span class="compat-step-num">3</span><span>Launch MIYORI and grant Audio permission. Your entire offline library appears automatically.</span></div>' +
+        '<div class="compat-step-row"><span class="compat-step-num">4</span><span>Verify your audio playback. You can keep Auralis as a backup or safely uninstall it at any time.</span></div>' +
+      '</div>' +
+      '<a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-compat-action">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
+        '<span>Download Verified MIYORI APK (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
+      '</a>';
+    return;
+  }
+
+  // Case 3: Same package, older version -> In-Place Update Available
+  if (installed.versionCode < TARGET_RELEASE_DATA.versionCode) {
+    stage.className = 'compat-results-stage diag-success';
+    stage.innerHTML = 
+      '<span class="diag-badge success">In-Place Update Available &middot; 100% Compatible</span>' +
+      '<div class="compat-meta-grid">' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Installed Version</div><div class="compat-meta-val">v' + escapeHtml(installed.versionName) + ' (Build ' + installed.versionCode + ')</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Target Version</div><div class="compat-meta-val">v' + TARGET_RELEASE_DATA.versionName + ' (Build ' + TARGET_RELEASE_DATA.versionCode + ')</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Package Match</div><div class="compat-meta-val" style="color:#10B981;">' + TARGET_RELEASE_DATA.applicationId + '</div></div>' +
+        '<div class="compat-meta-item"><div class="compat-meta-title">Update Method</div><div class="compat-meta-val" style="color:#10B981;">Direct In-Place Upgrade</div></div>' +
+      '</div>' +
+      '<div class="compat-explanation">' +
+        '<strong>Direct In-Place Update:</strong> Because your installed package matches <code>com.miyori.music</code> with the same signing identity, Android Package Manager will update the application directly. All your in-app playlists, settings, history, and cache will be preserved without interruption.' +
+      '</div>' +
+      '<a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-compat-action">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
+        '<span>Upgrade to MIYORI v' + TARGET_RELEASE_DATA.versionName + ' (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
+      '</a>';
+    return;
+  }
+
+  // Case 4: Up to date
+  stage.className = 'compat-results-stage diag-info';
+  stage.innerHTML = 
+    '<span class="diag-badge info">Application is Up to Date</span>' +
+    '<div class="compat-meta-grid">' +
+      '<div class="compat-meta-item"><div class="compat-meta-title">Installed Version</div><div class="compat-meta-val">v' + TARGET_RELEASE_DATA.versionName + ' (Build ' + TARGET_RELEASE_DATA.versionCode + ')</div></div>' +
+      '<div class="compat-meta-item"><div class="compat-meta-title">Package ID</div><div class="compat-meta-val">' + TARGET_RELEASE_DATA.applicationId + '</div></div>' +
+      '<div class="compat-meta-item"><div class="compat-meta-title">SHA-256 Checksum</div><div class="compat-meta-val">' + TARGET_RELEASE_DATA.sha256.slice(0, 16) + '...</div></div>' +
+      '<div class="compat-meta-item"><div class="compat-meta-title">Release Status</div><div class="compat-meta-val" style="color:#38BDF8;">Latest Production Release</div></div>' +
+    '</div>' +
+    '<div class="compat-explanation">' +
+      'Your installation matches the official production release. No update is required at this time.' +
+    '</div>';
+}
+
+// Initialize on page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { selectCompatPreset('auralis_120'); });
+} else {
+  selectCompatPreset('auralis_120');
+}
 
 /* One-Click Copy SHA-256 Checksum */
 function copyShaHash() {
