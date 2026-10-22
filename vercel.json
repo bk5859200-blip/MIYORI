@@ -2,6 +2,15 @@
   "cleanUrls": true,
   "headers": [
     {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=300, stale-while-revalidate=600"
+        }
+      ]
+    },
+    {
       "source": "/(.*)\\.(jpg|png|ico|svg)",
       "headers": [
         {
@@ -11,7 +20,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "headers": [
         {
           "key": "Cache-Control",

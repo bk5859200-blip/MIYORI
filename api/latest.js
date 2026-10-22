@@ -102,7 +102,7 @@ module.exports = async function handler(req, res) {
       notes = notes.substring(0, 1200) + '...';
     }
 
-    res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     if (isJson) {

@@ -1629,7 +1629,7 @@ footer .footer-brand {
       <img src="logo.jpg" alt="MIYORI Official Logo" class="hero-floating-logo">
     </div>
 
-    <div class="eyebrow">• MIYORI ANDROID · V1.2.0 RELEASE</div>
+    <div class="eyebrow">• MIYORI ANDROID · OFFICIAL RELEASE</div>
 
     <h1 aria-label="YOUR MUSIC. NO LIMITS.">
       <span class="word"><span style="--d:0.08s">YOUR</span></span>
@@ -1920,7 +1920,7 @@ footer .footer-brand {
                 <img src="logo.jpg" alt="Miyori" style="width:20px; height:20px; border-radius:5px;">
                 <span style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#fff;">MIYORI</span>
               </div>
-              <span style="font-size:10px; color:var(--muted); font-family:monospace;">v1.2.0</span>
+              <span style="font-size:10px; color:var(--muted); font-family:monospace;">v1.5.3</span>
             </div>
             <span style="font-size:11px; color:var(--muted); letter-spacing:0.12em; display:block; margin-bottom:4px;">CONTINUE LISTENING</span>
             <h3 style="font-size:18px; color:#FFFFFF; margin-bottom:12px;">Recently Played</h3>
@@ -2340,29 +2340,40 @@ footer .footer-brand {
       </div>
 
       <!-- Live Latest Release Card -->
-      <div id="liveReleaseCard" style="background:#090A0E; padding:18px 22px; border-radius:14px; border:1px solid var(--border); margin: 28px auto 0; max-width: 580px; text-align: left;">
+      <div id="liveReleaseCard" style="background:#090A0E; padding:20px 24px; border-radius:14px; border:1px solid var(--border); margin: 28px auto 0; max-width: 580px; text-align: left;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid var(--border); padding-bottom:10px;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="font-weight:600; font-size:14px; color:#FFFFFF;">Latest Release:</span>
             <span id="releaseCardVersion" style="color:var(--silver); font-size:13px; font-weight:600;">Loading...</span>
             <span id="releaseCardNewDot" class="new-dot" style="display:none;"></span>
           </div>
-          <a id="releaseCardAllReleasesLink" href="https://github.com/niyazz09/Miyori-Releases/releases" target="_blank" rel="noopener" style="font-size:12px; color:var(--muted); text-decoration:underline;">View all releases &rarr;</a>
+          <div style="display:flex; gap:12px; font-size:12px;">
+            <a id="releaseCardNotesLink" href="https://github.com/niyazz09/Miyori-Releases/releases/latest" target="_blank" rel="noopener" style="color:var(--silver); text-decoration:underline;">Full release notes &rarr;</a>
+            <a id="releaseCardAllReleasesLink" href="https://github.com/niyazz09/Miyori-Releases/releases" target="_blank" rel="noopener" style="color:var(--muted); text-decoration:underline;">All releases &rarr;</a>
+          </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; font-size:12.5px; color:var(--muted); margin-bottom:14px;">
-          <div><span style="color:var(--faint);">Published:</span> <span id="releaseCardPublished" style="color:var(--silver);">?</span></div>
-          <div><span style="color:var(--faint);">File:</span> <span id="releaseCardFileName" style="color:var(--silver); font-family:monospace;">?</span></div>
-          <div><span style="color:var(--faint);">Size:</span> <span id="releaseCardFileSize" style="color:var(--silver);">?</span></div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:10px; font-size:12.5px; color:var(--muted); margin-bottom:14px;">
+          <div><span style="color:var(--faint);">Published:</span> <span id="releaseCardPublished" style="color:var(--silver);">—</span></div>
+          <div><span style="color:var(--faint);">File:</span> <span id="releaseCardFileName" style="color:var(--silver); font-family:monospace;">—</span></div>
+          <div><span style="color:var(--faint);">Size:</span> <span id="releaseCardFileSize" style="color:var(--silver);">—</span></div>
         </div>
 
         <!-- Verified SHA-256 Checksum Container -->
-        <div id="releaseChecksumContainer" style="background:rgba(255,255,255,0.03); padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-family:monospace; font-size:11.5px; word-break:break-all;">
+        <div id="releaseChecksumContainer" style="background:rgba(255,255,255,0.03); padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-family:monospace; font-size:11.5px; word-break:break-all; margin-bottom:14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
             <span style="color:var(--muted); font-size:10.5px; letter-spacing:0.04em;">SHA-256 CHECKSUM</span>
             <button type="button" id="copyHashBtn" onclick="copyShaHash()" style="font-size:11px; color:#FFFFFF; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); padding:2px 8px; border-radius:4px; cursor:pointer;">Copy</button>
           </div>
           <span id="shaHashText" style="color:var(--silver);">Checksum is listed on the release page</span>
+        </div>
+
+        <!-- What's New from Release Notes -->
+        <div id="releaseCardWhatsNew" style="border-top:1px solid var(--border); padding-top:12px;">
+          <span style="font-size:12px; font-weight:600; color:#FFFFFF; display:block; margin-bottom:6px;">What's New:</span>
+          <ul id="releaseCardNotesList" style="list-style:none; padding:0; margin:0; font-size:12.5px; color:var(--muted); line-height:1.5;">
+            <li class="whats-new-item visible">• See the release page for details</li>
+          </ul>
         </div>
       </div>
 
@@ -2371,7 +2382,7 @@ footer .footer-brand {
           <strong>Security Note:</strong> Android may prompt with <em>"File might be harmful"</em> or <em>"Install unknown apps"</em> for direct APK installations. Verify the checksum before installing, do not ignore warnings, and tap "Allow from this source" only if you trust the source.
         </p>
         <p style="margin:0;">
-          <strong>Updating?</strong> Install the new APK over your existing app. It must be signed with the same key as the version you have installed.
+          <strong>Updating?</strong> Install over your existing app; it must be signed with the same key.
         </p>
       </div>
     </div>
@@ -2423,8 +2434,8 @@ footer .footer-brand {
       </details>
 
       <details class="faq-item">
-        <summary class="faq-question">Where can I download the Miyori APK?</summary>
-        <p>You can download the verified release APK directly from this website or from our official GitHub Releases repository. The installation requires no Google account, no proprietary store, and installs in seconds.</p>
+        <summary class="faq-question">Where can I download Miyori for Android?</summary>
+        <p>Tap Download APK to get the verified release directly through the links on this website or from our official GitHub Releases repository. The installation requires no Google account, no proprietary store, and installs in seconds.</p>
       </details>
     </div>
   </div>
@@ -3420,6 +3431,18 @@ function copyShaHash() {
     var rcPub = document.getElementById('releaseCardPublished');
     var rcFile = document.getElementById('releaseCardFileName');
     var rcSize = document.getElementById('releaseCardFileSize');
+    var dlNotesList = document.getElementById('releaseCardNotesList');
+    var dlNotesLink = document.getElementById('releaseCardNotesLink');
+    if (dlNotesLink && data.releaseUrl) dlNotesLink.href = data.releaseUrl;
+    if (dlNotesList) {
+      dlNotesList.innerHTML = '';
+      bullets.forEach(function(bText) {
+        var li = document.createElement('li');
+        li.className = 'whats-new-item visible';
+        li.textContent = '• ' + bText;
+        dlNotesList.appendChild(li);
+      });
+    }
     var shaText = document.getElementById('shaHashText');
     var copyBtn = document.getElementById('copyHashBtn');
     var allReleasesLink = document.getElementById('releaseCardAllReleasesLink');
@@ -3491,7 +3514,7 @@ function copyShaHash() {
 
     if (rcVer) rcVer.textContent = 'Latest Release';
     if (rcPub) rcPub.textContent = 'View on GitHub';
-    if (rcFile) rcFile.textContent = 'Miyori APK';
+    if (rcFile) rcFile.textContent = 'Miyori App';
     if (rcSize) rcSize.textContent = 'Official Build';
     if (shaText) shaText.textContent = 'Checksum is listed on the release page';
     if (copyBtn) copyBtn.style.display = 'none';
