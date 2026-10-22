@@ -1714,7 +1714,7 @@ footer .footer-brand {
     <div class="eyebrow">CATALOG &amp; DISCOVERY</div>
     <h2>Find your next obsession.</h2>
     <p class="lead">
-      Search and play previews across Lana Del Rey, Ado, The Weeknd, and curated world sounds. Tap any track to listen with active synthesized playback.
+      Browse a sample catalog of Lana Del Rey, Ado, The Weeknd and more. Tap a card to hear a short synthesized demo sound (not the real song).
     </p>
 
     <div class="demo-card" style="margin-top: 40px;">
@@ -1920,7 +1920,7 @@ footer .footer-brand {
                 <img src="logo.jpg" alt="Miyori" style="width:20px; height:20px; border-radius:5px;">
                 <span style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#fff;">MIYORI</span>
               </div>
-              <span style="font-size:10px; color:var(--muted); font-family:monospace;">v1.5.3</span>
+              <span id="phoneMockupVersion" class="version-pill" style="font-size:10px; color:var(--muted); font-family:monospace;">Latest</span>
             </div>
             <span style="font-size:11px; color:var(--muted); letter-spacing:0.12em; display:block; margin-bottom:4px;">CONTINUE LISTENING</span>
             <h3 style="font-size:18px; color:#FFFFFF; margin-bottom:12px;">Recently Played</h3>
@@ -2287,13 +2287,6 @@ footer .footer-brand {
         </p>
       </div>
 
-      <div class="demo-card">
-        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Kotlin &amp; Jetpack Compose</b>
-        <p style="color:var(--muted); font-size:13.5px;">
-          Native Android app built with Kotlin and Jetpack Compose, designed for local and self-hosted listening.
-        </p>
-      </div>
-
       <div class="demo-card" id="whatsNewCard">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
           <b style="color:#FFFFFF; font-size:16px;">What's New in <span id="whatsNewVersion">Latest Release</span></b>
@@ -2322,7 +2315,7 @@ footer .footer-brand {
       <div class="eyebrow" style="margin-bottom:14px;">GET MIYORI FOR ANDROID</div>
       <h2>Your next listening experience starts here.</h2>
       <p class="lead" style="margin-inline:auto; max-width:540px;">
-        Discover a more personal, unfiltered way to experience music. Free, private, and yours to keep.
+        Discover a more personal, unfiltered way to experience music. Free to install and yours to keep.
       </p>
 
       <div class="cta-row" style="margin-top:32px;">
@@ -2417,12 +2410,12 @@ footer .footer-brand {
 
       <details class="faq-item">
         <summary class="faq-question">How do synchronized lyrics work?</summary>
-        <p>Miyori fetches line-by-line synchronized lyrics from LRCLIB where available, as well as reading embedded USLT/ID3 tags directly from your audio files. You can tap any line to seek playback instantly.</p>
+        <p>Miyori fetches line-by-line synchronized lyrics from LRCLIB where available. You can tap any line to seek playback instantly.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">Can I import my Spotify playlists?</summary>
-        <p>Yes. Simply paste a public Spotify playlist link into Miyori. The app parses the track metadata and resolves each track against high-bitrate streaming sources without needing a paid Spotify account.</p>
+        <p>Paste a public Spotify playlist link and Miyori matches its tracks.</p>
       </details>
 
       <details class="faq-item">
@@ -2432,7 +2425,7 @@ footer .footer-brand {
 
       <details class="faq-item">
         <summary class="faq-question">Can I customize audio with an equalizer?</summary>
-        <p>Miyori provides multi-band equalization, bass boost, and virtualizer sound shaping using native Android AudioEffect sessions, ensuring audio processing runs with minimum latency on hardware that supports it.</p>
+        <p>Miyori provides multi-band equalization, bass boost, and virtualizer sound shaping using native Android AudioEffect sessions on hardware that supports it.</p>
       </details>
 
       <details class="faq-item">
@@ -3379,8 +3372,9 @@ function copyShaHash() {
     var navPill = document.getElementById('navVersionPill');
     var heroPill = document.getElementById('heroVersionPill');
     var dlPill = document.getElementById('downloadSectionVersionPill');
+    var mockupPill = document.getElementById('phoneMockupVersion');
 
-    [navPill, heroPill, dlPill].forEach(function(pill) {
+    [navPill, heroPill, dlPill, mockupPill].forEach(function(pill) {
       if (pill) {
         pill.textContent = versionStr;
         pill.classList.add('ready');
@@ -3499,8 +3493,9 @@ function copyShaHash() {
     var navPill = document.getElementById('navVersionPill');
     var heroPill = document.getElementById('heroVersionPill');
     var dlPill = document.getElementById('downloadSectionVersionPill');
+    var mockupPill = document.getElementById('phoneMockupVersion');
 
-    [navPill, heroPill, dlPill].forEach(function(pill) {
+    [navPill, heroPill, dlPill, mockupPill].forEach(function(pill) {
       if (pill) {
         pill.textContent = 'Latest';
         pill.classList.add('ready');
