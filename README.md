@@ -19,8 +19,9 @@ The MIYORI web platform serves as the cinematic showcase and direct distribution
 * **Audio Engine:** AndroidX Media3 / ExoPlayer with system-level AudioEffect equalization
 * **Lyrics Engine:** LRCLIB integration for real-time word-by-word synchronized scrolling lyrics
 * **Network & Storage:** Room database, local cache management, and Subsonic/Navidrome remote library sync
-* **Minimum SDK:** Android 8.0 (API Level 26)
-* **Target SDK:** Android 14+ (API Level 34+)
+* **Minimum SDK:** Android 7.0 (API Level 24)
+* **Target SDK:** Android 16 (API Level 36)
+* **Distribution:** Official GitHub Releases at `https://github.com/niyazz09/Miyori-Releases`
 
 ---
 
@@ -33,7 +34,7 @@ The MIYORI web platform serves as the cinematic showcase and direct distribution
   * Web Audio 5-band dynamic equalizer with live audio processing and responsive canvas visualizer.
   * Custom playlist builder with full browser localStorage persistence.
   * Realistic Android device frame mockup displaying Now Playing, Lyric Stream, Equalizer, and Library views.
-* **Release Delivery:** Direct APK downloads configured with RFC-compliant headers via `vercel.json`.
+* **Release Delivery:** Connected to official GitHub Releases API with same-origin serverless fallback (`/api/release`).
 
 ---
 
@@ -41,14 +42,16 @@ The MIYORI web platform serves as the cinematic showcase and direct distribution
 
 ```
 MIYORI/
+├── api/                   # Vercel serverless functions (release.js)
 ├── art/                   # 24 procedural vector album covers (cover_1.svg - cover_24.svg)
 ├── favicon.ico            # Multi-resolution ICO favicon
 ├── favicon.png            # High-resolution PNG app icon
 ├── index.html             # Core responsive single-page application & showcase
 ├── logo.jpg               # Official MIYORI branding emblem
-├── Miyori-Release.apk     # Official release APK binary (~10.25 MB)
 ├── poster.jpg             # High-resolution branding banner & Open Graph preview
-├── vercel.json            # Deployment routing and download header rules
+├── update.json            # Android updater release manifest
+├── version.json           # Version metadata manifest
+├── vercel.json            # Deployment routing, redirects, and header rules
 ├── .gitignore             # Exclusion rules (OS files, reference backups, IDE caches)
 └── README.md              # Project documentation and specifications
 ```
@@ -59,7 +62,7 @@ MIYORI/
 
 The website is configured for seamless deployment on **Vercel**:
 * **Domain:** `https://miyori.vercel.app/`
-* **Static Routing:** Direct static file hosting with optimized caching and download attachment headers configured in `vercel.json`.
+* **Static Routing:** Direct static file hosting with optimized caching and download redirects configured in `vercel.json`.
 * **Continuous Deployment:** Automatically builds and updates upon commits pushed to the `main` branch.
 
 ---

@@ -1,13 +1,17 @@
 {
-  "headers": [
+  "redirects": [
     {
-      "source": "/(.*)\\.apk",
-      "headers": [
-        { "key": "Content-Type", "value": "application/vnd.android.package-archive" },
-        { "key": "Content-Disposition", "value": "attachment; filename=\"Miyori-Release.apk\"" },
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
-      ]
+      "source": "/Miyori-Release.apk",
+      "destination": "https://github.com/niyazz09/Miyori-Releases/releases/latest/download/Miyori-v1.5.2.apk",
+      "permanent": false
     },
+    {
+      "source": "/MIYORI.apk",
+      "destination": "https://github.com/niyazz09/Miyori-Releases/releases/latest/download/Miyori-v1.5.2.apk",
+      "permanent": false
+    }
+  ],
+  "headers": [
     {
       "source": "/(.*)\\.json",
       "headers": [

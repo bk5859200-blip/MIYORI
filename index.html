@@ -31,8 +31,9 @@
   "image": "https://miyori.vercel.app/logo.jpg",
   "operatingSystem": "Android 7.0 and up",
   "applicationCategory": "MultimediaApplication",
-  "fileSize": "10.25MB",
-  "downloadUrl": "https://miyori.vercel.app/Miyori-Release.apk",
+  "fileSize": "22.49MB",
+  "downloadUrl": "https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk",
+  "softwareVersion": "1.5.2",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -2577,6 +2578,184 @@ footer {
   }
 }
 
+
+/* ==========================================================================
+   OFFICIAL ANDROID DOWNLOAD SECTION
+   ========================================================================== */
+.download-section {
+  padding-block: 80px 60px;
+  position: relative;
+}
+.download-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 42px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+.download-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-silver);
+  opacity: 0.9;
+}
+.download-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.download-app-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.download-app-icon img {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: block;
+}
+.download-app-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+.download-app-pkg {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.download-app-pkg code {
+  color: #38BDF8;
+  font-family: monospace;
+  font-size: 12px;
+}
+.download-version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10B981;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.download-action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+.btn-main-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #FFFFFF;
+  color: #090A0E;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 18px rgba(255,255,255,0.15);
+}
+.btn-main-download:hover {
+  background: #E5E7EB;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(255,255,255,0.25);
+}
+.btn-notes-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-color);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-notes-link:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+}
+.android-install-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.notice-icon-box {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.notice-content {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #E2E8F0;
+}
+.notice-content strong {
+  color: #FBBF24;
+}
+.notice-content em {
+  font-style: normal;
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.1);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+.download-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.status-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  display: inline-block;
+}
+@media (max-width: 640px) {
+  .download-action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-main-download, .btn-notes-link {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2598,6 +2777,7 @@ footer {
       <li><a href="#showcase">The App</a></li>
       <li><a href="#features">Lyrics</a></li>
       <li><a href="#integrations">Ecosystem</a></li>
+      <li><a href="#download">Download</a></li>
       <li><a href="#compatibility">Updates</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -2613,13 +2793,13 @@ footer {
         <span id="navAudioText">Audio Idle</span>
       </button>
 
-      <a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-apk-nav">
+      <a href="https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk" id="navApkBtn" class="btn-apk-nav">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        <span>Get APK <span class="nav-apk-size">(10.25 MB)</span></span>
+        <span id="navApkText">Get APK <span class="nav-apk-size">(v1.5.2)</span></span>
       </a>
 
       <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Open mobile menu">
@@ -2640,9 +2820,10 @@ footer {
   <a href="#showcase" onclick="closeMobileNav()">The App (Phone Interface)</a>
   <a href="#features" onclick="closeMobileNav()">Synchronized Lyrics &amp; EQ</a>
   <a href="#integrations" onclick="closeMobileNav()">Ecosystem &amp; Junk Filter</a>
+  <a href="#download" onclick="closeMobileNav()">Official Download</a>
   <a href="#compatibility" onclick="closeMobileNav()">Updates &amp; Migration</a>
   <a href="#faq" onclick="closeMobileNav()">FAQ</a>
-  <a href="Miyori-Release.apk" download="Miyori-Release.apk" style="color:#FFFFFF; font-weight:700;">Download MIYORI APK (10.25 MB)</a>
+  <a href="https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk" id="mobileNavApkBtn" style="color:#FFFFFF; font-weight:700;">Download MIYORI APK (v1.5.2)</a>
 </div>
 
 <!-- ==========================================================================
@@ -2655,18 +2836,15 @@ footer {
       <div class="eyebrow">• MIYORI AUDIO LABS · INTERACTIVE EMBLEM</div>
 
       <h1>
-        <span class="word"><span style="--d:0.06s">Hear</span></span>
-        <span class="word"><span style="--d:0.14s">what</span></span>
-        <span class="word"><span style="--d:0.22s">your</span></span>
-        <span class="word"><span style="--d:0.30s">phone</span></span>
+        <span class="word"><span style="--d:0.06s">YOUR</span></span>
+        <span class="word"><span style="--d:0.14s">MUSIC.</span></span>
         <br>
-        <span class="word"><span style="--d:0.38s">has</span></span>
-        <span class="word"><span style="--d:0.46s">been</span></span>
-        <span class="word"><span style="--d:0.54s" class="silver-text">missing.</span></span>
+        <span class="word"><span style="--d:0.24s" class="silver-text">NO</span></span>
+        <span class="word"><span style="--d:0.32s" class="silver-text">LIMITS.</span></span>
       </h1>
 
       <p class="lead">
-        Tap the M. Stream it, download it, sing along, or bring your own server. Experience procedural liquid-silver audio synthesized directly in your browser.
+        A new way to listen. Every track. Your way.
       </p>
 
       <div class="hero-cta-row">
@@ -2678,18 +2856,18 @@ footer {
           </svg>
         </a>
 
-        <a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-ghost-hero">
+        <a href="https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk" id="heroApkBtn" class="btn-ghost-hero">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>Download for Android</span>
+          <span id="heroDownloadText">Download for Android</span>
         </a>
       </div>
 
       <div class="hero-stats-row">
-        <span><strong>10.25 MB</strong> APK</span>
+        <span><strong id="heroReleaseStat">v1.5.2</strong> Production</span>
         <span>•</span>
         <span><strong>High-Bitrate</strong> Audio</span>
         <span>•</span>
@@ -3490,7 +3668,7 @@ footer {
       </div>
       <div class="spec-card">
         <h4>APK Binary Footprint</h4>
-        <p>10.25 MB (Zero Bloat)</p>
+        <p id="specFootprint">22.49 MB (Zero Bloat)</p>
       </div>
       <div class="spec-card">
         <h4>Privacy Architecture</h4>
@@ -3502,12 +3680,88 @@ footer {
     <div class="sha-verification-box">
       <div class="sha-text-wrap">
         <span style="font-size:12px; font-weight:700; color:#FFFFFF; text-transform:uppercase; letter-spacing:0.08em;">Official Release Artifact (SHA-256)</span>
-        <code class="sha-hash-code" id="shaCodeText">8ddb0520f46a6a7ae28c5ca178fc54e160ad36c087de38cec8ef543bc59104e4</code>
+        <code class="sha-hash-code" id="shaCodeText">27c39c2a9139eaede4748c4e7b818fd1c8b96d507c3f2e6cdf05931c73bf7edf</code>
       </div>
       <button class="btn-copy-sha" id="copyShaBtn" onclick="copyShaHash()">Copy Checksum</button>
     </div>
   </div>
 </section>
+
+<!-- ==========================================================================
+     OFFICIAL ANDROID DOWNLOAD SECTION
+     ========================================================================== -->
+<section id="download" class="download-section">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center; display:table; margin-inline:auto;">• OFFICIAL ANDROID RELEASE</div>
+    <h2 style="text-align:center;">Get MIYORI for Android</h2>
+    <p class="section-sub" style="text-align:center; max-width:720px; margin-inline:auto; margin-bottom:36px;">
+      Experience pure local music ownership, high-bitrate streaming, synchronized lyrics, and self-hosted cloud sync in a fast, native Android experience.
+    </p>
+
+    <div class="download-card">
+      <div class="download-card-header">
+        <div class="download-app-identity">
+          <div class="download-app-icon">
+            <img src="logo.jpg" alt="MIYORI App Emblem" width="52" height="52">
+          </div>
+          <div>
+            <div class="download-app-name">MIYORI Music</div>
+            <div class="download-app-pkg">Package: <code>com.miyori.music</code> &middot; Architecture: Universal (ARM64 / x86_64)</div>
+          </div>
+        </div>
+
+        <div class="download-version-badge" id="dlBadgeContainer">
+          <span class="status-dot"></span>
+          <span id="dlVersionTag">v1.5.2 Stable Release</span>
+        </div>
+      </div>
+
+      <div class="download-action-row">
+        <a href="https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk" id="mainDownloadBtn" class="btn-main-download">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span id="mainDownloadBtnText">Download for Android (22.49 MB)</span>
+        </a>
+
+        <a href="https://github.com/niyazz09/Miyori-Releases/releases/latest" id="releaseNotesBtn" target="_blank" rel="noopener" class="btn-notes-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Release Notes &amp; Source</span>
+        </a>
+      </div>
+
+      <!-- Android Confirmation Notice -->
+      <div class="android-install-notice">
+        <div class="notice-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="notice-content">
+          <strong>Standard Android Installation Confirmation:</strong>
+          Android requires manual confirmation for apps downloaded outside Google Play. Your browser may display <em>"File might be harmful"</em> or prompt <em>"Install unknown apps"</em>. Tap <strong>Download anyway</strong>, open the downloaded APK from your notifications or Downloads folder, and tap <strong>Install</strong> to complete setup.
+        </div>
+      </div>
+
+      <!-- Status / Release Channel Connection -->
+      <div class="download-status-bar">
+        <span class="status-live-dot" id="releaseStatusDot"></span>
+        <span id="releaseStatusText">Official Release: v1.5.2 &middot; Direct GitHub Release CDN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ==========================================================================
      FREQUENTLY ASKED QUESTIONS
@@ -3532,7 +3786,7 @@ footer {
         </div>
         <div class="compat-api-pill">
           <span class="status-dot"></span>
-          <span>Target: com.miyori.music v1.3.1 (Build 14)</span>
+          <span>Target: com.miyori.music v1.5.2 (Build 35)</span>
         </div>
       </div>
 
@@ -3546,13 +3800,13 @@ footer {
           <span class="preset-name">Auralis v1.2.8</span>
           <span class="preset-sub">com.example.auralis · Build 11</span>
         </button>
-        <button type="button" class="compat-preset-btn" id="presetMiyori130" onclick="selectCompatPreset('miyori_130')">
-          <span class="preset-name">Miyori v1.3.0</span>
-          <span class="preset-sub">com.miyori.music · Build 10</span>
+        <button type="button" class="compat-preset-btn" id="presetMiyori131" onclick="selectCompatPreset('miyori_131_debug')">
+          <span class="preset-name">Miyori v1.3.1 (Debug)</span>
+          <span class="preset-sub">Debug Keystore · Build 14</span>
         </button>
-        <button type="button" class="compat-preset-btn" id="presetMiyori131" onclick="selectCompatPreset('miyori_131')">
-          <span class="preset-name">Miyori v1.3.1</span>
-          <span class="preset-sub">com.miyori.music · Build 14 (Current)</span>
+        <button type="button" class="compat-preset-btn" id="presetMiyori152" onclick="selectCompatPreset('miyori_152')">
+          <span class="preset-name">Miyori v1.5.2</span>
+          <span class="preset-sub">Production Keystore · Build 35</span>
         </button>
         <button type="button" class="compat-preset-btn" id="presetCustom" onclick="selectCompatPreset('custom')">
           <span class="preset-name">Custom Verification</span>
@@ -5242,13 +5496,17 @@ function testNavidromePing() {
 var TARGET_RELEASE_DATA = {
   applicationId: 'com.miyori.music',
   appName: 'Miyori',
-  versionName: '1.3.1',
-  versionCode: 14,
-  fileName: 'Miyori-Release.apk',
-  fileSizeFormatted: '10.25 MB',
-  fileSizeBytes: 10748397,
-  sha256: '8ddb0520f46a6a7ae28c5ca178fc54e160ad36c087de38cec8ef543bc59104e4',
-  certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  versionName: '1.5.2',
+  versionCode: 35,
+  releaseTag: 'v1.5.2',
+  releasePage: 'https://github.com/niyazz09/Miyori-Releases/releases/latest',
+  downloadUrl: 'https://github.com/niyazz09/Miyori-Releases/releases/download/v1.5.2/Miyori-v1.5.2.apk',
+  fileName: 'Miyori-v1.5.2.apk',
+  fileSizeFormatted: '22.49 MB',
+  fileSizeBytes: 23581086,
+  sha256: '27c39c2a9139eaede4748c4e7b818fd1c8b96d507c3f2e6cdf05931c73bf7edf',
+  certSha256: '2a8ba0af3cfbe3948fb5cbb07ced664f172ebe0cdef461f0642c77f2afb9ee8c',
+  certSubject: 'CN=Miyori Music, OU=Mobile, O=Miyori, L=City, ST=State, C=IN'
 };
 
 var COMPAT_PRESETS = {
@@ -5266,19 +5524,19 @@ var COMPAT_PRESETS = {
     versionCode: 11,
     certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
   },
-  miyori_130: {
+  miyori_131_debug: {
     applicationId: 'com.miyori.music',
-    appName: 'Miyori',
-    versionName: '1.3.0',
-    versionCode: 10,
-    certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
-  },
-  miyori_131: {
-    applicationId: 'com.miyori.music',
-    appName: 'Miyori',
+    appName: 'Miyori (Debug Build)',
     versionName: '1.3.1',
     versionCode: 14,
     certSha256: 'e313ff0bb204123230aed5731ed38171a6e17380cabdc052e2eb6b0c03016320'
+  },
+  miyori_152: {
+    applicationId: 'com.miyori.music',
+    appName: 'Miyori',
+    versionName: '1.5.2',
+    versionCode: 35,
+    certSha256: '2a8ba0af3cfbe3948fb5cbb07ced664f172ebe0cdef461f0642c77f2afb9ee8c'
   }
 };
 
@@ -5297,7 +5555,7 @@ function selectCompatPreset(presetKey) {
     var activeBtn = document.getElementById(
       presetKey === 'auralis_120' ? 'presetAuralis120' :
       presetKey === 'auralis_128' ? 'presetAuralis128' :
-      presetKey === 'miyori_130' ? 'presetMiyori130' : 'presetMiyori131'
+      presetKey === 'miyori_131_debug' ? 'presetMiyori131' : 'presetMiyori152'
     );
     if (activeBtn) activeBtn.classList.add('active');
     renderCompatDiagnosis(COMPAT_PRESETS[presetKey]);
@@ -5363,14 +5621,14 @@ function renderCompatDiagnosis(installed) {
       '</div>' +
       '<div style="font-size:12.5px; font-weight:700; color:#FFFFFF; margin-bottom:8px;">RECOMMENDED MIGRATION FLOW:</div>' +
       '<div class="compat-steps">' +
-        '<div class="compat-step-row"><span class="compat-step-num">1</span><span>Download the official <strong>Miyori-Release.apk</strong> (' + TARGET_RELEASE_DATA.fileSizeFormatted + ').</span></div>' +
+        '<div class="compat-step-row"><span class="compat-step-num">1</span><span>Download official <strong>Miyori-v' + TARGET_RELEASE_DATA.versionName + '.apk</strong> (' + TARGET_RELEASE_DATA.fileSizeFormatted + ') from official GitHub releases.</span></div>' +
         '<div class="compat-step-row"><span class="compat-step-num">2</span><span>Open the downloaded APK and tap <strong>Install</strong>. Android adds MIYORI alongside Auralis.</span></div>' +
         '<div class="compat-step-row"><span class="compat-step-num">3</span><span>Launch MIYORI and grant Audio permission. Your entire offline library appears automatically.</span></div>' +
         '<div class="compat-step-row"><span class="compat-step-num">4</span><span>Verify your audio playback. You can keep Auralis as a backup or safely uninstall it at any time.</span></div>' +
       '</div>' +
-      '<a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-compat-action">' +
+      '<a href="' + TARGET_RELEASE_DATA.downloadUrl + '" class="btn-compat-action" target="_blank" rel="noopener">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
-        '<span>Download Verified MIYORI APK (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
+        '<span>Download Official MIYORI v' + TARGET_RELEASE_DATA.versionName + ' (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
       '</a>';
     return;
   }
@@ -5389,9 +5647,9 @@ function renderCompatDiagnosis(installed) {
       '<div class="compat-explanation">' +
         '<strong>Direct In-Place Update:</strong> Because your installed package matches <code>com.miyori.music</code> with the same signing identity, Android Package Manager will update the application directly. All your in-app playlists, settings, history, and cache will be preserved without interruption.' +
       '</div>' +
-      '<a href="Miyori-Release.apk" download="Miyori-Release.apk" class="btn-compat-action">' +
+      '<a href="' + TARGET_RELEASE_DATA.downloadUrl + '" class="btn-compat-action" target="_blank" rel="noopener">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
-        '<span>Upgrade to MIYORI v' + TARGET_RELEASE_DATA.versionName + ' (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
+        '<span>Upgrade to Official MIYORI v' + TARGET_RELEASE_DATA.versionName + ' (' + TARGET_RELEASE_DATA.fileSizeFormatted + ')</span>' +
       '</a>';
     return;
   }
@@ -5460,6 +5718,81 @@ window.addEventListener('scroll', function() {
     document.body.classList.add('low-power');
     console.log('MIYORI: Low-power mode active — static visual fallbacks enabled.');
   }
+})();
+
+
+/* ==========================================================================
+   DYNAMIC OFFICIAL RELEASE RESOLVER
+   Fetches latest stable release metadata with instant UI synchronization.
+   ========================================================================== */
+(function resolveOfficialRelease() {
+  function applyReleaseData(rel) {
+    if (!rel || !rel.apk) return;
+    if (rel.apk.downloadUrl) {
+      TARGET_RELEASE_DATA.downloadUrl = rel.apk.downloadUrl;
+      var mainBtn = document.getElementById('mainDownloadBtn');
+      if (mainBtn) mainBtn.href = rel.apk.downloadUrl;
+      var heroBtn = document.getElementById('heroApkBtn');
+      if (heroBtn) heroBtn.href = rel.apk.downloadUrl;
+      var navBtn = document.getElementById('navApkBtn');
+      if (navBtn) navBtn.href = rel.apk.downloadUrl;
+      var mobBtn = document.getElementById('mobileNavApkBtn');
+      if (mobBtn) mobBtn.href = rel.apk.downloadUrl;
+    }
+    if (rel.versionName) {
+      TARGET_RELEASE_DATA.versionName = rel.versionName;
+      var tagEl = document.getElementById('dlVersionTag');
+      if (tagEl) tagEl.textContent = 'v' + rel.versionName + ' Stable Release';
+      var heroStat = document.getElementById('heroReleaseStat');
+      if (heroStat) heroStat.textContent = 'v' + rel.versionName;
+      var navText = document.getElementById('navApkText');
+      if (navText) navText.innerHTML = 'Get APK <span class="nav-apk-size">(v' + rel.versionName + ')</span>';
+      var mobText = document.getElementById('mobileNavApkBtn');
+      if (mobText) mobText.textContent = 'Download MIYORI APK (v' + rel.versionName + ')';
+    }
+    if (rel.apk.sizeFormatted) {
+      TARGET_RELEASE_DATA.fileSizeFormatted = rel.apk.sizeFormatted;
+      var btnText = document.getElementById('mainDownloadBtnText');
+      if (btnText) btnText.textContent = 'Download for Android (' + rel.apk.sizeFormatted + ')';
+    }
+    if (rel.apk.sha256) {
+      TARGET_RELEASE_DATA.sha256 = rel.apk.sha256;
+      var shaEl = document.getElementById('shaCodeText');
+      if (shaEl) shaEl.textContent = rel.apk.sha256;
+    }
+    var statusEl = document.getElementById('releaseStatusText');
+    if (statusEl) {
+      statusEl.textContent = 'Official Release: v' + (rel.versionName || '1.5.2') + ' · Verified Release';
+    }
+  }
+
+  // First attempt same-origin Vercel serverless function /api/release
+  fetch('/api/release')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { applyReleaseData(data); })
+    .catch(function() {
+      // Direct GitHub API fallback
+      fetch('https://api.github.com/repos/niyazz09/Miyori-Releases/releases/latest')
+        .then(function(r) { return r.json(); })
+        .then(function(release) {
+          if (!release || !release.assets) return;
+          var apk = release.assets.find(function(a) {
+            return a.name && a.name.toLowerCase().endsWith('.apk');
+          });
+          if (!apk) return;
+          var tag = (release.tag_name || 'v1.5.2').replace(/^v/, '');
+          applyReleaseData({
+            versionName: tag,
+            apk: {
+              downloadUrl: apk.browser_download_url,
+              sizeFormatted: (apk.size / (1024 * 1024)).toFixed(2) + ' MB'
+            }
+          });
+        })
+        .catch(function(err) {
+          console.warn('MIYORI: Release check fallback active.', err);
+        });
+    });
 })();
 
 </script>
