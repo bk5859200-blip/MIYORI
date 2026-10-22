@@ -12,7 +12,7 @@
 <link rel="alternate icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="logo.jpg">
 <meta property="og:title" content="MIYORI — Your Music. No Limits.">
-<meta property="og:description" content="The luxury Android music sanctuary. Stream in 320 kbps, own your library offline, and sync word-for-word lyrics. Built in 100% native Kotlin.">
+<meta property="og:description" content="The luxury Android music sanctuary. Stream in 320 kbps, own your library offline, and sync line-by-line lyrics. Built in 100% native Kotlin.">
 <meta property="og:image" content="https://miyori.vercel.app/logo.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://miyori.vercel.app/logo.jpg">
@@ -1836,8 +1836,8 @@ footer .footer-brand {
         </div>
 
         <div style="flex:1; min-width:200px;">
-          <strong style="display:block; font-size:15px; color:#FFFFFF;">Lana Del Rey — Summertime Sadness.mp3</strong>
-          <span style="font-size:12px; color:var(--muted);">Destination: <code>Music/Miyori/Summertime_Sadness.mp3</code> · 320 kbps</span>
+          <strong style="display:block; font-size:15px; color:#FFFFFF;">MIYORI Labs — Obsidian Horizon.mp3</strong>
+          <span style="font-size:12px; color:var(--muted);">Destination: <code>Music/Miyori/Obsidian_Horizon.mp3</code> · 320 kbps</span>
         </div>
 
         <button class="btn solid sm" id="simulateDownloadBtn" onclick="toggleSimulateDownload()">
@@ -1883,7 +1883,7 @@ footer .footer-brand {
           <div class="screen-btn-icon">02</div>
           <div>
             <h4>Instant Catalog Search</h4>
-            <p>Real-time fuzzy search across millions of tracks.</p>
+            <p>Real-time fuzzy search across tracks, artists, and albums.</p>
           </div>
         </button>
 
@@ -1898,8 +1898,8 @@ footer .footer-brand {
         <button class="screen-select-btn" onclick="activateScreen(4)">
           <div class="screen-btn-icon">04</div>
           <div>
-            <h4>Word-by-Word Synced Lyrics</h4>
-            <p>LRCLIB integration with zero-latency line jumping.</p>
+            <h4>Line-by-Line Synced Lyrics</h4>
+            <p>Synced lyrics via LRCLIB with tap-to-seek playback.</p>
           </div>
         </button>
       </div>
@@ -1928,13 +1928,13 @@ footer .footer-brand {
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
               <div style="background:#131620; padding:10px; border-radius:12px; border:1px solid var(--border);">
                 <img src="art/cover_6.svg" alt="Cover" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:6px;">
-                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Summertime Sadness</b>
-                <span style="font-size:10px; color:var(--muted);">Lana Del Rey</span>
+                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Obsidian Horizon</b>
+                <span style="font-size:10px; color:var(--muted);">MIYORI Labs</span>
               </div>
               <div style="background:#131620; padding:10px; border-radius:12px; border:1px solid var(--border);">
                 <img src="art/cover_9.svg" alt="Cover" style="width:100%; aspect-ratio:1; border-radius:8px; margin-bottom:6px;">
-                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Usseewa</b>
-                <span style="font-size:10px; color:var(--muted);">Ado</span>
+                <b style="font-size:12px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Silver Hour</b>
+                <span style="font-size:10px; color:var(--muted);">MIYORI Labs</span>
               </div>
             </div>
 
@@ -1943,8 +1943,8 @@ footer .footer-brand {
               <div style="display:flex; align-items:center; gap:8px; background:#131620; padding:6px 8px; border-radius:8px;">
                 <img src="art/cover_14.svg" alt="Cover" style="width:28px; height:28px; border-radius:6px;">
                 <div style="flex:1; min-width:0;">
-                  <b style="font-size:11.5px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Blinding Lights</b>
-                  <span style="font-size:9.5px; color:var(--muted);">The Weeknd</span>
+                  <b style="font-size:11.5px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Night Drive</b>
+                  <span style="font-size:9.5px; color:var(--muted);">MIYORI Labs</span>
                 </div>
               </div>
             </div>
@@ -1970,8 +1970,8 @@ footer .footer-brand {
           <div class="phone-screen" id="phoneScreen-3" style="text-align:center;">
             <span style="font-size:11px; color:var(--muted); margin-bottom:10px; display:block;">NOW PLAYING</span>
             <img src="art/cover_1.svg" alt="Album" style="width:150px; height:150px; border-radius:16px; margin:0 auto 12px; box-shadow:0 8px 24px rgba(0,0,0,0.8);">
-            <b style="font-size:14.5px; color:#FFFFFF; display:block;">Video Games</b>
-            <span style="font-size:11.5px; color:var(--muted);">Lana Del Rey · 320 kbps</span>
+            <b style="font-size:14.5px; color:#FFFFFF; display:block;">Obsidian Horizon</b>
+            <span style="font-size:11.5px; color:var(--muted);">MIYORI Labs · 320 kbps</span>
             <div style="width:100%; height:4px; background:rgba(255,255,255,0.2); border-radius:4px; margin:14px 0 6px;">
               <div style="width:40%; height:100%; background:#FFFFFF; border-radius:4px;"></div>
             </div>
@@ -1987,12 +1987,12 @@ footer .footer-brand {
 
           <!-- Screen 4: Lyrics -->
           <div class="phone-screen" id="phoneScreen-4" style="text-align:center; justify-content:center;">
-            <span style="font-size:11px; color:var(--muted); margin-bottom:12px; display:block;">LRCLIB SYNCED LYRICS</span>
-            <div style="font-size:11.5px; color:rgba(255,255,255,0.3); margin-bottom:8px;">Swinging in the backyard, pull up in your fast car</div>
+            <span style="font-size:11px; color:var(--muted); margin-bottom:12px; display:block;">SYNCED LYRICS</span>
+            <div style="font-size:11.5px; color:rgba(255,255,255,0.3); margin-bottom:8px;">Midnight currents moving through the quiet air</div>
             <div style="font-size:14px; color:#FFFFFF; font-weight:700; margin-bottom:8px; text-shadow:0 0 12px rgba(255,255,255,0.4);">
-              Whistling my name, open up a beer
+              We trace the waveform on obsidian glass
             </div>
-            <div style="font-size:11.5px; color:rgba(255,255,255,0.3);">And you say, "Get over here and play a video game"</div>
+            <div style="font-size:11.5px; color:rgba(255,255,255,0.3);">Silver frequencies guiding us home</div>
           </div>
         </div>
 
@@ -2020,22 +2020,24 @@ footer .footer-brand {
       <div class="lyrics-track-header">
         <div class="lyrics-track-meta">
           <div class="lyrics-album-art">
-            <img id="lyricsArtImg" src="art/cover_6.svg" alt="Now Playing">
+            <img id="lyricsArtImg" src="art/cover_5.svg" alt="Now Playing">
           </div>
           <div class="lyrics-track-titles">
-            <h3 id="lyricsTrackTitle">Summertime Sadness</h3>
-            <p id="lyricsTrackArtist">Lana Del Rey · 320 kbps High Fidelity</p>
+            <h3 id="lyricsTrackTitle">Obsidian Horizon</h3>
+            <p id="lyricsTrackArtist">MIYORI Labs · 320 kbps High Fidelity</p>
           </div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:10px;">
-          <label for="lyricsTrackSwitcher" style="font-size:12px; color:var(--muted);">Select Track:</label>
-          <select id="lyricsTrackSwitcher" class="track-switcher-select" onchange="switchLyricsTrack(this.value)">
-            <option value="0">Lana Del Rey — Summertime Sadness</option>
-            <option value="1">Ado — Usseewa</option>
-            <option value="2">The Weeknd — Blinding Lights</option>
-            <option value="3">Miyori Ambient Ensemble — Obsidian Horizon</option>
-          </select>
+        <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <label for="lyricsTrackSwitcher" style="font-size:12px; color:var(--muted);">Select Track:</label>
+            <select id="lyricsTrackSwitcher" class="track-switcher-select" onchange="switchLyricsTrack(this.value)">
+              <option value="0">MIYORI Labs — Obsidian Horizon</option>
+              <option value="1">MIYORI Labs — Silver Hour</option>
+              <option value="2">MIYORI Labs — Night Drive</option>
+            </select>
+          </div>
+          <span style="font-size:11px; color:var(--muted); text-align:right;">Demo lyrics are original. In the app, synced lyrics come from LRCLIB.</span>
         </div>
       </div>
 
@@ -2078,7 +2080,7 @@ footer .footer-brand {
           </div>
 
           <div style="display:flex; align-items:center; gap:16px;">
-            <span style="font-size:12px; color:var(--muted); font-family:monospace;">LRCLIB Auto-Sync Verified</span>
+            <span style="font-size:12px; color:var(--muted); font-family:monospace;">Synced lyrics via LRCLIB</span>
             <button class="btn ghost sm" onclick="resetLyricsDemo()">Restart</button>
           </div>
         </div>
@@ -2089,7 +2091,7 @@ footer .footer-brand {
             <line x1="12" y1="16" x2="12" y2="12"></line>
             <line x1="12" y1="8" x2="12.01" y2="8"></line>
           </svg>
-          <span>Tap any lyric line above to seek playback to that exact vocal timestamp.</span>
+          <span>Tap any lyric line above to seek playback. Demo lyrics are original. In the app, synced lyrics come from LRCLIB.</span>
         </div>
       </div>
     </div>
@@ -2267,14 +2269,14 @@ footer .footer-brand {
     <div class="eyebrow">ENGINEERED ARCHITECTURE</div>
     <h2>Engineered for purity.</h2>
     <p class="lead">
-      Built from scratch with zero bloated cross-platform wrappers. 100% native Android architecture with verified binary artifacts.
+      Built from scratch with zero bloated cross-platform wrappers. Native Android app built with Kotlin and Jetpack Compose.
     </p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:36px;">
       <div class="demo-card">
         <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Jetpack Compose</b>
         <p style="color:var(--muted); font-size:13.5px;">
-          Declarative UI rendering with zero legacy view hierarchy overhead. Smooth 120 Hz scrolling on flagship AMOLED screens.
+          Declarative UI rendering with zero legacy view hierarchy overhead. Fluid, modern scrolling with reactive layouts.
         </p>
       </div>
 
@@ -2286,9 +2288,9 @@ footer .footer-brand {
       </div>
 
       <div class="demo-card">
-        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Zero Telemetry</b>
+        <b style="color:#FFFFFF; font-size:16px; display:block; margin-bottom:6px;">Kotlin &amp; Jetpack Compose</b>
         <p style="color:var(--muted); font-size:13.5px;">
-          No Google Analytics, no Facebook SDK, and no background profiling. Your music listening habits belong solely to you.
+          Native Android app built with Kotlin and Jetpack Compose, designed for local and self-hosted listening.
         </p>
       </div>
 
@@ -2400,7 +2402,7 @@ footer .footer-brand {
     <div class="faq-wrap">
       <details class="faq-item" open>
         <summary class="faq-question">What is Miyori?</summary>
-        <p>Miyori is a luxury Android music player crafted around high-bitrate streaming, synchronized lyrics, local music ownership, offline downloads, and self-hosted server integration. Built in 100% native Kotlin and Jetpack Compose with zero telemetry and full offline ownership.</p>
+        <p>Miyori is a luxury Android music player crafted around high-bitrate streaming, synchronized lyrics, local music ownership, offline downloads, and self-hosted server integration. Built as a native Android app with Kotlin and Jetpack Compose for local playback and offline ownership.</p>
       </details>
 
       <details class="faq-item">
@@ -2415,7 +2417,7 @@ footer .footer-brand {
 
       <details class="faq-item">
         <summary class="faq-question">How do synchronized lyrics work?</summary>
-        <p>Miyori fetches word-for-word synchronized lyrics from LRCLIB where available, as well as reading embedded USLT/ID3 tags directly from your audio files. You can tap any line to seek playback instantly.</p>
+        <p>Miyori fetches line-by-line synchronized lyrics from LRCLIB where available, as well as reading embedded USLT/ID3 tags directly from your audio files. You can tap any line to seek playback instantly.</p>
       </details>
 
       <details class="faq-item">
@@ -2435,7 +2437,7 @@ footer .footer-brand {
 
       <details class="faq-item">
         <summary class="faq-question">Where can I download Miyori for Android?</summary>
-        <p>Tap Download APK to get the verified release directly through the links on this website or from our official GitHub Releases repository. The installation requires no Google account, no proprietary store, and installs in seconds.</p>
+        <p>Tap Download APK to get the official release directly through the links on this website or from our official GitHub Releases repository. The installation requires no Google account, no proprietary store, and installs in seconds.</p>
       </details>
     </div>
   </div>
@@ -2896,7 +2898,7 @@ function toggleSimulateDownload() {
       clearInterval(downloadTimer);
       isDownloading = false;
       btnText.textContent = 'Reset Simulation';
-      statusDesc.textContent = 'Status: ✓ Complete! Saved to Music/Miyori/Summertime_Sadness.mp3';
+      statusDesc.textContent = 'Status: ✓ Complete! Saved to Music/Miyori/Obsidian_Horizon.mp3';
     }
 
     var offset = 163 - (163 * downloadProgress / 100);
@@ -2908,63 +2910,81 @@ function toggleSimulateDownload() {
 /* 9. Upgraded Interactive Synchronized Lyrics Stage (Lana, Ado, The Weeknd) */
 var LYRICS_LIBRARY = [
   {
-    title: "Summertime Sadness",
-    artist: "Lana Del Rey · 320 kbps High Fidelity",
-    cover: "art/cover_6.svg",
-    duration: 222,
-    lines: [
-      { t: 0, text: "Kiss me hard before you go" },
-      { t: 6, text: "Summertime sadness" },
-      { t: 12, text: "I just wanted you to know" },
-      { t: 18, text: "That baby, you the best" },
-      { t: 24, text: "I got that summertime, summertime sadness" },
-      { t: 30, text: "Su-su-summertime, summertime sadness" },
-      { t: 36, text: "Got that summertime, summertime sadness" },
-      { t: 42, text: "Oh, oh-oh-oh-oh" }
-    ]
-  },
-  {
-    title: "Usseewa",
-    artist: "Ado · 320 kbps High Fidelity",
-    cover: "art/cover_9.svg",
-    duration: 204,
-    lines: [
-      { t: 0, text: "Seirankai to wa saraba da" },
-      { t: 5, text: "Kugatsu no kaze ni fukarete" },
-      { t: 10, text: "Usseewa usseewa usseewa anata ga omou yori kenkou desu" },
-      { t: 16, text: "Issai gassai bonjin no koto nado kikiwake nai wa" },
-      { t: 22, text: "Muda desu muda desu muda desu" },
-      { t: 28, text: "Hontou no watashi o shiranai kuse ni" }
-    ]
-  },
-  {
-    title: "Blinding Lights",
-    artist: "The Weeknd · 320 kbps High Fidelity",
-    cover: "art/cover_14.svg",
-    duration: 200,
-    lines: [
-      { t: 0, text: "Yeah..." },
-      { t: 6, text: "I've been on my own for long enough" },
-      { t: 12, text: "Maybe you can show me how to love, maybe" },
-      { t: 18, text: "I'm going through withdrawals" },
-      { t: 24, text: "You don't even have to do too much" },
-      { t: 30, text: "You can turn me on with just a touch, baby" },
-      { t: 36, text: "I look around and Sin City's cold and empty" },
-      { t: 42, text: "No one's around to judge me" }
-    ]
-  },
-  {
     title: "Obsidian Horizon",
-    artist: "Miyori Ambient Ensemble · 320 kbps",
+    artist: "MIYORI Labs · 320 kbps High Fidelity",
     cover: "art/cover_5.svg",
     duration: 210,
     lines: [
-      { t: 0, text: "In the silence between frequencies" },
-      { t: 7, text: "We watch the waveform turn to silver" },
-      { t: 14, text: "No static in the cold night air" },
-      { t: 21, text: "Just resonance that holds us there" },
-      { t: 28, text: "Sound without boundaries, space without walls" },
-      { t: 35, text: "Every heartbeat echoes as the obsidian falls" }
+      { t: 0, text: "Midnight currents moving through the quiet air" },
+      { t: 6, text: "A single frequency begins to rise" },
+      { t: 12, text: "Shadows soften on the studio floor" },
+      { t: 18, text: "We leave the noise behind the heavy door" },
+      { t: 24, text: "We trace the waveform on obsidian glass" },
+      { t: 30, text: "Watching the digital echoes gently pass" },
+      { t: 36, text: "Silver frequencies guiding us home" },
+      { t: 42, text: "Through empty avenues where spirits roam" },
+      { t: 48, text: "Low-end pulses steady in the dark" },
+      { t: 54, text: "Every transient leaves a glowing mark" },
+      { t: 60, text: "Unbroken rhythm in a timeless space" },
+      { t: 66, text: "Pure resonance no distance can erase" },
+      { t: 72, text: "The meter drops and then the air dissolves" },
+      { t: 78, text: "Another mystery of sound resolves" },
+      { t: 84, text: "Hold the chord until the dawn returns" },
+      { t: 90, text: "A quiet flame that silently still burns" },
+      { t: 96, text: "Into the silence where the colors blend" },
+      { t: 102, text: "A sanctuary with no sudden end" }
+    ]
+  },
+  {
+    title: "Silver Hour",
+    artist: "MIYORI Labs · 320 kbps High Fidelity",
+    cover: "art/cover_6.svg",
+    duration: 204,
+    lines: [
+      { t: 0, text: "Twilight settles on the city stone" },
+      { t: 6, text: "A gentle harmony we call our own" },
+      { t: 12, text: "The analog warmth begins to breathe" },
+      { t: 18, text: "Beneath the restless streets that lie beneath" },
+      { t: 24, text: "Reflections shimmer in the silver light" },
+      { t: 30, text: "We set our compass to the depth of night" },
+      { t: 36, text: "No rush, no friction in the velvet sound" },
+      { t: 42, text: "Just sacred melodies waiting to be found" },
+      { t: 48, text: "Each chord unfolds with quiet grace" },
+      { t: 54, text: "A calm sanctuary in this rapid place" },
+      { t: 60, text: "The treble sparkles like a distant star" },
+      { t: 66, text: "Reminding us of where and who we are" },
+      { t: 72, text: "Turn up the dial let the tape reel spin" },
+      { t: 78, text: "Feel the vibrations sink deep within" },
+      { t: 84, text: "From whispered verse to the soaring peak" },
+      { t: 90, text: "This is the solace that our spirits seek" },
+      { t: 96, text: "Silver hours never fade away" },
+      { t: 102, text: "They carry forward to another day" }
+    ]
+  },
+  {
+    title: "Night Drive",
+    artist: "MIYORI Labs · 320 kbps High Fidelity",
+    cover: "art/cover_14.svg",
+    duration: 200,
+    lines: [
+      { t: 0, text: "Cold engine purring on the empty street" },
+      { t: 6, text: "A hypnotic rhythm under rhythmic feet" },
+      { t: 12, text: "Neon reflections across the window pane" },
+      { t: 18, text: "Washing the memory of autumn rain" },
+      { t: 24, text: "The bassline rolls with effortless control" },
+      { t: 30, text: "Recharging every corner of the soul" },
+      { t: 36, text: "Green lights align across the boulevard" },
+      { t: 42, text: "Leaving behind the days that hit too hard" },
+      { t: 48, text: "Analog filters sweep across the lane" },
+      { t: 54, text: "A crystal clear acoustic open plain" },
+      { t: 60, text: "Sub-bass humming in the midnight draft" },
+      { t: 66, text: "A piece of sonic architectural craft" },
+      { t: 72, text: "Past sleepless towers and glowing signs" },
+      { t: 78, text: "We trace the highway's neon-silver lines" },
+      { t: 84, text: "No destination and no clocks to chase" },
+      { t: 90, text: "Just pure acoustics in an endless space" },
+      { t: 96, text: "Fade out slowly as the darkness clears" },
+      { t: 102, text: "The sweetest frequency we felt in years" }
     ]
   }
 ];
