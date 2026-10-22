@@ -1,12 +1,5 @@
 {
   "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/(.*)\\.apk",
-      "destination": "/api/latest",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)\\.(jpg|png|ico|svg)",
