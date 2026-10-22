@@ -1,5 +1,5 @@
-# Untouched reference backup (never track or commit)
-Auralis-Release.apk
+# Binaries (never track or commit APKs)
+*.apk
 
 # Vercel project state
 .vercel/
@@ -29,3 +29,7 @@ yarn-error.log*
 
 # Node modules (if ever used)
 node_modules/
+
+# Local scratch scripts
+scratch/
+

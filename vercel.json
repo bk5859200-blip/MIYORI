@@ -1,35 +1,29 @@
 {
+  "cleanUrls": true,
   "redirects": [
     {
-      "source": "/Miyori-Release.apk",
-      "destination": "https://github.com/niyazz09/Miyori-Releases/releases/latest/download/Miyori-v1.5.2.apk",
-      "permanent": false
-    },
-    {
-      "source": "/MIYORI.apk",
-      "destination": "https://github.com/niyazz09/Miyori-Releases/releases/latest/download/Miyori-v1.5.2.apk",
+      "source": "/(.*)\\.apk",
+      "destination": "/api/latest",
       "permanent": false
     }
   ],
   "headers": [
     {
-      "source": "/(.*)\\.json",
-      "headers": [
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
       "source": "/(.*)\\.(jpg|png|ico|svg)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ]
